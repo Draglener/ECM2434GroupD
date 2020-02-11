@@ -1,0 +1,31 @@
+  
+<! -- 
+Keith and Steven
+11/02 00:44
+-- >
+<html>
+<div>
+<style>
+#preview{
+   width:500px;
+   height: 500px;
+}
+</style>
+<video id="preview"></video>
+</div>
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<script type="text/javascript">
+    var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+    scanner.addListener('scan',function(content){
+        alert(content);
+        //window.location.href=content;
+    });
+    Instascan.Camera.getCameras().then(function (cameras){
+        scanner.start(cameras[1]);
+    }).catch(function(e){
+        console.error(e);
+        alert(e);
+    });
+</script>
+
+</html>
