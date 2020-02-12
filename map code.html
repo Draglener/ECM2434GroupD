@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 60%;  /* The height is 400 pixels */
+        width: 60%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Map for Game</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <button id = "testButton">Add marker</button>
+    <script>
+//Initialize and add the map
+function initMap() {
+  // The locations of the Buildings
+  var locations = [
+      [6,"Library", 50.735481,-3.533297],
+      [1,"Harrison", 50.737668,-3.532590],
+      [2,"Innovation", 50.738045,-3.530514],
+      [3,"Amory", 50.736650,-3.531667],
+      [4,"Old Library", 50.733494,-3.533887],
+      [5,"Forum", 50.735167,-3.533785],
+      [9,"Newman", 50.736329,-3.535872],
+      [8,"Queens'", 50.734270,-3.535059],
+      [7,"Devonshire House", 50.735016,-3.534329]]
+      
+  var library = { lat: 50.7371, lng:  -3.5351};
+  var innovation = { lat: 50.738045, lng:  -3.530514};
+  
+  // The map, centered at the Library
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 15.5,
+    center: library,
+    mapTypeId: 'hybrid',
+    gestureHandling: 'none', 
+    zoomControl:true});
+  var customStyled = [{
+    featureType: "all",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }];
+  map.set('styles',customStyled);
+
+  // The markers, positioned at Library
+  addMarker(library,map);
+  
+  const x = document.getElementById('testButton');
+  //x.onclick = addMarker(innovation,map);
+  x.onclick = function(){
+      var marker = new google.maps.Marker({
+          position: innovation,
+          map: map,
+          title: 'Innovation'});
+
+      };
+}
+function addMarker(location,map){
+    var marker = new google.maps.Marker({position: location,map: map,title: 'Library'});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCav_BvOFlJ0fMtElRHjkI3xAFPLbe6IY4&callback=initMap">
+    </script>
+  </body>
+</html>
