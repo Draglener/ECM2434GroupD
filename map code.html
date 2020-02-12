@@ -4,7 +4,7 @@
        /* Set the size of the div element that contains the map */
       #map {
         height: 60%;  /* The height is 400 pixels */
-        width: 60%;  /* The width is the width of the web page */
+        width: 100%;  /* The width is the width of the web page */
        }
     </style>
   </head>
@@ -30,7 +30,7 @@ function initMap() {
       
   var library = { lat: 50.7371, lng:  -3.5351};
   var innovation = { lat: 50.738045, lng:  -3.530514};
-  
+
   // The map, centered at the Library
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 15.5,
