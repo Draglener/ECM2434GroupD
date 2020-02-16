@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The QRScannerPage</title>
+    
+    <style type="text/css">
+      #body {
+          background-color: #98EAFA;
+          position: absolute;
+          width: 500px;
+          height: 50px;
+      }
+
+      #homeButton {
+          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+          font-size: large;
+          font-weight: bold;
+          color: #FFFFFF;
+          background-color: #0700FF;
+          height: 50px;
+          width: 150px;
+          position: static;
+          margin: 10px;
+      }
+
+      #pointsDisplayTag {
+          font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+          font-size: large;
+          font-weight: bold;
+          height: 50px;
+          width: 250px;
+          border: thin solid #000000;
+          text-align: center;
+          border-radius: 50px;
+          position: top left;
+          margin-left: 60px;
+      }
+
+      #mapDisplay{
+          background-color:black;
+          position: static;
+          height: 200px;
+          width: 480px;
+          margin-top: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+      }
+
+      #QRScanner{
+          background-color: #FCF8F8;
+          position: static;
+          height: 350px;
+          width: 480px;
+          margin-top: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+      }
+
+      #closeButton {
+          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+          font-size: large;
+          font-weight: bold;
+          border: thin solid #000000;
+          color: #FCF8F8;
+          background-color: #090909;
+          height: 50px;
+          width: 50px;
+          position: static;
+      }
+
+      #QRScannerTitle {
+          background-color: #090909;
+          height: 50px;
+          width: 430px;
+          position: absolute;
+      }
+
+      img.QRButton{
+        background-image: url(file:///Macintosh%20HD/Users/piranavie/Desktop/qr-code-button-application-with-red-line-scanning-vector-25622568.jpg);
+        background-color: #F2E5E5;
+        width: 70px;
+        height: 70px;
+        display: block;
+        position: absolute;
+        bottom: -675px;
+        right: 30px;
+      }
+
+      #ScoreBordButton {
+        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        font-size: large;
+        font-weight: bold;
+        border: thin solid #000000;
+        color: #090909;
+        background-color: #FCF8F8;
+        height: 50px;
+        width: 150px;
+        position: static;
+        bottom: -685px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body class="body" id="body">
+    <div>
+  	  <input type="button" id="homeButton" value="< Home">
+  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+    </div>
+
+    <div class="mapDisplay" id="mapDisplay">
+
+    </div>
+
+    <div class="QRScanner" id="QRScanner">
+    	<input type="button" id="closeButton" value="&#10006;">
+      <a id= "QRScannerTitle"></a>
+    </div>
+
+    <div>
+    	<input type="button" id="ScoreBordButton" value="&#8682; ScoreBoard">
+      <img type="button" src="img_QR.png" alt="QRButton" class="QRButton">
+    </div>
+  </body>
+</html>
