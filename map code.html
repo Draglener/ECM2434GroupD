@@ -30,17 +30,23 @@ function initMap() {
       [9,"Newman", 50.736329,-3.535872],
       [8,"Queens'", 50.734270,-3.535059],
       [7,"Devonshire House", 50.735016,-3.534329]]
-      
-  var library = { lat: 50.7371, lng:  -3.5351};
+ 
+  var library = { lat: 50.735481, lng:  -3.533297};
+  var harrison = { lat: 50.737668, lng:  -3.532590};
   var innovation = { lat: 50.738045, lng:  -3.530514};
+
+  var library_name = "Library";
+  var harrison_name = "Harrison";
 
   // The map, centered at the Library
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 15.5,
+      document.getElementById('map'), {zoom: 16.5,
     center: library,
     mapTypeId: 'hybrid',
     gestureHandling: 'none', 
-    zoomControl:true});
+    zoomControl:true
+    });
+ 
   var customStyled = [{
     featureType: "all",
     elementType: "labels",
@@ -51,20 +57,43 @@ function initMap() {
   map.set('styles',customStyled);
 
   // The markers, positioned at Library
-  addMarker(library,map);
+  addMarker(library,map,library_name);
+  addMarker(harrison,map,harrison_name);
   
   const x = document.getElementById('testButton');
   //x.onclick = addMarker(innovation,map);
   x.onclick = function(){
-      var marker = new google.maps.Marker({
-          position: innovation,
-          map: map,
-          title: 'Innovation'});
-
-      };
+    var marker = new google.maps.Marker({
+        position: innovation,
+        map: map,
+        title: 'Innovation'});
+    };
 }
-function addMarker(location,map){
-    var marker = new google.maps.Marker({position: location,map: map,title: 'Library'});
+
+function addMarker(location,map,label){
+  var contentString = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Forum Library</h1>'+
+    '<div id="bodyContent">'+
+    '<p>The <b>Forum Library</b> is the main library on campus, it has 3 floors and is full of nerds.</p>'+
+    '</div>'+
+    '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+  var marker = new google.maps.Marker({position: location,map: map,title: label});
+  marker.addListener('click', function() {
+    
+    infowindow.open(map, marker);
+  });
+
+  closeInfoWindow = function() {
+    infoWindow.close();
+  };
+
+  google.maps.event.addListener(map, 'click', closeInfoWindow);
 }
     </script>
     <!--Load the API from the specified URL
