@@ -49,28 +49,25 @@
   </head>
 
   <body>
-    <form name="Login Page" onsubmit=" ">
+    <form name="Login Page" action="login.php">
      <div class="image">
         <img src="img_avatar2.png" alt="peopleExploring" class="peopleExploring">
       </div>
 
       <div class="userLogin">
-        <label for="GroupName"><b>Group Name:</b></label>
-        <input type="text" placeholder="Enter the name of your group" name="inputGroupName" required>
+        <label for="username"><b>University Username:</b></label>
+        <input type="text" placeholder="Enter the name of your group" name="username" required>
           <p></p>
 
-        <label for="TutorName"><b>Tutor Name:</b></label>
-        <select name="InputTutorName" required>
+        <label for="tutorName"><b>Tutor Name:</b></label>
+        <select name="tutorName" required>
           <option value="Pete">Pete</option>
           <option value="Bernie">Bernie</option>
           <option value="Elizabeth">Elizabeth</option>
         </select>
         <p></p>
 
-        <label for="loginCode"><b>Login Code:</b></label>
-        <input type="text" placeholder="Enter code that provided by your tutor" name="InputLoginCode" required>
-
-        <button type="submit">Join</button>
+        <button type="submit" name="submit">Join</button>
       </div>
 
       <div class="image">
