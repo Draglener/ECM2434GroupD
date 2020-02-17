@@ -1,98 +1,135 @@
 <!-- Author: Katie Jones
-Last updated: 09/02 14:00
+Last updated: 17/02 14:00
 This is obvs just the beginnings of a basic layout
 -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>QR Scan</title>
-        <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif; 
-            background-color: #98EAFA;}
-        /*links */
-        a {
-            color: white; 
-            text-decoration: none;
-        }
-        a:hover {
-            color: #98EAFA;
-            font-style: italic;
-            
-        }
-        /* main content */
-        .content {
-            position: relative;
-            top: 30px;
-            margin: 0 auto;
-            padding: 5px;
-        }
-        /* home button*/
-        #home {
-            float: left;
-            background-color:blue; 
-            color:white; 
-            width:70px; 
-            padding:5px;
-            text-align:center;
-            
-        }
-        /* point counter */
-        #points {
-            float: right;
-            background-color: white;
-            width: 100px;
-            padding: 5px;
-            text-align:center;
-        }
-        /* map */
-        #map {
-            max-width: 500px;
-            background-color: red;
-            display: block;
-            height:200px;
-            text-align:center;
-            margin: 0 auto;
-        }
-        /* Scoreboard */
-        #scoreboard {
+	<head>
+		<meta charset="UTF-8">
+		<title>The ScoreBoardPage</title>
 
-            max-width: 500px;
-            background-color:yellow;
-            display: block;
-            height:200px;
-            text-align:center;
-            margin: 0 auto;
-        }
-        /* scoreboard button*/
-        #score {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            background-color: green;
-            padding: 5px;
-            text-align:center;
-        }
-        /* QR button*/
-        #qr {
-            bottom:0;
-            right:0;
-            position:fixed;
-            background-color: pink;
-            padding: 5px;
-        }
-        </style>
-    </head>
-    <body>
-        <div id="home"><a href="homepage.html">< Home</a></div>
-        <div id="points">Points</div>
-        
-        <div class="content">
-            <div id="map">div to contain map</div>
-            <div id="scoreboard">div to contain scoreboard</div>
-        </div>
-        
-        <div id="score"><a href="scoreboard.html">^ Scoreboard</a></div>
-        <div id="qr"><a href="qr.html">QR Picture</a></div>
-    </body>
+	  <style type="text/css">
+	    #body {
+	        background-color: #98EAFA;
+	        position: absolute;
+	        width: 500px;
+	        height: 50px;
+	    }
+
+	    #homeButton {
+	        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+	        font-size: large;
+	        font-weight: bold;
+	        color: #FFFFFF;
+	        background-color: #0700FF;
+	        height: 50px;
+	        width: 150px;
+	        position: static;
+	        margin: 10px;
+	    }
+
+	    #pointsDisplayTag {
+	        font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	        font-size: large;
+	        font-weight: bold;
+	        height: 50px;
+	        width: 250px;
+	        border: thin solid #000000;
+	        text-align: center;
+	        border-radius: 50px;
+	        position: top left;
+	        margin-left: 60px;
+	    }
+
+	    #mapDisplay{
+	        background-color:black;
+	        position: static;
+	        height: 200px;
+	        width: 480px;
+	        margin-top: 10px;
+	        margin-left: 10px;
+	        margin-right: 10px;
+	    }
+
+	    #ScoreBoardDisplay{
+	        background-color: #FCF8F8;
+	        position: static;
+	        height: 350px;
+	        width: 480px;
+	        margin-top: 10px;
+	        margin-left: 10px;
+	        margin-right: 10px;
+	    }
+
+	    #closeButton {
+	        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+	        font-size: large;
+	        font-weight: bold;
+	        border: thin solid #000000;
+	        color: #FCF8F8;
+	        background-color: #090909;
+	        height: 50px;
+	        width: 50px;
+	        position: static;
+	    }
+
+	    #ScoreBoardTitle {
+	        font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	        font-size: xx-large;
+	        font-weight: bold;
+	        color: #00D7FF;
+	        background-color: #090909;
+	        height: 50px;
+	        width: 430px;
+	        position: absolute;
+	        text-align: center;
+	    }
+
+	    img.QRButton{
+	      background-image: url(file:///Macintosh%20HD/Users/piranavie/Desktop/qr-code-button-application-with-red-line-scanning-vector-25622568.jpg);
+	      background-color: #F2E5E5;
+	      width: 70px;
+	      height: 70px;
+	      display: block;
+	      position: absolute;
+	      bottom: -675px;
+	      right: 30px;
+	    }
+
+	    #ScoreBordButton {
+	      font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+	      font-size: large;
+	      font-weight: bold;
+	      border: thin solid #000000;
+	      color: #090909;
+	      background-color: #FCF8F8;
+	      height: 50px;
+	      width: 150px;
+	      position: static;
+	      bottom: -675px;
+	      margin: 10px;
+	    }
+	  </style>
+	</head>
+
+	<body class="body" id="body">
+		<div>
+			  <input type="button" id="homeButton" value="< Home">
+			  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+		</div>
+
+		<div class="mapDisplay" id="mapDisplay">
+
+		</div>
+
+		<div class="ScoreBoardDisplay" id="ScoreBoardDisplay">
+		  	<input type="button" id="closeButton" value="&#10006;">
+		    <a id= "ScoreBoardTitle">ScoreBoard</a>
+		</div>
+
+		<div>
+		  	<input type="button" id="ScoreBordButton" value="&#8682; ScoreBoard">
+		    <img type="button" src="img_QR.png" alt="QRButton" class="QRButton">
+		</div>
+	</body>
 </html>

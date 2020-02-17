@@ -1,7 +1,3 @@
-<!-- Author: Katie Jones and Piranavie Thangasuthan
-Last updated: 17/02 14:00
-This is obvs just the beginnings of a basic layout
--->
 <!DOCTYPE html>
 <html>
   <head>
@@ -53,28 +49,34 @@ This is obvs just the beginnings of a basic layout
   </head>
 
   <body>
-    <form name="Login Page" onsubmit=" ">
+    <form name="loginForm" action="login.php">
      <div class="image">
         <img src="img_avatar2.png" alt="peopleExploring" class="peopleExploring">
       </div>
 
       <div class="userLogin">
-        <label for="GroupName"><b>Group Name:</b></label>
-        <input type="text" placeholder="Enter the name of your group" name="inputGroupName" required>
+        <label for="username"><b>University Username:</b></label>
+        <input type="text" placeholder="Enter the name of your group" name="username" required>
           <p></p>
 
-        <label for="TutorName"><b>Tutor Name:</b></label>
-        <select name="InputTutorName" required>
-          <option value="Pete">Pete</option>
-          <option value="Bernie">Bernie</option>
-          <option value="Elizabeth">Elizabeth</option>
+        <label for="tutor"><b>Tutor:</b></label>
+        <select name="tutor" required>
+         <?php
+            //function to populate drop-down menu from distinct tutorvalues in database
+            function dropdownOptions() {
+              require('connection.php');
+              $sql = "SELECT * FROM tutor_group";
+              $result = $conn->query($sql);
+              while($row = $result->fetch_assoc()){
+                echo "<option value='".$row['tutorID']."'>".$row[$'fName']." ".$row[$'lName]."</option>";
+              }
+            }
+            dropdownOptions();
+            ?>
         </select>
         <p></p>
 
-        <label for="loginCode"><b>Login Code:</b></label>
-        <input type="text" placeholder="Enter code that provided by your tutor" name="InputLoginCode" required>
-
-        <button type="submit">Join</button>
+        <button type="submit" name="submit">Join</button>
       </div>
 
       <div class="image">

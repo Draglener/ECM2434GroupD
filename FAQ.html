@@ -5,10 +5,11 @@ This is obvs just the beginnings of a basic layout
 -->
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>The QRScannerPage</title>
-    
+	<head>
+      <meta charset="UTF-8">
+    <title>The FAQPage</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     <style type="text/css">
       #body {
           background-color: #98EAFA;
@@ -42,20 +43,10 @@ This is obvs just the beginnings of a basic layout
           margin-left: 60px;
       }
 
-      #mapDisplay{
-          background-color:black;
-          position: static;
-          height: 200px;
-          width: 480px;
-          margin-top: 10px;
-          margin-left: 10px;
-          margin-right: 10px;
-      }
-
-      #QRScanner{
+      #informationDisplay{
           background-color: #FCF8F8;
           position: static;
-          height: 350px;
+          height: 560px;
           width: 480px;
           margin-top: 10px;
           margin-left: 10px;
@@ -74,12 +65,29 @@ This is obvs just the beginnings of a basic layout
           position: static;
       }
 
-      #QRScannerTitle {
+      #informationTitle {
+          font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+          font-size: xx-large;
+          font-weight: bold;
+          text-align: center;
+          color: #00D7FF;
           background-color: #090909;
           height: 50px;
           width: 430px;
           position: absolute;
       }
+
+      #informationText {
+          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+          font-size: small;
+          color: #000000;
+          height: 20px;
+          width: 470px;
+          position: absolute;
+          bottom: -120px;
+          margin-left: 15px;
+          margin-right: 15px;
+  	  }
 
       img.QRButton{
         background-image: url(file:///Macintosh%20HD/Users/piranavie/Desktop/qr-code-button-application-with-red-line-scanning-vector-25622568.jpg);
@@ -102,30 +110,32 @@ This is obvs just the beginnings of a basic layout
         height: 50px;
         width: 150px;
         position: static;
-        bottom: -685px;
+        bottom: -675px;
         margin: 10px;
       }
-    </style>
-  </head>
 
-  <body class="body" id="body">
-    <div>
-  	  <input type="button" id="homeButton" value="< Home">
-  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
-    </div>
+	  </style>
+	</head>
 
-    <div class="mapDisplay" id="mapDisplay">
+	<body class="body" id="body">
+		<div>
+			  <input type="button" id="homeButton" value="< Home">
+			  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+		</div>
 
-    </div>
+		<div class="informationDisplay" id="informationDisplay">
+		  	<input type="button" id="closeButton" value="&#10006;">
+		    <a id= "informationTitle"><i class="fa fa-info-circle"></i>
+            Information</a>
+		</div>
 
-    <div class="QRScanner" id="QRScanner">
-    	<input type="button" id="closeButton" value="&#10006;">
-      <a id= "QRScannerTitle"></a>
-    </div>
+        <div>
+    		<input type="text" id="informationText" value=" xxxx">
+        </div>
 
-    <div>
-    	<input type="button" id="ScoreBordButton" value="&#8682; ScoreBoard">
-      <img type="button" src="img_QR.png" alt="QRButton" class="QRButton">
-    </div>
-  </body>
+		<div>
+		  	<input type="button" id="ScoreBordButton" value="&#8682; ScoreBoard">
+		    <img type="button" src="img_QR.png" alt="QRButton" class="QRButton">
+		</div>
+	</body>
 </html>
