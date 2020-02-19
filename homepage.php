@@ -53,14 +53,14 @@ This is obvs just the beginnings of a basic layout
   </head>
 
   <body>
-    <form name="loginForm" action="login.php">
+    <form name="loginForm" action="login.php" method="post">
      <div class="image">
         <img src="img_avatar2.png" alt="peopleExploring" class="peopleExploring">
       </div>
 
       <div class="userLogin">
         <label for="username"><b>University Username:</b></label>
-        <input type="text" placeholder="Enter the name of your group" name="username" required>
+        <input type="text" placeholder="Enter your university username" name="username" required>
           <p></p>
 
         <label for="tutor"><b>Tutor:</b></label>
@@ -69,10 +69,10 @@ This is obvs just the beginnings of a basic layout
             //function to populate drop-down menu from distinct tutorvalues in database
             function dropdownOptions() {
               require('connection.php');
-              $sql = "SELECT * FROM tutor_group";
+              $sql = "SELECT * FROM tutorGroup";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
-                echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName]."</option>";
+                echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName']."</option>";
               }
             }
             dropdownOptions();
