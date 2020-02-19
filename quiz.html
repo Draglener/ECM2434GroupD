@@ -7,96 +7,110 @@ This is obvs just the beginnings of a basic layout
   <head>
     <meta charset="UTF-8">
     <title>The QuizPage</title>
-
+    <link href="style_sheet.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-      #body {
-          background-color: #98EAFA;
-          position: absolute;
-          width: 500px;
-          height: 50px;
-      }
+        #body {
+            background-color: #98EAFA;
+            position: absolute;
+            width: 500px;
+            height: 50px;
+        }
 
-      #homeButton {
-          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-          font-size: large;
-          font-weight: bold;
-          color: #FFFFFF;
-          background-color: #0700FF;
-          height: 50px;
-          width: 150px;
-          position: static;
-          margin: 10px;
-      }
+        #homeButton {
+            font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+            font-size: large;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #0700FF;
+            height: 50px;
+            width: 150px;
+            position: static;
+            margin: 10px;
+        }
 
-      #pointsDisplayTag {
-          font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-          font-size: large;
-          font-weight: bold;
-          height: 50px;
-          width: 250px;
-          border: thin solid #000000;
-          text-align: center;
-          border-radius: 50px;
-          position: top left;
-          margin-left: 60px;
-      }
+        #pointsDisplayTag {
+            font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+            font-size: large;
+            font-weight: bold;
+            height: 50px;
+            width: 250px;
+            border: thin solid #000000;
+            text-align: center;
+            border-radius: 50px;
+            position: top left;
+            margin-left: 60px;
+        }
 
-      #mapDisplay{
-          background-color:black;
-          position: static;
-          height: 200px;
-          width: 480px;
-          margin-top: 10px;
-          margin-left: 10px;
-          margin-right: 10px;
-      }
+        #mapDisplay{
+            background-color:black;
+            position: static;
+            height: 200px;
+            width: 480px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
 
-      #quiz{
-          background-color: #FCF8F8;
-          position: static;
-          height: 420px;
-          width: 480px;
-          margin-top: 10px;
-          margin-left: 10px;
-          margin-right: 10px;
-      }
+        #quiz{
+            background-color: #FCF8F8;
+            position: static;
+            height: 420px;
+            width: 480px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
 
-      #closeButton {
-          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-          font-size: large;
-          font-weight: bold;
-          border: thin solid #000000;
-          color: #FCF8F8;
-          background-color: #090909;
-          height: 50px;
-          width: 50px;
-          position: static;
-      }
+        #closeButton {
+            font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+            font-size: large;
+            font-weight: bold;
+            border: thin solid #000000;
+            color: #FCF8F8;
+            background-color: #090909;
+            height: 50px;
+            width: 50px;
+            position: static;
+        }
 
-      #quizTitle {
-          font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-          font-size: xx-large;
-          font-weight: bold;
-          color: #00D7FF;
-          background-color: #090909;
-          height: 50px;
-          width: 430px;
-          position: absolute;
-          text-align: center;
-      }
+        #quizTitle {
+            font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+            font-size: xx-large;
+            font-weight: bold;
+            color: #00D7FF;
+            background-color: #090909;
+            height: 50px;
+            width: 430px;
+            position: absolute;
+            text-align: center;
+        }
 
-      #questionText {
-          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-          font-size: small;
-          color: #000000;
-          height: 20px;
-          width: 470px;
-          position: absolute;
-          bottom: -320px;
-          margin-left: 10px;
-  	  }
+        #questionText {
+            font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+            font-size: small;
+            color: #000000;
+            height: 20px;
+            width: 470px;
+            position: absolute;
+            bottom: -320px;
+            margin-left: 10px;
+        }
 
-      #answerBox1 {
+        #answerBox1 {
+            font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+            font-size: medium;
+            text-align: center;
+            background-color: #FCF8F8;
+            height: 120px;
+            width: 120px;
+            color: #000000;
+            border-color: #000000;
+            position: absolute;
+            bottom: -450px;
+            left: 30px;
+        }
+
+        #answerBox2 {
           font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
           font-size: medium;
           text-align: center;
@@ -107,89 +121,75 @@ This is obvs just the beginnings of a basic layout
           border-color: #000000;
           position: absolute;
           bottom: -450px;
+          right: 30px;
+        }
+
+        #answerBox3 {
+          font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+          font-size: medium;
+          text-align: center;
+          background-color: #FCF8F8;
+          height: 120px;
+          width: 120px;
+          color: #000000;
+          border-color: #000000;
+          position: absolute;
+          bottom: -590px;
           left: 30px;
-  	  }
+        }
 
-      #answerBox2 {
-        font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-        font-size: medium;
-        text-align: center;
-        background-color: #FCF8F8;
-        height: 120px;
-        width: 120px;
-        color: #000000;
-        border-color: #000000;
-        position: absolute;
-        bottom: -450px;
-        right: 30px;
-  	  }
+        #answerBox4 {
+          font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+          font-size: medium;
+          text-align: center;
+          background-color: #FCF8F8;
+          height: 120px;
+          width: 120px;
+          color: #000000;
+          border-color: #000000;
+          position: absolute;
+          bottom: -590px;
+          right: 30px;
+        }
 
-      #answerBox3 {
-        font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-        font-size: medium;
-        text-align: center;
-        background-color: #FCF8F8;
-        height: 120px;
-        width: 120px;
-        color: #000000;
-        border-color: #000000;
-        position: absolute;
-        bottom: -590px;
-        left: 30px;
-  	  }
+        #clueButton {
+          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+          font-size: large;
+          font-weight: bold;
+          color: #FFFFFF;
+          background-color: #0700FF;
+          height: 50px;
+          width: 150px;
+          position: absolute;
+          bottom: -650px;
+          right: 180px;
+        }
 
-      #answerBox4 {
-        font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-        font-size: medium;
-        text-align: center;
-        background-color: #FCF8F8;
-        height: 120px;
-        width: 120px;
-        color: #000000;
-        border-color: #000000;
-        position: absolute;
-        bottom: -590px;
-        right: 30px;
-  	  }
+        img.QRButton{
+          background-image: url(file:///Macintosh%20HD/Users/piranavie/Desktop/qr-code-button-application-with-red-line-scanning-vector-25622568.jpg);
+          background-color: #F2E5E5;
+          width: 70px;
+          height: 70px;
+          display: block;
+          position: absolute;
+          bottom: -750px;
+          right: 30px;
+        }
 
-      #clueButton {
-        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-        font-size: large;
-        font-weight: bold;
-        color: #FFFFFF;
-        background-color: #0700FF;
-        height: 50px;
-        width: 150px;
-        position: absolute;
-        bottom: -650px;
-        right: 180px;
-      }
+        #ScoreBordButton {
+          font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+          font-size: large;
+          font-weight: bold;
+          border: thin solid #000000;
+          color: #090909;
+          background-color: #FCF8F8;
+          height: 50px;
+          width: 150px;
+          position: static;
+          bottom: -695px;
+          margin: 10px;
 
-      img.QRButton{
-        background-image: url(file:///Macintosh%20HD/Users/piranavie/Desktop/qr-code-button-application-with-red-line-scanning-vector-25622568.jpg);
-        background-color: #F2E5E5;
-        width: 70px;
-        height: 70px;
-        display: block;
-        position: absolute;
-        bottom: -750px;
-        right: 30px;
-      }
-
-      #ScoreBordButton {
-        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-        font-size: large;
-        font-weight: bold;
-        border: thin solid #000000;
-        color: #090909;
-        background-color: #FCF8F8;
-        height: 50px;
-        width: 150px;
-        position: static;
-        bottom: -695px;
-        margin: 10px;
-      }
-    </style>
+      </style>
   </head>
 
   <body class="body" id="body">
@@ -220,7 +220,7 @@ This is obvs just the beginnings of a basic layout
     </div>
 
     <div>
-    	<a href="Scoreboard.html"><input type="button" id="ScoreBordButton" value="&#8682; ScoreBoard"></a>
+    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
       <a href="qr.html"><img type="button" src="img_QR.png" alt="QRButton" class="QRButton"></a>
     </div>
   </body>

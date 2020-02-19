@@ -54,7 +54,7 @@ img.QRButton{
   right: 30px;
 }
 
-#ScoreBordButton {
+#ScoreBoardButton {
   font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
   font-size: large;
   font-weight: bold;
@@ -64,7 +64,8 @@ img.QRButton{
   height: 50px;
   width: 150px;
   position: static;
-  bottom: -675px;
+  bottom: 0;
+  left: 0;
   margin: 10px;
 }
 
@@ -202,47 +203,4 @@ img.QRButton{
     height: 50px;
     width: 430px;
     position: absolute;
-}
-
-/* ----HOMEPAGE---- */
-input{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-select{
-  width: 100%;
-  height: 30px;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #ccc;
-}
-
-
-button {
-  background-color: black;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-img.peopleExploring{
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-img.people{
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
