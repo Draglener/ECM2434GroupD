@@ -72,7 +72,7 @@ This is obvs just the beginnings of a basic layout
               $sql = "SELECT * FROM tutor_group";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
-                echo "<option value='".$row['tutorID']."'>".$row[$'fName']." ".$row[$'lName]."</option>";
+                echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName]."</option>";
               }
             }
             dropdownOptions();
