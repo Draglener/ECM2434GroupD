@@ -54,7 +54,7 @@ This is obvs just the beginnings of a basic layout
       #quiz{
           background-color: #FCF8F8;
           position: static;
-          height: 350px;
+          height: 420px;
           width: 480px;
           margin-top: 10px;
           margin-left: 10px;
@@ -152,6 +152,19 @@ This is obvs just the beginnings of a basic layout
         right: 30px;
   	  }
 
+      #clueButton {
+        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        font-size: large;
+        font-weight: bold;
+        color: #FFFFFF;
+        background-color: #0700FF;
+        height: 50px;
+        width: 150px;
+        position: absolute;
+        bottom: -650px;
+        right: 180px;
+      }
+
       img.QRButton{
         background-image: url(file:///Macintosh%20HD/Users/piranavie/Desktop/qr-code-button-application-with-red-line-scanning-vector-25622568.jpg);
         background-color: #F2E5E5;
@@ -159,7 +172,7 @@ This is obvs just the beginnings of a basic layout
         height: 70px;
         display: block;
         position: absolute;
-        bottom: -675px;
+        bottom: -750px;
         right: 30px;
       }
 
@@ -173,7 +186,7 @@ This is obvs just the beginnings of a basic layout
         height: 50px;
         width: 150px;
         position: static;
-        bottom: -675px;
+        bottom: -695px;
         margin: 10px;
       }
     </style>
@@ -203,8 +216,13 @@ This is obvs just the beginnings of a basic layout
     </div>
 
     <div>
+      <input type="button" id="clueButton" value="Hint">
+    </div>
+
+    <div>
     	<input type="button" id="ScoreBordButton" value="&#8682; ScoreBoard">
       <img type="button" src="img_QR.png" alt="QRButton" class="QRButton">
     </div>
   </body>
 </html>
+
