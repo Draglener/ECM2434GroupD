@@ -58,6 +58,7 @@ This is obvs just the beginnings of a basic layout
       </div>
     <form name="loginForm" action="login.php" method="post">
       <div class="userLogin">
+        <p class="error"><?php echo $_SESSION['apperror']; ?></p>
         <label for="username"><b>University Username:</b></label>
         <input type="text" placeholder="Enter your university username" name="username" required>
           <p></p>
