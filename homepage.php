@@ -1,4 +1,4 @@
-<!-- Author: Katie Jones and Piranavie Thangasuthan
+<!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
 Last updated: 17/02 14:00
 This is obvs just the beginnings of a basic layout
 -->
@@ -21,11 +21,12 @@ This is obvs just the beginnings of a basic layout
       }
 
       select{
-        width: 100%;
-        height: 30px;
+          width: 100%;
         padding: 12px 20px;
+        margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
+        box-sizing: border-box;
       }
 
 
@@ -90,4 +91,5 @@ This is obvs just the beginnings of a basic layout
         <img src="img_avatar2.png" alt="people" class="people">
       </div>
   </body>
+  <?php $_SESSION['apperror'] = "No"; ?>
 </html>
