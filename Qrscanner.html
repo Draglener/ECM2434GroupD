@@ -1,11 +1,12 @@
   
 <! -- 
-Keith and Steven
-11/02 17:41
+Keith
+20/02 12:59
 Sets up a video object using CSS and then takes scripts from the url given to implement 
 an object that scans the video from the back camera (default camera on laptops) 
 for 5 frames to find a QR code and execute it.
 -- >
+
 
 <html>
   <head>
@@ -20,6 +21,7 @@ for 5 frames to find a QR code and execute it.
   </head>
 
   <body>
+    //Creates on click button which will hide and display the feed
     <button onclick="hide()">Click me</button>
         <div class="qrscanner" id="scanner">
 		</div>
@@ -39,7 +41,20 @@ for 5 frames to find a QR code and execute it.
     	{
     		jbScanner.appendTo(scannerParentElement);
     	}
-    }    
- </script>    
+	}
+	function hide(JsQRScanner) 
+	{
+		var x = document.getElementById("scanner");
+		if (x.style.display === "none") 
+		{
+			x.style.display = "block";
+		} else 
+		{
+			x.style.display = "none";
+		}
+}
+
+    
+  </script>    
   </body>
 </html>
