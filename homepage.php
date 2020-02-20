@@ -17,7 +17,7 @@ This is obvs just the beginnings of a basic layout
   <body class="body" id="body">
 
      <div class="image">
-        <img src="treasure-hunt-image.jpg" alt="topImage" class="topImage">
+        <img src="findExeterLogo.png" alt="topImage" class="topImage">
       </div>
 
     <form name="loginForm" action="login.php" method="post">
