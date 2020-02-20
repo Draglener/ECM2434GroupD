@@ -2,6 +2,9 @@
 Last updated: 17/02 14:00
 This is obvs just the beginnings of a basic layout
 -->
+<?php
+  session_start();
+  ?>
 <!DOCTYPE html>
 <html>
   <head>
