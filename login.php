@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('connection.php');
 
 $username = htmlentities($_POST["username"]);
