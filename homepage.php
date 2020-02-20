@@ -9,67 +9,26 @@ This is obvs just the beginnings of a basic layout
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      body {font-family: Arial, Helvetica, sans-serif; background-color: #98EAFA;}
-
-      input{
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-      }
-
-      select{
-          width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-      }
-
-
-      button {
-        background-color: black;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-      }
-
-      img.peopleExploring{
-        width: 200px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      img.people{
-        width: 200px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <title>Student Login</title>
+    <link href="style_sheet.css" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
+  <body class="body" id="body">
+
      <div class="image">
-        <img src="img_avatar2.png" alt="peopleExploring" class="peopleExploring">
+        <img src="treasure-hunt-image.jpg" alt="topImage" class="topImage">
       </div>
+
     <form name="loginForm" action="login.php" method="post">
       <div class="userLogin">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
         <label for="username"><b>University Username:</b></label>
-        <input type="text" placeholder="Enter your university username" name="username" required>
+        <input type="text" placeholder="Enter your university username" name="username" required id="usernameInput">
           <p></p>
 
         <label for="tutor"><b>Tutor:</b></label>
-        <select name="tutor" required>
+        <select name="tutor" required id="tutorList">
          <?php
             //function to populate drop-down menu from distinct tutorvalues in database
             function dropdownOptions() {
@@ -84,13 +43,14 @@ This is obvs just the beginnings of a basic layout
             ?>
         </select>
         <p></p>
-
-        <button type="submit" name="submit">Join</button>
+        <button type="submit" name="submit" id="loginButton">Join</button>
       </div>
       </form>
+
       <div class="image">
-        <img src="img_avatar2.png" alt="people" class="people">
+        <img src="treasure-hunt-image.jpg" alt="bottomImage" class="bottomImage">
       </div>
+
   </body>
   <?php unset($_SESSION['apperror']); ?>
 </html>
