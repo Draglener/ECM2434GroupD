@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('connection.php');
 
 $username = htmlentities($_POST["username"]);
@@ -35,7 +36,7 @@ if ($sql->num_rows > 0) {
 }  else {
    $error = "Username not found" ;
 $_SESSION["apperror"] = $error ;
-//header("Location: homepage.php");
+header("Location: homepage.php");
 }
 }
 
