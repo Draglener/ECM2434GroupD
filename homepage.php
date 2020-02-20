@@ -53,11 +53,10 @@ This is obvs just the beginnings of a basic layout
   </head>
 
   <body>
-    <form name="loginForm" action="login.php" method="post">
      <div class="image">
         <img src="img_avatar2.png" alt="peopleExploring" class="peopleExploring">
       </div>
-
+    <form name="loginForm" action="login.php" method="post">
       <div class="userLogin">
         <label for="username"><b>University Username:</b></label>
         <input type="text" placeholder="Enter your university username" name="username" required>
@@ -82,10 +81,9 @@ This is obvs just the beginnings of a basic layout
 
         <button type="submit" name="submit">Join</button>
       </div>
-
+      </form>
       <div class="image">
         <img src="img_avatar2.png" alt="people" class="people">
       </div>
-    </form>
   </body>
 </html>

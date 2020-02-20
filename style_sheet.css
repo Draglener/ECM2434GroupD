@@ -204,3 +204,13 @@ img.QRButton{
     width: 430px;
     position: absolute;
 }
+
+#QRScanner{
+    background-color: #FCF8F8;
+    position: static;
+    height: 350px;
+    width: 480px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
