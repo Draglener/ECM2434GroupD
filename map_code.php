@@ -41,7 +41,7 @@ Last updated: 12/02 14:00
     var prep = <?php echo json_encode($buildings); ?>;
     var n = <?php echo $n; ?>;
     for (i = 0; i < n; i++) {
-    buildings[i] = {id: skillprep[i][0], name: skillprep[i][1], info:skillprep[i][2],  latitude:skillprep[i][3], longitude:[i][4]};
+    buildings[i] = {id: skillprep[i][0], name: skillprep[i][1], info:skillprep[i][2],  lat:skillprep[i][3], lng:[i][4]};
   }
     
     //To access the name of (e.g) the second building in the cycle, use buildings[2].name
@@ -54,17 +54,7 @@ Last updated: 12/02 14:00
     <script>
 //Initialize and add the map
 function initMap() {
-  // The locations of the Buildings
-  var locations = [
-      [6,"Library", 50.735481,-3.533297],
-      [1,"Harrison", 50.737668,-3.532590],
-      [2,"Innovation", 50.738045,-3.530514],
-      [3,"Amory", 50.736650,-3.531667],
-      [4,"Old Library", 50.733494,-3.533887],
-      [5,"Forum", 50.735167,-3.533785],
-      [9,"Newman", 50.736329,-3.535872],
-      [8,"Queens'", 50.734270,-3.535059],
-      [7,"Devonshire House", 50.735016,-3.534329]]
+
  
   var library = { lat: 50.735481, lng:  -3.533297};
   var harrison = { lat: 50.737668, lng:  -3.532590};
@@ -93,7 +83,11 @@ function initMap() {
 
   // The markers, positioned at Library
   addMarker(library,map,library_name);
-  addMarker(harrison,map,harrison_name);
+  for(var i = 0;i<buildings.length;i++){
+    var location = {lat: buildings[i].lat,lng: buildings[i].lng};
+    addMarker(location,map,buildings[i].name);
+    console.log(buildings[i].name);
+  }
   
   const x = document.getElementById('testButton');
   //x.onclick = addMarker(innovation,map);
