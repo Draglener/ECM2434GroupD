@@ -1,10 +1,11 @@
-<!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
-Last updated: 17/02 14:00
-This is obvs just the beginnings of a basic layout
--->
 <?php
   session_start();
   ?>
+  <!-- Author: Katie Jones and Piranavie Thangasuthan
+Last updated: 17/02 14:00
+This is obvs just the beginnings of a basic layout
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -91,5 +92,5 @@ This is obvs just the beginnings of a basic layout
         <img src="img_avatar2.png" alt="people" class="people">
       </div>
   </body>
-  <?php $_SESSION['apperror'] = "No"; ?>
+  <?php unset($_SESSION['apperror']); ?>
 </html>
