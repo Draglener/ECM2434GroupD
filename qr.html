@@ -1,14 +1,47 @@
-<!-- Author: Piranavie Thangasuthan and Katie Jones
-Last updated: 17/02 14:00
-
-This is obvs just the beginnings of a basic layout
+<!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
+Last updated: 20/02 14:00
+Layout of QR code and QR scanner implemented
 -->
 <!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>The QRScannerPage</title>
-    <link href="style_sheet.css" rel="stylesheet" type="text/css">
+   <script type="text/javascript" src="https://raw.githack.com/jbialobr/JsQRScanner/master/war/js/jsqrscanner.nocache.js"></script>
+   <meta charset="UTF-8">
+   <title>The QRScannerPage</title>
+   <link href="style_sheet.css" rel="stylesheet" type="text/css">
+	
+	
+  <script type="text/javascript">
+    function onQRCodeScanned(scannedText)
+    {
+    		alert(scannedText);
+    }
+        
+    function JsQRScannerReady()
+    {
+		var jbScanner = new JsQRScanner(onQRCodeScanned);
+        jbScanner.setSnapImageMaxSize(300);
+    	var scannerParentElement = document.getElementById("QRScanner");
+    	if(scannerParentElement)
+    	{
+    		jbScanner.appendTo(scannerParentElement);
+    	}
+	}
+	function hide(JsQRScanner) 
+	{
+		var x = document.getElementById("QRScanner");
+		if (x.style.display === "none") 
+		{
+			x.style.display = "block";
+		} else 
+		{
+			x.style.display = "none";
+		}
+}
+
+    
+  </script>
+  
   </head>
 
   <body class="body" id="body">
@@ -29,5 +62,6 @@ This is obvs just the beginnings of a basic layout
     	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
       <a href="qr.html"><img type="button" src="img_QR.png" alt="QRButton" class="QRButton"></a>
     </div>
+		<button onclick="hide()">Click me</button>
   </body>
 </html>
