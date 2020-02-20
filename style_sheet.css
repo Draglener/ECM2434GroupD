@@ -64,8 +64,6 @@ img.QRButton{
   height: 50px;
   width: 150px;
   position: static;
-  bottom: 0;
-  left: 0;
   margin: 10px;
 }
 
@@ -105,6 +103,16 @@ img.QRButton{
 }
 
 /* ----QUIZ---- */
+#quiz{
+    background-color: #FCF8F8;
+    position: static;
+    height: 420px;
+    width: 480px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #quizTitle {
     font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
     font-size: xx-large;
@@ -213,4 +221,15 @@ img.QRButton{
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+/* ----MAP---- */
+#fullMapDisplay{
+  background-color:black;
+  position: static;
+  height: 500px;
+  width: 480px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
