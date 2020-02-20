@@ -83,7 +83,7 @@ function initMap() {
 
   // The markers, positioned at Library
   addMarker(library,map,library_name);
-  for(var i = 0;i<buildings.lenght;i++){
+  for(var i = 0;i<buildings.length;i++){
     var location = {lat: buildings[i].lat,lng: buildings[i].lng};
     addMarker(location,map,buildings[i].name);
     console.log(buildings[i].name);
