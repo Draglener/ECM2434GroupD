@@ -30,6 +30,7 @@ if ($sql->num_rows > 0) {
       $error = "Incorrect Tutor";
       $_SESSION["apperror"] = $error ;
     header("Location: homepage.php");
+	exit();
       }
   }
 
@@ -37,6 +38,7 @@ if ($sql->num_rows > 0) {
    $error = "Username not found" ;
 $_SESSION["apperror"] = $error ;
 header("Location: homepage.php");
+exit();
 }
 }
 
