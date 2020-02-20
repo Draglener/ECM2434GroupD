@@ -1,3 +1,27 @@
+<?php
+session_start();
+require('connection.php');
+
+$sql = "SELECT * from building";
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  $buildings = array();
+  $n = 0;
+  while ($row = $result->fetch_assoc()){
+    $id = $row['buildingID'];
+    $name = $row['name'];
+    $info = $row['info'];
+    $latitude = floatval($row['latitude']);
+    $longitude = floatval($row['longitude']);
+    $buildings[$n] = array($id, $name, $info, $latitude, $longitude);
+    $n++;
+  }
+
+} else {
+  echo $sql." ".$conn->error;
+}
+
+?>
 <!-- Author: Steven Reynolds & Keith Harrison
 Last updated: 12/02 14:00
 -->
@@ -11,6 +35,17 @@ Last updated: 12/02 14:00
        }
     </style>
   </head>
+  <script>
+    var buildings = {}
+    // pass PHP array to JavaScript array
+    var prep = <?php echo json_encode($buildings); ?>;
+    var n = <?php echo $n; ?>;
+    for (i = 0; i < n; i++) {
+    buildings[i] = {id: skillprep[i][0], name: skillprep[i][1], info:skillprep[i][2],  latitude:skillprep[i][3], longitude:[i][4]};
+  }
+    
+    //To access the name of (e.g) the second building in the cycle, use buildings[2].name
+    </script>
   <body>
     <h3>Map for Game</h3>
     <!--The div element for the map -->
