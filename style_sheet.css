@@ -233,3 +233,48 @@ img.QRButton{
   margin-left: 10px;
   margin-right: 10px;
 }
+
+
+/* ----HOMEPAGE---- */
+#usernameInput{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#tutorList{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+#loginButton {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+img.topImage{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.bottomImage{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
