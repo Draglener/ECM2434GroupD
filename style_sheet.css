@@ -211,12 +211,15 @@ img.QRButton{
     height: 50px;
     width: 430px;
     position: absolute;
+	
 }
 
 .QRScanner video{
   position: static;
   height: 350px;
   max-width: 480px;
+}
+.QRScanner{
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
