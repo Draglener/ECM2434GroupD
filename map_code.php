@@ -41,7 +41,8 @@ Last updated: 12/02 14:00
     var prep = <?php echo json_encode($buildings); ?>;
     var n = <?php echo $n; ?>;
     for (i = 0; i < n; i++) {
-    buildings[i] = {id: skillprep[i][0], name: skillprep[i][1], info:skillprep[i][2],  lat:skillprep[i][3], lng:[i][4]};
+    buildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
+	console.log(buildings[i]);
   }
     
     //To access the name of (e.g) the second building in the cycle, use buildings[2].name
@@ -87,6 +88,7 @@ function initMap() {
     var location = {lat: buildings[i].lat,lng: buildings[i].lng};
     addMarker(location,map,buildings[i].name);
     console.log(buildings[i].name);
+	console.log(location);
   }
   
   const x = document.getElementById('testButton');
