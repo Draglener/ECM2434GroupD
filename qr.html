@@ -9,14 +9,14 @@ Layout of QR code and QR scanner implemented
    <meta charset="UTF-8">
    <title>The QRScannerPage</title>
    <link href="style_sheet.css" rel="stylesheet" type="text/css">
-
-
+	
+	
   <script type="text/javascript">
     function onQRCodeScanned(scannedText)
     {
     		alert(scannedText);
     }
-
+        
     function JsQRScannerReady()
     {
 		var jbScanner = new JsQRScanner(onQRCodeScanned);
@@ -27,21 +27,21 @@ Layout of QR code and QR scanner implemented
     		jbScanner.appendTo(scannerParentElement);
     	}
 	}
-	function hide(JsQRScanner)
+	function hide(JsQRScanner) 
 	{
 		var x = document.getElementById("QRScanner");
-		if (x.style.display === "none")
+		if (x.style.display === "none") 
 		{
 			x.style.display = "block";
-		} else
+		} else 
 		{
 			x.style.display = "none";
 		}
 }
 
-
+    
   </script>
-
+  
   </head>
 
   <body class="body" id="body">
@@ -54,13 +54,14 @@ Layout of QR code and QR scanner implemented
     </div>
 
     <div class="QRScanner" id="QRScanner">
-    	<a href="map.html"><input type="button" id="closeButton" value="&#10006;"></a>
+    	<input type="button" id="closeButton" value="&#10006;">
       <a id= "QRScannerTitle"></a>
     </div>
 
-    <div>
-    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-      <a href="qr.html"><img type="button" src="img_QR.png" alt="QRButton" class="QRButton"></a>
-    </div>
+    <div style="margin:10px;">
+		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		    <div id="button"><a href="qr.html"><img type="button" src="img_QR.png" alt="QRButton" class="QRButton"></a></div>
+		</div>
+		<button onclick="hide()">Click me</button>
   </body>
 </html>
