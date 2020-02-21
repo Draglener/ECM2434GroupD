@@ -49,10 +49,14 @@ img.QRButton{
   width: 70px;
   height: 70px;
   display: block;
-  position: absolute;
-  bottom: -675px;
-  right: 30px;
+  float: right;
 }
+
+#button {
+	float: left;
+	width: 50%;
+}
+
 
 #ScoreBoardButton {
   font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
@@ -64,7 +68,7 @@ img.QRButton{
   height: 50px;
   width: 150px;
   position: static;
-  margin: 10px;
+ 
 }
 
 #closeButton {
