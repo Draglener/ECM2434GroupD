@@ -68,7 +68,7 @@ img.QRButton{
   height: 50px;
   width: 150px;
   position: static;
- 
+
 }
 
 #closeButton {
@@ -215,7 +215,7 @@ img.QRButton{
     height: 50px;
     width: 430px;
     position: absolute;
-	
+
 }
 
 .QRScanner video{
@@ -282,4 +282,42 @@ img.bottomImage{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/* ----FAQ PAGE---- */
+#informationDisplay{
+    background-color: #FCF8F8;
+    position: static;
+    height: 560px;
+    width: 480px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#informationTitle {
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    color: #00D7FF;
+    background-color: #090909;
+    height: 50px;
+    width: 430px;
+    position: absolute;
+}
+
+#informationText {
+    font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+    font-size: small;
+    color: #000000;
+    height: 500px;
+    width: 470px;
+    position: absolute;
+    top: 135px;
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow-y:scroll;
+    overflow-x:hide;
 }
