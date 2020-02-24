@@ -1,7 +1,7 @@
 
 <html>
   <head class="head" id="head">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tutor-style.css">
     <script src="actions.js"></script>
   </head>
 
