@@ -40,9 +40,11 @@ Last updated: 12/02 14:00
     // pass PHP array to JavaScript array
     var prep = <?php echo json_encode($buildings); ?>;
     var n = <?php echo $n; ?>;
+    var len = 0;
     for (i = 0; i < n; i++) {
     buildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
-	console.log(buildings[i]);
+    len++;
+	  console.log(buildings[i]);
   }
     
     //To access the name of (e.g) the second building in the cycle, use buildings[2].name
@@ -56,18 +58,13 @@ Last updated: 12/02 14:00
 //Initialize and add the map
 function initMap() {
 
- 
-  var library = { lat: 50.735481, lng:  -3.533297};
-  var harrison = { lat: 50.737668, lng:  -3.532590};
+  var center = { lat: 50.735801, lng:  -3.533297};
   var innovation = { lat: 50.738045, lng:  -3.530514};
-
-  var library_name = "Library";
-  var harrison_name = "Harrison";
 
   // The map, centered at the Library
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 16.5,
-    center: library,
+    center: center,
     mapTypeId: 'hybrid',
     gestureHandling: 'none', 
     zoomControl:true
@@ -83,31 +80,30 @@ function initMap() {
   map.set('styles',customStyled);
 
   // The markers, positioned at Library
-  addMarker(library,map,library_name);
-  for(var i = 0;i<buildings.length;i++){
+  
+  for(var i = 0;i<len;i++){
     var location = {lat: buildings[i].lat,lng: buildings[i].lng};
-    addMarker(location,map,buildings[i].name);
+    var name = buildings[i].name;
+    var info = buildings[i].info;
+    addMarker(location,map,name,info);
     console.log(buildings[i].name);
-	console.log(location);
+	console.log("location");
   }
   
   const x = document.getElementById('testButton');
-  //x.onclick = addMarker(innovation,map);
-  x.onclick = function(){
-    var marker = new google.maps.Marker({
-        position: innovation,
-        map: map,
-        title: 'Innovation'});
-    };
+  var cname = "center"
+  var cinfo = "uwu"
+  x.onclick = addMarker(center,map,cname,cinfo);
+  //x.onclick = function(){var marker = new google.maps.Marker({position: center,map: map,title: 'center'});};
 }
 
-function addMarker(location,map,label){
+function addMarker(location,map,label,information){
   var contentString = '<div id="content">'+
     '<div id="siteNotice">'+
     '</div>'+
-    '<h1 id="firstHeading" class="firstHeading">Forum Library</h1>'+
+    '<h1 id="firstHeading" class="firstHeading">'+label+'</h1>'+
     '<div id="bodyContent">'+
-    '<p>The <b>Forum Library</b> is the main library on campus, it has 3 floors and is full of nerds.</p>'+
+    '<p>'+information+'</p>'+
     '</div>'+
     '</div>';
 
