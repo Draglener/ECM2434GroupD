@@ -17,7 +17,7 @@
 <html>
   <head>
     <script src="Validate.js"></script>
-    <link href="style_sheet.css" rel='stylesheet' type='text/css'/>
+    <link href="tutor-style.css" rel='stylesheet' type='text/css'/>
     <title>Login</title>
     <style>
       body {font-family: Arial, Helvetica, sans-serif; background-color: #98EAFA;}
