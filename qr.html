@@ -9,14 +9,14 @@ Layout of QR code and QR scanner implemented
    <meta charset="UTF-8">
    <title>The QRScannerPage</title>
    <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	
-	
+
+
   <script type="text/javascript">
     function onQRCodeScanned(scannedText)
     {
     		alert(scannedText);
     }
-        
+
     function JsQRScannerReady()
     {
 		var jbScanner = new JsQRScanner(onQRCodeScanned);
@@ -27,26 +27,26 @@ Layout of QR code and QR scanner implemented
     		jbScanner.appendTo(scannerParentElement);
     	}
 	}
-	function hide(JsQRScanner) 
+	function hide(JsQRScanner)
 	{
 		var x = document.getElementById("QRScanner");
-		if (x.style.display === "none") 
+		if (x.style.display === "none")
 		{
 			x.style.display = "block";
-		} else 
+		} else
 		{
 			x.style.display = "none";
 		}
 }
 
-    
+
   </script>
-  
+
   </head>
 
   <body class="body" id="body">
     <div>
-  	  <a href="homepage.php"><input type="button" id="homeButton" value="< Home"></a>
+  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
   	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
 
@@ -54,14 +54,13 @@ Layout of QR code and QR scanner implemented
     </div>
 
     <div class="QRScanner" id="QRScanner">
-    	<input type="button" id="closeButton" value="&#10006;">
+    <a href="map.html"><input type="button" id="closeButton" value="&#10006;"></a>
       <a id= "QRScannerTitle"></a>
     </div>
 
-    <div>
-    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-      <a href="qr.html"><img type="button" src="img_QR.png" alt="QRButton" class="QRButton"></a>
-    </div>
-		<button onclick="hide()">Click me</button>
+    <div style="margin:10px;">
+		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		    <div id="button"><a href="qr.html"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
+		</div>
   </body>
 </html>
