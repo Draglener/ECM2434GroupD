@@ -24,7 +24,8 @@ if ($sql->num_rows > 0) {
       if ($correctTutor == $tutor) {
           session_start();
           $_SESSION['status'] = "student";
-          header("Location: map.html");
+		  $_SESSION['studentID'] = $id;
+          header("Location: quiz.php");
         exit();
       } else {
       $error = "Incorrect Tutor";
