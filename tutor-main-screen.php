@@ -26,58 +26,31 @@
       <h2>Tutor Groups</h2>
       <p>this is the groups/tutor page.</p>
 
-      <?php
-        require('connection.php');
-        $query = "SELECT * FROM tutorGroup";
+      <!-- Stock Table -->
+      <table>
+        <!-- Table headers -->
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Lastname</th>
+          <th>Score</th>
+        </tr>
 
-        echo '<table border="0" cellspacing="2" cellpadding="2">
-              <tr>
-                  <td> <font face="Arial">TutorID</font> </td>
-                  <td> <font face="Arial">First Name</font> </td>
-                  <td> <font face="Arial">Last Name</font> </td>
-                  <td> <font face="Arial">Score</font> </td>
-                  <td> <font face="Arial">Office</font> </td>
-              </tr>';
+        <!-- PHP to fetch data, and fill table -->
+        <?php
+        $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+            echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["score"]."</td></tr>";
+          }
+          echo "</table>";
+        }else{
+          echo "<p>No stock.</p><p>Use buttons to add stock.</p>";
+        }
+        $conn->close();
+        ?>
 
-              $result = mysqli_query($con,"SELECT * FROM user");
-
-              echo "<table border='1'>
-              <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              </tr>";
-
-              while($row = mysqli_fetch_array($result))
-              {
-              echo "<tr>";
-              echo "<td>" . $row['FirstName'] . "</td>";
-              echo "<td>" . $row['LastName'] . "</td>";
-              echo "</tr>";
-              }
-              echo "</table>";
-
-              mysqli_close($con);
-              ?>
-      <!--
-      <div class="Table"><h3>Groups Table</h3>
-        <table style="width:70%">
-          <tr>
-            <th>Tutor</th>
-            <th>No. in group</th>
-            <th>Current Destination</th>
-            <th>Next destination</th>
-            <th>Current Score</th>
-          </tr>
-          <tr>
-            <th>Matt Collision</th>
-            <th>1</th>
-            <th>Amory Moot</th>
-            <th>Harrison 208</th>
-            <th>14</th>
-          </tr>
-        </table>
-      </div>
-    -->
 
       <div id="AddButton">
         <button onclick="addVis('AddSection')">Add New Tutor</button>
