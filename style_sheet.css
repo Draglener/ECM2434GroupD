@@ -124,11 +124,27 @@ img.QRButton{
     color: #00D7FF;
     background-color: #090909;
     height: 50px;
-    width: 430px;
-    position: absolute;
     text-align: center;
 }
 
+.unchecked{
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+    font-size: medium;
+    text-align: center;
+    background-color: #FCF8F8;
+    color: #000000;
+    border-color: #000000;
+}
+#error{
+	margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+.question{
+	margin: 0px;
+    text-align: center;
+    font-size: x-large;
+}
 #questionText {
     font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
     font-size: small;
