@@ -1,7 +1,14 @@
 <?php
 session_start();
 require('connection.php');
-
+$_SESSION['studentID'] = 2;
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+	  $location = $row['location'];
+  }
+}
 $sql = "SELECT * from building";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -33,6 +40,8 @@ Last updated: 12/02 14:00
     
   </head>
   <script>
+    var loc = <?php echo $location; ?>;
+	console.log(loc);
     var buildings = {}
     // pass PHP array to JavaScript array
     var prep = <?php echo json_encode($buildings); ?>;
@@ -81,7 +90,7 @@ Last updated: 12/02 14:00
 
       // The markers, positioned at Library
       
-      for(var i = 0;i<len;i++){
+      for(var i = 0;i<loc;i++){
         var location = {lat: buildings[i].lat,lng: buildings[i].lng};
         var name = buildings[i].name;
         var info = buildings[i].info;
@@ -93,8 +102,8 @@ Last updated: 12/02 14:00
       const x = document.getElementById('testButton');
       var cname = "center"
       var cinfo = "uwu"
-      x.onclick = addMarker(center,map,cname,cinfo);
-      //x.onclick = function(){var marker = new google.maps.Marker({position: center,map: map,title: 'center'});};
+    //  x.onclick = addMarker(center,map,cname,cinfo);
+    //  x.onclick = function(){var marker = new google.maps.Marker({position: center,map: map,title: 'center'});};
     }
 
     function addMarker(location,map,label,information){
