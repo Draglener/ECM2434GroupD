@@ -55,6 +55,5 @@
         <button type="submit" name="submit" id="loginButton">Login</button>
         </form>
       </div>
-      <button onclick="window.location.href = 'tutor-main-screen.php';">Click Here</button>
   </body>
 </html>
