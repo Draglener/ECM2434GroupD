@@ -18,11 +18,19 @@ $user = $_SESSION['studentID'];
 			  $sql = $conn->prepare("UPDATE user SET points = ? WHERE userID = ?");
 			   $sql->bind_param('ii', $points, $user);
 		      $sql->execute();
-			 header("Location: map.html");	
+			 header("Location: map_code.php");	
 			 exit();
 			 			  			 
 		 } else {
 			 echo $conn->error;
 		 }
+		 
+          
+        
 
 ?>
+<!-- Author: Anneliese Travis
+Last updated: 25/02 15:15
+Has the quiz linked to the PHP for points and location
+and changed links from html pages to php
+-->
