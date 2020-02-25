@@ -69,8 +69,9 @@ $names = array("0", $answerName, $wrong1Name, $wrong2Name, $wrong3Name);
 
 ?>
 <!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
-Last updated: 17/02 14:00
-This is obvs just the beginnings of a basic layout
+Last updated: 25/02 15:12
+Has the quiz linked to the PHP to change location of current user
+and changed links from html pages to php
 -->
 <!doctype html>
 <html>
@@ -99,13 +100,12 @@ This is obvs just the beginnings of a basic layout
 	<a id= "quizTitle">Quiz</a>
 	<p id="error"></p>
 	</div>
-    	<a href="map.html"><input type="button" id="closeButton" value="&#10006;"></a>
+    	<a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
         
     
 
     <div>
     	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-      <a href="qr.html"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a>
     </div>
 	<script>
 	var points = 3;
