@@ -24,8 +24,5 @@ $user = $_SESSION['studentID'];
 		 } else {
 			 echo $conn->error;
 		 }
-		 
-          
-        
 
 ?>
