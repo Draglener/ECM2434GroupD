@@ -29,9 +29,8 @@ only the correct qr can be scanned after quiz question
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
-			loc = loc+1
-			alert(loc);
-		
+
+		window.location.href = "quiz.php"
 		
 		}
     }
