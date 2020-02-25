@@ -29,19 +29,23 @@ if ($result->num_rows > 0) {
 }
 
 ?>
-<!-- Author: Steven Reynolds & Keith Harrison
-Last updated: 12/02 14:00
+<!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
+Last updated: 25/02 15:12
+Added changes from html to php pages
 -->
 <html>
   <head>
+
     <meta charset="UTF-8">
 		<title>The mapPage</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
     
   </head>
   <script>
+
     var loc = <?php echo $location; ?>;
 	console.log(loc);
+alert(loc);
     var buildings = {}
     // pass PHP array to JavaScript array
     var prep = <?php echo json_encode($buildings); ?>;
@@ -143,7 +147,7 @@ Last updated: 12/02 14:00
 
     <div style="margin:10px;">
 		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		    <div id="button"><a href="qr.html"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
+		    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
   </body>
 </html>
