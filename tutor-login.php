@@ -14,10 +14,6 @@
   }
 ?>
 
-
-//need to have a check the data that is submitted against the database
-//correctly generate a session (based on the input?) that is different to the session name for the student login
-
 <html>
   <head>
     <script src="Validate.js"></script>
