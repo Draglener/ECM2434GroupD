@@ -1,33 +1,57 @@
-<!-- Author: Katie Jones
-Last updated: 25/02 15:16
-Still basic layout but changes links to php pages.
+<!-- Author: Piranavie Thangasuthan and Katie Jones
+Last updated: 25/02 15:17
+This is obvs just the beginnings of a basic layout
+changed links to php pages
 -->
 <!doctype html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>The ScoreBoardPage</title>
-    <link href="style_sheet.css" rel="stylesheet" type="text/css">
+      <meta charset="UTF-8">
+    <title>The FAQPage</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  	<link href="style_sheet.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body class="body" id="body">
 		<div>
-			  <a href="homepage.php"><input type="button" id="homeButton" value="< Home"></a>
+			  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
 			  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
 		</div>
 
-		<div class="mapDisplay" id="mapDisplay">
-
+		<div class="informationDisplay" id="informationDisplay">
+		 		<a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
+		    <a id= "informationTitle"><i class="fa fa-info-circle"></i>
+            Information</a>
 		</div>
 
-		<div class="ScoreBoardDisplay" id="ScoreBoardDisplay">
-		  	<input type="button" id="closeButton" value="&#10006;">
-		    <a id= "ScoreBoardTitle">ScoreBoard</a>
-		</div>
+        <div id="informationText">
+					<p><h2>Health and Wellbeing</h2></p>
+					<p><b>University Information</b></p>
+					<p>The <a href="https://www.exeter.ac.uk/newstudents/supportandservices/yourhealthandwelfare/
+">university website</a> has details on the campus GP, disability access, mental wellbeing services, and sexual health clinics.</p>
+					<p><b>Nightline</b></p>
+					<p>NightLine is a student run volunteer service that offers a free phone listening service from 8pm to 8am. You can call them for any reason. Their number can be found on your student card.</p>
+					<p><h2>Study Areas</h2></p>
+					<p><b>Study Spaces</b></p>
+					There are a number of study spaces across the university. Many buildings have an informal group study space. In addition, in the Forum there is study space in the library, the Santuary, and Devonshire House.</p>
+					<p><h2>The Guild</h2></p>
+					<p><b>What is the Guild?</b></p>
+					<p>The Guild is the student union. They represent the interests of the students to the university, facilitate over 250 societies, and offer advice to students on a number of issues. More information on the Guild can be found on <a href="https://www.exeterguild.org/societies/">their website</a>.</p>
+					<p><b>Devonshire House</b></p>
+					<p>Attached to the Guild, Devonshire House contains food outlets, study spaces, and facilities for societies.</p>
+					<p>There are three floors to Devonshire House. DH1 contains an informal study space with sofas, food outlets, and the offices of the Full Time Officers (who run the Guild). DH2 has more places to eat, the joint eXmedia, and Exepose office, and a bank. DH3 contains a silent study space called The Loft.</p>
+					<!-- TODO:
+					possible questions:
+						location of: student health centre, wellbeing, study spaces
+						where to find: candidate number, sudent ID, bart sheets, past papers
+						the guild: website, building, services
+						SID - for any other questions
+					-->
+        </div>
 
-		<div style="margin:10px;">
+		 <div style="margin:10px;">
 		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		    <div id="button"><a href="qr.php"><img type="button" src="img_QR.png" alt="QRButton" class="QRButton"></a></div>
+		    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
 	</body>
 </html>
