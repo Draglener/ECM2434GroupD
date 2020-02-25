@@ -44,7 +44,7 @@ Added changes from html to php pages
 
     var loc = <?php echo $location; ?>;
 	console.log(loc);
-alert(loc);
+alert("Goto the new marker and scan the QR code!");
     var buildings = {}
     // pass PHP array to JavaScript array
     var prep = <?php echo json_encode($buildings); ?>;
