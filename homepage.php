@@ -1,9 +1,9 @@
 <?php
   session_start();
   ?>
-  <!-- Author: Katie Jones and Piranavie Thangasuthan
-Last updated: 17/02 14:00
-This is obvs just the beginnings of a basic layout
+  <!-- Author: Katie Jones and Piranavie Thangasuthan & Anneliese Travis
+Last updated: 25/02 15:54
+different images and sessions implemented
 -->
 
 <!DOCTYPE html>
