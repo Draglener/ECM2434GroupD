@@ -14,6 +14,7 @@ if ($result->num_rows > 0) {
 Last updated: 25/02 14:22
 Added in links to php and database to ensure 
 only the correct qr can be scanned after quiz question
+html to php links instead
 -->
 <!doctype html>
 <html>
@@ -72,13 +73,12 @@ only the correct qr can be scanned after quiz question
     </div>
 
     <div class="QRScanner" id="QRScanner">
-    <a href="map.html"><input type="button" id="closeButton" value="&#10006;"></a>
+    <a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
       <a id= "QRScannerTitle"></a>
     </div>
 
     <div style="margin:10px;">
 		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		    <div id="button"><a href="qr.html"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
   </body>
 </html>
