@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
 
 ?>
 <!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
-Last updated: 25/02 15:12
+Last updated: 25/02 14:00
 Added changes from html to php pages
 -->
 <html>

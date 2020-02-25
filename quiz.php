@@ -69,9 +69,8 @@ $names = array("0", $answerName, $wrong1Name, $wrong2Name, $wrong3Name);
 
 ?>
 <!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
-Last updated: 25/02 15:12
-Has the quiz linked to the PHP to change location of current user
-and changed links from html pages to php
+Last updated: 17/02 14:00
+This is obvs just the beginnings of a basic layout
 -->
 <!doctype html>
 <html>

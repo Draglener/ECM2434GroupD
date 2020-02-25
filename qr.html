@@ -1,19 +1,6 @@
-<?php
-session_start();
-require('connection.php');
-$_SESSION['studentID'] = 2;
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-	  $location = $row['location'];
-  }
-}
-?>
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Last updated: 25/02 14:22
-Added in links to php and database to ensure 
-only the correct qr can be scanned after quiz question
+Last updated: 20/02 14:00
+Layout of QR code and QR scanner implemented
 -->
 <!doctype html>
 <html>
@@ -25,14 +12,9 @@ only the correct qr can be scanned after quiz question
 
 
   <script type="text/javascript">
-  var loc = <?php echo $location; ?>;
     function onQRCodeScanned(scannedText)
     {
-		if(loc == scannedText){
-
-		window.location.href = "quiz.php"
-		
-		}
+    		alert(scannedText);
     }
 
     function JsQRScannerReady()
@@ -72,12 +54,13 @@ only the correct qr can be scanned after quiz question
     </div>
 
     <div class="QRScanner" id="QRScanner">
-    <a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
+    <a href="map.html"><input type="button" id="closeButton" value="&#10006;"></a>
       <a id= "QRScannerTitle"></a>
     </div>
 
     <div style="margin:10px;">
 		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		    <div id="button"><a href="qr.html"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
   </body>
 </html>

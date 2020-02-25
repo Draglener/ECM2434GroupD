@@ -47,8 +47,7 @@ This is obvs just the beginnings of a basic layout
       </div>
       </form>
 
-      <div class="image">
-        <img src="exeterLogo.png" alt="bottomImage" class="bottomImage">
+      <div class="exeterLogo.png" alt="bottomImage" class="bottomImage">
       </div>
 
   </body>

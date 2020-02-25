@@ -29,8 +29,3 @@ $user = $_SESSION['studentID'];
         
 
 ?>
-<!-- Author: Anneliese Travis
-Last updated: 25/02 15:15
-Has the quiz linked to the PHP for points and location
-and changed links from html pages to php
--->
