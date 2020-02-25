@@ -1,6 +1,19 @@
+<?php
+session_start();
+require('connection.php');
+$_SESSION['studentID'] = 2;
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+	  $location = $row['location'];
+  }
+}
+?>
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Last updated: 20/02 14:00
-Layout of QR code and QR scanner implemented
+Last updated: 25/02 14:22
+Added in links to php and database to ensure 
+only the correct qr can be scanned after quiz question
 -->
 <!doctype html>
 <html>
@@ -12,9 +25,15 @@ Layout of QR code and QR scanner implemented
 
 
   <script type="text/javascript">
+  var loc = <?php echo $location; ?>;
     function onQRCodeScanned(scannedText)
     {
-    		alert(scannedText);
+		if(loc == scannedText){
+			loc = loc+1
+			alert(loc);
+		
+		
+		}
     }
 
     function JsQRScannerReady()
@@ -47,7 +66,7 @@ Layout of QR code and QR scanner implemented
   <body class="body" id="body">
     <div>
   	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" value="&#9733; 0 points" size="30" maxlength="20" disabled>
+  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
 
     <div class="mapDisplay" id="mapDisplay">
