@@ -24,32 +24,34 @@
 
     <div id="Groups" class="tabcontent">
       <h2>Tutor Groups</h2>
-      <p>this is the groups/tutor page.</p>
+      <p>This is the Tutor groups page it displays the tutor ID name and the groups score.</p>
 
-      <!-- Stock Table -->
-      <table>
-        <!-- Table headers -->
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Lastname</th>
-          <th>Score</th>
-        </tr>
+      <div class="Table"><h3>Tutor Table</h3>
+        <!-- Stock Table -->
+        <table>
+          <!-- Table headers -->
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Score</th>
+          </tr>
 
-        <!-- PHP to fetch data, and fill table -->
-        <?php
-        $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-            echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["score"]."</td></tr>";
+          <!-- PHP to fetch data, and fill table -->
+          <?php
+          $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+              echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["score"]."</td></tr>";
+            }
+            echo "</table>";
+          }else{
+            echo "<p>No stock.</p><p>Use buttons to add stock.</p>";
           }
-          echo "</table>";
-        }else{
-          echo "<p>No stock.</p><p>Use buttons to add stock.</p>";
-        }
-        $conn->close();
-        ?>
+
+          ?>
+      </div>
 
 
       <div id="AddButton">
@@ -57,8 +59,6 @@
       </div>
 
       <div id="AddSection">
-        //need to ask for all the information stored about a tutor in the database
-        //the tutor should be given a dropdown list when selecting their office
         <form method="post" action="addData.php">
           Enter X<input type="text" name="name"/><hr/>
           Enter Y<input type="text" name="edition"/><hr/>
@@ -71,44 +71,65 @@
 
     <div id="Students" class="tabcontent">
       <h2>Students</h2>
-      <p>this is the students page. it displays a table of the students, which group they are in and where they were?</p>
+      <p>This is the students page. It displays a table of the students, which group they are in and where they are</p>
       <div class="Table"><h3>Students Table</h3>
-        <table style="width:70%">
+        <!-- Stock Table -->
+        <table>
+          <!-- Table headers -->
           <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
+            <th>ID</th>
             <th>Username</th>
-            <th>Tutor</th>
+            <th>TutorID</th>
             <th>Location</th>
+            <th>Score</th>
           </tr>
-          <tr>
-            <th>Test</th>
-            <th>lName</th>
-            <th>abc123</th>
-            <th>Matt Collision</th>
-            <th>Amory moot</th>
-          </tr>
-        </table>
+
+          <!-- PHP to fetch data, and fill table -->
+          <?php
+          $sql = "SELECT * from user";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row["tutorID"]."</td><td>".$row["location"]."</td><td>".$row["points"]."</td></tr>";
+            }
+            echo "</table>";
+          }else{
+            echo "<p>Error:".$conn->error."</p>";
+          }
+          ?>
       </div>
     </div>
 
 
+
+
     <div id="Rooms" class="tabcontent">
       <h2>Rooms</h2>
-      <p>this is the rooms page is shows the rooms and which building they are in.</p>
+      <p>This is the rooms page is shows the rooms and which building they are in.</p>
       <div class="Table"><h3>Rooms Table</h3>
-        <table style="width:70%">
+        <!-- Stock Table -->
+        <table>
+          <!-- Table headers -->
           <tr>
-            <th>Room Name</th>
+            <th>ID</th>
+            <th>Name</th>
             <th>Type</th>
-            <th>Building</th>
+            <th>BuildingID</th>
           </tr>
-          <tr>
-            <th>Amory moot</th>
-            <th>lecture theater</th>
-            <th>Amory</th>
-          </tr>
-        </table>
+
+          <!-- PHP to fetch data, and fill table -->
+          <?php
+          $sql = "SELECT * from room";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+              echo "<tr><td>".$row["roomID"]."</td><td>".$row["name"]."</td><td>".$row["type"]."</td><td>".$row["buildingID"]."</td></tr>";
+            }
+            echo "</table>";
+          }else{
+            echo "<p>Error:".$conn->error."</p>";
+          }
+          ?>
       </div>
 
       <div id="AddButton2">
@@ -116,7 +137,6 @@
       </div>
 
       <div id="AddSection2">
-        //need to ask for all the information +an option to add it to the end of a cicle?
         <form method="post" action="addData.php">
           Enter X<input type="text" name="name"/><hr/>
           Enter Y<input type="text" name="edition"/><hr/>
