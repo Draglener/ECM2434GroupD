@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  require('connection.php');
+  $session = $_SESSION['appuser'];
+  if ($_SESSION['status'] == "gamemaster"){
+  }else{
+    header('Location: tutor-login.php');
+  }
+?>
 
 <html>
   <head class="head" id="head">
@@ -16,6 +25,40 @@
     <div id="Groups" class="tabcontent">
       <h2>Tutor Groups</h2>
       <p>this is the groups/tutor page.</p>
+
+      <?php
+        require('connection.php');
+        $query = "SELECT * FROM tutorGroup";
+
+        echo '<table border="0" cellspacing="2" cellpadding="2">
+              <tr>
+                  <td> <font face="Arial">TutorID</font> </td>
+                  <td> <font face="Arial">First Name</font> </td>
+                  <td> <font face="Arial">Last Name</font> </td>
+                  <td> <font face="Arial">Score</font> </td>
+                  <td> <font face="Arial">Office</font> </td>
+              </tr>';
+
+              $result = mysqli_query($con,"SELECT * FROM user");
+
+              echo "<table border='1'>
+              <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              </tr>";
+
+              while($row = mysqli_fetch_array($result))
+              {
+              echo "<tr>";
+              echo "<td>" . $row['FirstName'] . "</td>";
+              echo "<td>" . $row['LastName'] . "</td>";
+              echo "</tr>";
+              }
+              echo "</table>";
+
+              mysqli_close($con);
+              ?>
+      <!--
       <div class="Table"><h3>Groups Table</h3>
         <table style="width:70%">
           <tr>
@@ -34,6 +77,7 @@
           </tr>
         </table>
       </div>
+    -->
 
       <div id="AddButton">
         <button onclick="addVis('AddSection')">Add New Tutor</button>
@@ -52,12 +96,10 @@
     </div>
 
 
-
-
     <div id="Students" class="tabcontent">
       <h2>Students</h2>
       <p>this is the students page. it displays a table of the students, which group they are in and where they were?</p>
-      <div class="Table"><h3>Groups Table</h3>
+      <div class="Table"><h3>Students Table</h3>
         <table style="width:70%">
           <tr>
             <th>Firstname</th>
@@ -78,13 +120,10 @@
     </div>
 
 
-
-
-
     <div id="Rooms" class="tabcontent">
       <h2>Rooms</h2>
       <p>this is the rooms page is shows the rooms and which building they are in.</p>
-      <div class="Table"><h3>Groups Table</h3>
+      <div class="Table"><h3>Rooms Table</h3>
         <table style="width:70%">
           <tr>
             <th>Room Name</th>
@@ -112,20 +151,8 @@
           <input type="submit"  name="addRoom" value="Add Thing"/>
         </form>
       </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-        <a href="Logout.php">
-            <button>Logout</button>
-        </a>
+    </div class=sessions>
+      <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
+
