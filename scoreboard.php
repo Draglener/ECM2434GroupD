@@ -1,4 +1,8 @@
-<!-- Author: Katie Jones
+<?php
+session_start();
+require('connection.php');
+?>
+<!-- Authors: Katie Jones and Anneliese Travis
 Last updated: 25/02 15:35
 This is obvs just the beginnings of a basic layout
 fixed link to FAQ.html
@@ -9,6 +13,18 @@ fixed link to FAQ.html
 		<meta charset="UTF-8">
 		<title>The ScoreBoardPage</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
+	<style>
+	table {
+		text-align: center;
+		width: 100%;
+	}
+	th, td {
+		padding:10px;
+	}
+	.ScoreBoardDisplay {
+		overflow: scroll;
+	}
+	</style>
 	</head>
 
 	<body class="body" id="body">
@@ -24,6 +40,30 @@ fixed link to FAQ.html
 		<div class="ScoreBoardDisplay" id="ScoreBoardDisplay">
 		  	<input type="button" id="closeButton" value="&#10006;">
 		    <a id= "ScoreBoardTitle">ScoreBoard</a>
+			     <table>
+        <!-- Table headers -->
+        <tr>
+          <th>Username</th>
+          <th>Location</th>
+          <th>Score</th>
+        </tr>
+
+        <!-- PHP to fetch data, and fill table -->
+        <?php
+        $sql = "SELECT * from user ORDER BY points DESC";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+            echo "<tr><td>".$row["username"]."</td><td>".$row["location"]."</td><td>".$row["points"]."</td></tr>";
+          }
+          echo "</table>";
+        }else{
+          echo "<p>No users found.</p>";
+        }
+        $conn->close();
+        ?>
+
+
 		</div>
 
 		<div style="margin:10px;">
