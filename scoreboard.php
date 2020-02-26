@@ -10,9 +10,9 @@ fixed link to FAQ.html
 <!doctype html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>The ScoreBoardPage</title>
-    <link href="style_sheet.css" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<title>The ScoreBoardPage</title>
+        <link href="style_sheet.css" rel="stylesheet" type="text/css">
 	<style>
 	table {
 		text-align: center;
