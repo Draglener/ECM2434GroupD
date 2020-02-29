@@ -23,11 +23,11 @@ different images and sessions implemented
     <form name="loginForm" action="login.php" method="post">
       <div class="userLogin">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
-        <label for="username"><b>University Username:</b></label>
+        <label id = "uniUserName" for="username"><b>University Username:</b></label>
         <input type="text" placeholder="Enter your university username" name="username" required id="usernameInput">
           <p></p>
 
-        <label for="tutor"><b>Tutor:</b></label>
+        <label id="tutorName" for="tutor"><b>Tutor:</b></label>
         <select name="tutor" required id="tutorList">
          <?php
             //function to populate drop-down menu from distinct tutorvalues in database
