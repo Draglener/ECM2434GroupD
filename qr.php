@@ -8,6 +8,13 @@ if ($result->num_rows > 0) {
 	  $location = $row['location'];
   }
 }
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+    $currentPoints = $row['points'];
+  }
+}
 ?>
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
 Last updated: 25/02 14:22
@@ -26,6 +33,8 @@ html to php links instead
 
   <script type="text/javascript">
   var loc = <?php echo $location; ?>;
+  var currentPoi = <?php echo $currentPoints; ?>;
+document.getElementById('pointsDisplayTag').value = currentPoi;
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
@@ -65,7 +74,7 @@ html to php links instead
   <body class="body" id="body">
     <div>
   	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+  	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
     </div>
 
     <div class="mapDisplay" id="mapDisplay">
@@ -81,3 +90,7 @@ html to php links instead
 		</div>
   </body>
 </html>
+<?php 
+	unset($_SESSION['apperror']);
+    unset($_SESSION['error']);
+	?>
