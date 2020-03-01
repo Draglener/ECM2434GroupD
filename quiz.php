@@ -114,7 +114,7 @@ Only working on quiz.php but will be moved to other pages in future
     
 
     <div>
-    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+    	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
     </div>
 	<script>
 	
