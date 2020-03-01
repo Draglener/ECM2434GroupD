@@ -26,6 +26,13 @@ if ($result->num_rows > 0) {
 } else {
   echo $sql." ".$conn->error;
 }
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+    $currentPoints = $row['points'];
+  }
+}
 
 ?>
 <!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
@@ -61,12 +68,14 @@ alert("Goto the new marker and scan the QR code!");
   <body class="body" id="body">
     <div>
 		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+		   <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
     </div>
     
     <!--The div element for the map -->
     <div id="fullMapDisplay"></div>
     <script>
+    var currentPoi = <?php echo $currentPoints; ?>;
+    document.getElementById('pointsDisplayTag').value = currentPoi;
     //Initialize and add the map
     function initMap() {
 
