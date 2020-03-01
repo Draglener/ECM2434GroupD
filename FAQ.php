@@ -25,7 +25,7 @@ Adding score to page
 
 	<body class="body" id="body">
 		<div>
-			  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
+			  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
 			  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
 		</div>
 
@@ -55,7 +55,7 @@ Adding score to page
         </div>
 
 		 <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
 		    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
 <script>
