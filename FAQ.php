@@ -1,7 +1,18 @@
-<!-- Author: Piranavie Thangasuthan and Katie Jones
-Last updated: 25/02 15:17
-This is obvs just the beginnings of a basic layout
-changed links to php pages
+<?php
+session_start();
+require('connection.php');
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+    $currentPoints = $row['points'];
+  }
+}
+?>
+
+<!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
+Last updated: 01/03 14:34
+Adding score to page
 -->
 <!doctype html>
 <html>
@@ -15,7 +26,7 @@ changed links to php pages
 	<body class="body" id="body">
 		<div>
 			  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
-			  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+			  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
 		</div>
 
 		<div class="informationDisplay" id="informationDisplay">
@@ -47,5 +58,13 @@ changed links to php pages
 		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
 		    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
+<script>
+var currentPoi = <?php echo $currentPoints; ?>;
+document.getElementById('pointsDisplayTag').value = currentPoi;
+</script>
 	</body>
+<?php 
+	unset($_SESSION['apperror']);
+    unset($_SESSION['error']);
+	?>
 </html>
