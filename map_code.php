@@ -60,7 +60,7 @@ alert("Goto the new marker and scan the QR code!");
     </script>
   <body class="body" id="body">
     <div>
-		  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
+		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
 		  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
     
