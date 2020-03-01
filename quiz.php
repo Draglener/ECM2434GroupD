@@ -97,7 +97,7 @@ Only working on quiz.php but will be moved to other pages in future
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
+  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
   	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
     </div>
 
