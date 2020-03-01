@@ -3,9 +3,9 @@ session_start();
 require('connection.php');
 ?>
 <!-- Authors: Katie Jones and Anneliese Travis
-Last updated: 25/02 15:35
+Last updated: 01/03 15:35
 This is obvs just the beginnings of a basic layout
-fixed link to FAQ.html
+fixed links
 -->
 <!doctype html>
 <html>
@@ -29,7 +29,7 @@ fixed link to FAQ.html
 
 	<body class="body" id="body">
 		<div>
-			  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
+			  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
 			  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
 		</div>
 
@@ -67,7 +67,7 @@ fixed link to FAQ.html
 		</div>
 
 		<div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
 		    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
 	</body>
