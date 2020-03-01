@@ -64,7 +64,7 @@ html to php links instead
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
+  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
   	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
 
@@ -77,7 +77,7 @@ html to php links instead
     </div>
 
     <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
 		</div>
   </body>
 </html>
