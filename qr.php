@@ -33,8 +33,7 @@ html to php links instead
 
   <script type="text/javascript">
   var loc = <?php echo $location; ?>;
-  var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
+
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
@@ -88,6 +87,10 @@ document.getElementById('pointsDisplayTag').value = currentPoi;
     <div style="margin:10px;">
 		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
 		</div>
+	  <script>
+	    var currentPoi = <?php echo $currentPoints; ?>;
+		document.getElementById('pointsDisplayTag').value = currentPoi;
+	  </script>
   </body>
 </html>
 <?php 
