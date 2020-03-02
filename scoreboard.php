@@ -18,6 +18,7 @@ Real Scoreboard showing everyones scores
 	<head>
 	<meta charset="UTF-8">
 	<title>The ScoreBoardPage</title>
+		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
         <link href="style_sheet.css" rel="stylesheet" type="text/css">
 	<style>
 	table {
