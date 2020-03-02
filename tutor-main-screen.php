@@ -11,11 +11,12 @@
 <html>
   <head class="head" id="head">
     <link rel="stylesheet" href="tutor-style.css">
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     <script src="actions.js"></script>
   </head>
 
   <body class="body" id="body" onload="openPage(event, 'Groups'); addVis()">
-  	<div><img src="findExeterLogo.png" id="logo"></div>
+	<img src="findExeterLogo.png" height="150px" style="float: right;">
     <div><h1>Game Master Page</h1></div>
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Groups')">Tutor Groups</button>

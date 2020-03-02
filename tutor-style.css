@@ -1,5 +1,7 @@
 body {font-family: Arial, Helvetica, sans-serif; background-color: #c2eaed;}
 
+h1{padding: 20px;}
+
 table {
   border: 1px solid black;
   border-collapse: collapse;
@@ -94,10 +96,4 @@ tr:hover {background-color: #c2d0d1;}
   padding: 6px 12px;
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
-}
-
-/* findExeterLogo */
-#logo {
-	float: right;
-	position:fixed;
 }
