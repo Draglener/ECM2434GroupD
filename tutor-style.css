@@ -99,4 +99,5 @@ tr:hover {background-color: #c2d0d1;}
 /* findExeterLogo */
 #logo {
 	float: right;
+	position:fixed;
 }

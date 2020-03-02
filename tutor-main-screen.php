@@ -15,8 +15,8 @@
   </head>
 
   <body class="body" id="body" onload="openPage(event, 'Groups'); addVis()">
+  	<div><img src="findExeterLogo.png" id="logo"></div>
     <div><h1>Game Master Page</h1></div>
-	<div><img src="findExeterLogo.png" id="logo"></div>
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Groups')">Tutor Groups</button>
       <button class="tablinks" onclick="openPage(event, 'Students')">Students</button>
