@@ -66,7 +66,13 @@ if ($result->num_rows > 0) {
   }
 }
 $names = array("0", $answerName, $wrong1Name, $wrong2Name, $wrong3Name);
-
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+    $currentPoints = $row['points'];
+  }
+}
 ?>
 <!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
 Last updated: 25/02 15:12
@@ -79,6 +85,7 @@ and changed links from html pages to php
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
+	  	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	<style>
 	#quiz{
 		display:grid;
@@ -88,8 +95,8 @@ and changed links from html pages to php
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
+  	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
     </div>
 
     <div class="mapDisplay" id="mapDisplay">
@@ -105,10 +112,12 @@ and changed links from html pages to php
     
 
     <div>
-    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+    	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
     </div>
 	<script>
-	var points = 3;
+	var currentPoi = <?php echo $currentPoints; ?>;
+document.getElementById('pointsDisplayTag').value = currentPoi;
+var points = 3;
 function next(numb){
 		  switch(numb) {
   case 1:
