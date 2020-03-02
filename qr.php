@@ -64,8 +64,8 @@ html to php links instead
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+  	  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
+  	 <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
     </div>
 
     <div class="mapDisplay" id="mapDisplay">
@@ -77,7 +77,11 @@ html to php links instead
     </div>
 
     <div style="margin:10px;">
-		  	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+		  	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
 		</div>
+	  <script>
+var currentPoi = <?php echo $currentPoints; ?>;
+document.getElementById('pointsDisplayTag').value = currentPoi;
+</script>
   </body>
 </html>
