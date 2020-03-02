@@ -21,6 +21,7 @@ Adding score to page
     <title>The FAQPage</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
 
 	<body class="body" id="body">
