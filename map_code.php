@@ -8,6 +8,15 @@ if ($result->num_rows > 0) {
 	  $location = $row['location'];
   }
 }
+
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+	  $help = $row['help'];
+  }
+}
+
 $sql = "SELECT * from building";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -43,8 +52,9 @@ Added changes from html to php pages
   <script>
 
     var loc = <?php echo $location; ?>;
+    var help = <?php echo $help; ?>;
 	console.log(loc);
-alert("Goto the new marker and scan the QR code!");
+alert("Go to the new marker and scan the QR code!");
     var buildings = {}
     // pass PHP array to JavaScript array
     var prep = <?php echo json_encode($buildings); ?>;
@@ -64,6 +74,15 @@ alert("Goto the new marker and scan the QR code!");
 		  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
     
+    <button id = "helpButton">Help</button>
+    <script>
+    var btn = document.getElementById("helpButton");
+    btn.onclick = function(){
+      var newhelp = 1;
+      var help = newhelp;
+    }
+    </script>
+    
     <!--The div element for the map -->
     <div id="fullMapDisplay"></div>
     <script>
@@ -73,9 +92,9 @@ alert("Goto the new marker and scan the QR code!");
       var center = { lat: 50.735801, lng:  -3.533297};
       var innovation = { lat: 50.738045, lng:  -3.530514};
 
-      // The map, centered at the Library
+      // The map, centered in the university
       var map = new google.maps.Map(
-          document.getElementById('fullMapDisplay'), {zoom: 16.5,
+          document.getElementById('fullMapDisplay'), {zoom: 15,
         center: center,
         mapTypeId: 'hybrid',
         gestureHandling: 'none', 
@@ -91,7 +110,7 @@ alert("Goto the new marker and scan the QR code!");
       }];
       map.set('styles',customStyled);
 
-      // The markers, positioned at Library
+      // Adds all the markers up to the next marker the player is visiting, positioned at the locations around campus 
       
       for(var i = 0;i<loc;i++){
         var location = {lat: buildings[i].lat,lng: buildings[i].lng};
@@ -102,11 +121,6 @@ alert("Goto the new marker and scan the QR code!");
       console.log("location");
       }
       
-      const x = document.getElementById('testButton');
-      var cname = "center"
-      var cinfo = "uwu"
-    //  x.onclick = addMarker(center,map,cname,cinfo);
-    //  x.onclick = function(){var marker = new google.maps.Marker({position: center,map: map,title: 'center'});};
     }
 
     function addMarker(location,map,label,information){
