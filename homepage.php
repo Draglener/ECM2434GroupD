@@ -33,7 +33,7 @@ different images and sessions implemented
             //function to populate drop-down menu from distinct tutorvalues in database
             function dropdownOptions() {
               require('connection.php');
-              $sql = "SELECT * FROM tutorGroup";
+              $sql = "SELECT * FROM tutorGroup WHERE tutorID > 0";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
                 echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName']."</option>";
