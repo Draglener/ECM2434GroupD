@@ -29,6 +29,7 @@ html to php links instead
    <meta charset="UTF-8">
    <title>The QRScannerPage</title>
    <link href="style_sheet.css" rel="stylesheet" type="text/css">
+   <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 
 
   <script type="text/javascript">
