@@ -150,3 +150,4 @@ alert("Goto the new marker and scan the QR code!");
 		</div>
   </body>
 </html>
+
