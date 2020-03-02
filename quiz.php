@@ -88,6 +88,7 @@ Only working on quiz.php but will be moved to other pages in future
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	<style>
 	#quiz{
 		display:grid;
