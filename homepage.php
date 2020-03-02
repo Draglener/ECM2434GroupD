@@ -43,6 +43,8 @@ different images and sessions implemented
             ?>
         </select>
         <p></p>
+        	<input type="checkbox" required name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="terms.php">Terms and Conditions and Privacy Policy</a>
+	<p></p>
         <button type="submit" name="submit" id="loginButton">Join</button>
       </div>
       </form>

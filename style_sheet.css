@@ -119,9 +119,9 @@ img.QRButton{
     color: #00D7FF;
     background-color: #090909;
     height: 50px;
-    width:-webkit-fill-available;
-
+    width: 100%;
     text-align: center;
+    display: block;
 }
 
 table{
