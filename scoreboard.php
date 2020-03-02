@@ -76,7 +76,6 @@ Real Scoreboard showing everyones scores
 		<div style="margin:10px;">
 		  	
 	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-<a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
 	
 	    <a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a>
 		</div>
