@@ -11,6 +11,7 @@ different images and sessions implemented
   <head>
     <meta charset="UTF-8">
     <title>Student Login</title>
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
   </head>
 

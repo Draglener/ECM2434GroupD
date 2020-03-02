@@ -28,6 +28,7 @@ html to php links instead
    <script type="text/javascript" src="https://raw.githack.com/jbialobr/JsQRScanner/master/war/js/jsqrscanner.nocache.js"></script>
    <meta charset="UTF-8">
    <title>The QRScannerPage</title>
+   <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
    <link href="style_sheet.css" rel="stylesheet" type="text/css">
 
 
