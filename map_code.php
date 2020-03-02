@@ -9,14 +9,6 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-	  $help = $row['help'];
-  }
-}
-
 $sql = "SELECT * from building";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -61,7 +53,8 @@ Added changes from html to php pages
 
     var loc = <?php echo $location; ?>;
     var help = <?php echo $help; ?>;
-	console.log(loc);
+    console.log(help);
+	  console.log(loc);
 alert("Go to the new marker and scan the QR code!");
     var buildings = {}
     // pass PHP array to JavaScript array
@@ -85,10 +78,8 @@ alert("Go to the new marker and scan the QR code!");
     <button id = "helpButton">Help</button>
     <script>
     var btn = document.getElementById("helpButton");
-    btn.onclick = function(){
-      var newhelp = 1;
-      var help = newhelp;
-    }
+    btn.onclick = action(helpUpdate.php);
+      
     </script>
     
     <!--The div element for the map -->
