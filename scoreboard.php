@@ -12,7 +12,6 @@ if ($result->num_rows > 0) {
 <!-- Authors: Katie Jones and Anneliese Travis and Jasmine West
 Last updated: 01/03 16:35
 Real Scoreboard showing everyones scores
-
 -->
 <!doctype html>
 <html>
@@ -24,6 +23,7 @@ Real Scoreboard showing everyones scores
 	table {
 		text-align: center;
 		width: 100%;
+		margin-top:0px;
 	}
 	th, td {
 		padding:10px;
@@ -46,7 +46,6 @@ Real Scoreboard showing everyones scores
 		</div>
 
 		<div class="ScoreBoardDisplay" id="ScoreBoardDisplay">
-		  	<input type="button" id="closeButton" value="&#10006;">
 		    <a id= "ScoreBoardTitle">ScoreBoard</a>
 			     <table>
         <!-- Table headers -->
@@ -75,9 +74,11 @@ Real Scoreboard showing everyones scores
 		</div>
 
 		<div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		   <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
-			<div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
+		  	
+	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+<a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
+	
+	    <a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a>
 		</div>
 		 
  <script>

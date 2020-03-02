@@ -27,13 +27,6 @@ if ($result->num_rows > 0) {
 } else {
   echo $sql." ".$conn->error;
 }
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentPoints = $row['points'];
-  }
-}
 
 ?>
 <!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
@@ -46,16 +39,13 @@ Added changes from html to php pages
     <meta charset="UTF-8">
 		<title>The mapPage</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     
   </head>
   <script>
 
     var loc = <?php echo $location; ?>;
-    var help = <?php echo $help; ?>;
-    console.log(help);
-	  console.log(loc);
-alert("Go to the new marker and scan the QR code!");
+	console.log(loc);
+alert("Goto the new marker and scan the QR code!");
     var buildings = {}
     // pass PHP array to JavaScript array
     var prep = <?php echo json_encode($buildings); ?>;
@@ -71,8 +61,8 @@ alert("Go to the new marker and scan the QR code!");
     </script>
   <body class="body" id="body">
     <div>
-		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		   <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+		  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
+		  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
     
     <button id = "helpButton">Help</button>
@@ -85,17 +75,15 @@ alert("Go to the new marker and scan the QR code!");
     <!--The div element for the map -->
     <div id="fullMapDisplay"></div>
     <script>
-    var currentPoi = <?php echo $currentPoints; ?>;
-    document.getElementById('pointsDisplayTag').value = currentPoi;
     //Initialize and add the map
     function initMap() {
 
       var center = { lat: 50.735801, lng:  -3.533297};
       var innovation = { lat: 50.738045, lng:  -3.530514};
 
-      // The map, centered in the university
+      // The map, centered at the Library
       var map = new google.maps.Map(
-          document.getElementById('fullMapDisplay'), {zoom: 15,
+          document.getElementById('fullMapDisplay'), {zoom: 16.5,
         center: center,
         mapTypeId: 'hybrid',
         gestureHandling: 'none', 
@@ -111,7 +99,7 @@ alert("Go to the new marker and scan the QR code!");
       }];
       map.set('styles',customStyled);
 
-      // Adds all the markers up to the next marker the player is visiting, positioned at the locations around campus 
+      // The markers, positioned at Library
       
       for(var i = 0;i<loc;i++){
         var location = {lat: buildings[i].lat,lng: buildings[i].lng};
@@ -122,6 +110,11 @@ alert("Go to the new marker and scan the QR code!");
       console.log("location");
       }
       
+      const x = document.getElementById('testButton');
+      var cname = "center"
+      var cinfo = "uwu"
+    //  x.onclick = addMarker(center,map,cname,cinfo);
+    //  x.onclick = function(){var marker = new google.maps.Marker({position: center,map: map,title: 'center'});};
     }
 
     function addMarker(location,map,label,information){
@@ -160,9 +153,9 @@ alert("Go to the new marker and scan the QR code!");
     </script>
 
     <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-	<a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>	   
-	    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
+		  	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+		    <a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a>
 		</div>
   </body>
 </html>
+

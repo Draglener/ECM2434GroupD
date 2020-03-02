@@ -31,12 +31,10 @@ Adding score to page
 		</div>
 
 		<div class="informationDisplay" id="informationDisplay">
-		 		<a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
+		 		
 		    <a id= "informationTitle"><i class="fa fa-info-circle"></i>
             Information</a>
-		</div>
-
-        <div id="informationText">
+			<div id="informationText">
 					<p><h2>Health and Wellbeing</h2></p>
 					<p><b>University Information</b></p>
 					<p>The <a href="https://www.exeter.ac.uk/newstudents/supportandservices/yourhealthandwelfare/
@@ -54,6 +52,9 @@ Adding score to page
 					<p>There are three floors to Devonshire House. DH1 contains an informal study space with sofas, food outlets, and the offices of the Full Time Officers (who run the Guild). DH2 has more places to eat, the joint eXmedia, and Exepose office, and a bank. DH3 contains a silent study space called The Loft.</p>
 					
         </div>
+		</div>
+
+        
 
 		 <div style="margin:10px;">
 		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
