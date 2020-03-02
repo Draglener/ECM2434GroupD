@@ -15,6 +15,7 @@
   </head>
 
   <body class="body" id="body" onload="openPage(event, 'Groups'); addVis()">
+  	<div><img src="findExeterLogo.png" id="logo"></div>
     <div><h1>Game Master Page</h1></div>
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Groups')">Tutor Groups</button>
@@ -53,16 +54,30 @@
           ?>
       </div>
 
-
       <div id="AddButton">
         <button onclick="addVis('AddSection')">Add New Tutor</button>
       </div>
 
       <div id="AddSection">
         <form method="post" action="addData.php">
-          Enter X<input type="text" name="name"/><hr/>
-          Enter Y<input type="text" name="edition"/><hr/>
-          Enter Z<input type="number" name="amount"/><hr/>
+          Enter Your Firstname<input type="text" name="fName"/><hr/>
+          Enter Your Lastname<input type="text" name="lName"/><hr/>
+          Enter a Password<input type="text" name="password"/><hr/>
+          <label for="office"><b>Office:</b></label>
+          <select name="office" required id="officeList">
+           <?php
+              //function to populate drop-down menu for office rooms
+              function dropdownOptions() {
+                require('connection.php');
+                $sql = "SELECT * FROM room WHERE type='office'";
+                $result = $conn->query($sql);
+                while($row = $result->fetch_assoc()){
+                  echo "<option value='".$row['roomID']."'>".$row['name']."</option>";
+                }
+              }
+              dropdownOptions();
+              ?>
+          </select>
           <input type="submit"  name="addTutor" value="Add Thing"/>
         </form>
       </div>

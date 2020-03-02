@@ -88,6 +88,7 @@ Only working on quiz.php but will be moved to other pages in future
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	<style>
 	#quiz{
 		display:grid;
@@ -97,7 +98,7 @@ Only working on quiz.php but will be moved to other pages in future
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
+  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
   	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
     </div>
 
@@ -114,8 +115,9 @@ Only working on quiz.php but will be moved to other pages in future
     
 
     <div>
-    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-    </div>
+    	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+   <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
+	  </div>
 	<script>
 	
 	var currentPoi = <?php echo $currentPoints; ?>;

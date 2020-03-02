@@ -11,6 +11,7 @@ different images and sessions implemented
   <head>
     <meta charset="UTF-8">
     <title>Student Login</title>
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
   </head>
 
@@ -23,17 +24,17 @@ different images and sessions implemented
     <form name="loginForm" action="login.php" method="post">
       <div class="userLogin">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
-        <label for="username"><b>University Username:</b></label>
+        <label id = "uniUserName" for="username"><b>University Username:</b></label>
         <input type="text" placeholder="Enter your university username" name="username" required id="usernameInput">
           <p></p>
 
-        <label for="tutor"><b>Tutor:</b></label>
+        <label id="tutorName" for="tutor"><b>Tutor:</b></label>
         <select name="tutor" required id="tutorList">
          <?php
             //function to populate drop-down menu from distinct tutorvalues in database
             function dropdownOptions() {
               require('connection.php');
-              $sql = "SELECT * FROM tutorGroup";
+              $sql = "SELECT * FROM tutorGroup WHERE tutorID > 0";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
                 echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName']."</option>";

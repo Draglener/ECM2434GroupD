@@ -18,6 +18,7 @@
   <head>
     <script src="Validate.js"></script>
     <link href="tutor-style.css" rel='stylesheet' type='text/css'/>
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     <title>Login</title>
 
 

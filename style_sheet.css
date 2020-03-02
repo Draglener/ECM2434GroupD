@@ -4,8 +4,8 @@
 #body {
     background-color: #98EAFA;
     position: absolute;
-    width: 500px;
-    height: 50px;
+    width:-webkit-fill-available;
+    height:-webkit-fill-available;
 }
 
 #homeButton {
@@ -26,18 +26,21 @@
     font-weight: bold;
     height: 50px;
     width: 250px;
+    position:static;
     border: thin solid #000000;
     text-align: center;
     border-radius: 50px;
-    position: top left;
-    margin-left: 60px;
+    margin-top:1%;
+    margin-left:1%;
+    float: right;
+
 }
 
 #mapDisplay{
     background-color:black;
     position: static;
-    height: 200px;
-    width: 480px;
+    height: 40%;
+    width:-webkit-fill-available;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -49,14 +52,16 @@ img.QRButton{
   width: 70px;
   height: 70px;
   display: block;
-  float: right;
+  position: static;
+  margin-top:430px;
+  float:right;
+  margin-right: -100%;
 }
 
 #button {
 	float: left;
 	width: 50%;
 }
-
 
 #ScoreBoardButton {
   font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
@@ -67,8 +72,15 @@ img.QRButton{
   background-color: #FCF8F8;
   height: 50px;
   width: 150px;
-  position: static;
+  position: absolute;
+  bottom: -40%;
+  float: left;
+  margin-left: 2%;
+}
 
+#ScoreBoardButton:hover{
+  background-color: #0b17b1;
+  color: white;
 }
 
 #closeButton {
@@ -83,36 +95,74 @@ img.QRButton{
     position: static;
 }
 
+#closeButton:hover {
+  background-color: #091c82;
+  color: white;
+}
+
 /* ----SCOREBOARD---- */
 #ScoreBoardDisplay{
-    background-color: #FCF8F8;
-    position: static;
-    height: 350px;
-    width: 480px;
-    margin-top: 10px;
+     background-color: #FCF8F8;
+    position: absolute;
+    height: 70%;
+    width:-webkit-fill-available;
+    margin-top:3%;
     margin-left: 10px;
     margin-right: 10px;
 }
 
 #ScoreBoardTitle {
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+    ffont-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
     font-size: xx-large;
     font-weight: bold;
     color: #00D7FF;
     background-color: #090909;
     height: 50px;
-    width: 430px;
+    width:-webkit-fill-available;
     position: absolute;
     text-align: center;
 }
 
+table{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top:100px;
+
+}
+
+td, th {
+  border: 1px solid #000;
+  padding: 8px;
+  font-size:medium;
+  text-align: center;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #005c86;
+  color: white;
+  text-align: center;
+}
+
+
 /* ----QUIZ---- */
 #quiz{
     background-color: #FCF8F8;
-    position: static;
-    height: 420px;
-    width: 480px;
-    margin-top: 10px;
+    position: absolute;
+    height: 70%;
+    width:-webkit-fill-available;
+    margin-top: 3%;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -126,6 +176,7 @@ img.QRButton{
     height: 50px;
     text-align: center;
 }
+
 
 .unchecked{
 	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
@@ -145,6 +196,7 @@ img.QRButton{
     text-align: center;
     font-size: x-large;
 }
+
 #questionText {
     font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
     font-size: small;
@@ -156,93 +208,35 @@ img.QRButton{
     margin-left: 10px;
 }
 
-#answerBox1 {
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    font-size: medium;
-    text-align: center;
-    background-color: #FCF8F8;
-    height: 120px;
-    width: 120px;
-    color: #000000;
-    border-color: #000000;
-    position: absolute;
-    bottom: -450px;
-    left: 30px;
-}
-
-#answerBox2 {
-  font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-  font-size: medium;
-  text-align: center;
-  background-color: #FCF8F8;
-  height: 120px;
-  width: 120px;
-  color: #000000;
-  border-color: #000000;
-  position: absolute;
-  bottom: -450px;
-  right: 30px;
-}
-
-#answerBox3 {
-  font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-  font-size: medium;
-  text-align: center;
-  background-color: #FCF8F8;
-  height: 120px;
-  width: 120px;
-  color: #000000;
-  border-color: #000000;
-  position: absolute;
-  bottom: -590px;
-  left: 30px;
-}
-
-#answerBox4 {
-  font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-  font-size: medium;
-  text-align: center;
-  background-color: #FCF8F8;
-  height: 120px;
-  width: 120px;
-  color: #000000;
-  border-color: #000000;
-  position: absolute;
-  bottom: -590px;
-  right: 30px;
-}
-
-#clueButton {
-  font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-  font-size: large;
-  font-weight: bold;
-  color: #FFFFFF;
-  background-color: #0700FF;
-  height: 50px;
-  width: 150px;
-  position: absolute;
-  bottom: -650px;
-  right: 180px;
-}
 
 /* ----QR---- */
+#QRScanner{
+   background-color: #FCF8F8;
+    position: absolute;
+    height: 70%;
+    width:-webkit-fill-available;
+    margin-top:3%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #QRScannerTitle {
     background-color: #090909;
     height: 50px;
-    width: 430px;
+    width:-webkit-fill-available;
     position: absolute;
-
 }
 
 .QRScanner video{
-  position: static;
-  height: 350px;
-  max-width: 480px;
+  position:static;
+  height: 355px;
 }
 .QRScanner{
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  position:absolute;
+  width:-webkit-fill-available;
 }
 
 /* ----MAP---- */
@@ -256,23 +250,51 @@ img.QRButton{
   margin-right: 10px;
 }
 
+
 /* ----HOMEPAGE---- */
+
+
+#uniUserName{
+	position: absolute;
+	top: 216px;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
 #usernameInput{
-  width: 100%;
+  width:-webkit-fill-available;
   padding: 12px 20px;
-  margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  margin: 0;
+  position: absolute;
+  top: 250px;
+  right:0%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#tutorName{
+	position: absolute;
+	top: 297px;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	height: 3px;
 }
 
 #tutorList{
-    width: 100%;
+  width:-webkit-fill-available;
   padding: 12px 20px;
-  margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+   margin: 0;
+  position: absolute;
+  top: 330px;
+  right:0%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 
@@ -280,10 +302,20 @@ img.QRButton{
   background-color: black;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: -webkit-fill-available;
+  margin: 0;
+  position: absolute;
+  top: 390px;
+  right:0%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#loginButton:hover {
+  background-color: #0b17b1;
+  color: white;
 }
 
 img.topImage{
@@ -291,6 +323,8 @@ img.topImage{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 0px;
+  position: static;
 }
 
 img.bottomImage{
@@ -298,6 +332,8 @@ img.bottomImage{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 250px;
+  position: static;
 }
 
 

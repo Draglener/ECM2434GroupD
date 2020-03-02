@@ -1,7 +1,18 @@
-<!-- Author: Piranavie Thangasuthan and Katie Jones
-Last updated: 25/02 15:17
-This is obvs just the beginnings of a basic layout
-changed links to php pages
+<?php
+session_start();
+require('connection.php');
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+    $currentPoints = $row['points'];
+  }
+}
+?>
+
+<!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
+Last updated: 01/03 14:34
+Adding score to page
 -->
 <!doctype html>
 <html>
@@ -10,12 +21,13 @@ changed links to php pages
     <title>The FAQPage</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
 
 	<body class="body" id="body">
 		<div>
-			  <a href="FAQ.html"><input type="button" id="homeButton" value="FAQ"></a>
-			  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
+			  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
+			  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
 		</div>
 
 		<div class="informationDisplay" id="informationDisplay">
@@ -40,18 +52,21 @@ changed links to php pages
 					<p><b>Devonshire House</b></p>
 					<p>Attached to the Guild, Devonshire House contains food outlets, study spaces, and facilities for societies.</p>
 					<p>There are three floors to Devonshire House. DH1 contains an informal study space with sofas, food outlets, and the offices of the Full Time Officers (who run the Guild). DH2 has more places to eat, the joint eXmedia, and Exepose office, and a bank. DH3 contains a silent study space called The Loft.</p>
-					<!-- TODO:
-					possible questions:
-						location of: student health centre, wellbeing, study spaces
-						where to find: candidate number, sudent ID, bart sheets, past papers
-						the guild: website, building, services
-						SID - for any other questions
-					-->
+					
         </div>
 
 		 <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		    <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
+		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
+		    <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
+			 <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
+<script>
+var currentPoi = <?php echo $currentPoints; ?>;
+document.getElementById('pointsDisplayTag').value = currentPoi;
+</script>
 	</body>
+<?php 
+	unset($_SESSION['apperror']);
+    unset($_SESSION['error']);
+	?>
 </html>
