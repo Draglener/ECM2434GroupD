@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('connection.php');
+
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -66,29 +67,18 @@ if ($result->num_rows > 0) {
 }
 $names = array("0", $answerName, $wrong1Name, $wrong2Name, $wrong3Name);
 
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentPoints = $row['points'];
-  }
-}
 ?>
-
-
-<!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan and Keith Harrison
-Last updated: 25/02 18:14
-Added score system that will be based on the current sessions user
-Only working on quiz.php but will be moved to other pages in future
+<!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
+Last updated: 25/02 15:12
+Has the quiz linked to the PHP to change location of current user
+and changed links from html pages to php
 -->
 <!doctype html>
 <html>
   <head>
-
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	<style>
 	#quiz{
 		display:grid;
@@ -98,8 +88,8 @@ Only working on quiz.php but will be moved to other pages in future
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
+  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
 
     <div class="mapDisplay" id="mapDisplay">
@@ -115,14 +105,10 @@ Only working on quiz.php but will be moved to other pages in future
     
 
     <div>
-    	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-   <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
-	  </div>
+    	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+    </div>
 	<script>
-	
-	var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
-var points = 3;
+	var points = 3;
 function next(numb){
 		  switch(numb) {
   case 1:
@@ -142,7 +128,7 @@ return numb;
     var question = <?php echo json_encode($question); ?>;
 	var names = <?php echo json_encode($names); ?>;
 	var nextLoc = <?php echo $nextLocation; ?>;
-
+	
 function create() {
     var numb = Math.floor( Math.random() * 3 )+1;
 	console.log(question[5]);

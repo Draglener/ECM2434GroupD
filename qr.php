@@ -8,13 +8,6 @@ if ($result->num_rows > 0) {
 	  $location = $row['location'];
   }
 }
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentPoints = $row['points'];
-  }
-}
 ?>
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
 Last updated: 25/02 14:22
@@ -28,13 +21,11 @@ html to php links instead
    <script type="text/javascript" src="https://raw.githack.com/jbialobr/JsQRScanner/master/war/js/jsqrscanner.nocache.js"></script>
    <meta charset="UTF-8">
    <title>The QRScannerPage</title>
-   <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
    <link href="style_sheet.css" rel="stylesheet" type="text/css">
 
 
   <script type="text/javascript">
   var loc = <?php echo $location; ?>;
-
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
@@ -73,8 +64,8 @@ html to php links instead
 
   <body class="body" id="body">
     <div>
-  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+  	  <a href="faq.html"><input type="button" id="homeButton" value="FAQ"></a>
+  	  <input type="text" id="pointsDisplayTag" value="&#9733; xxxx points" size="30" maxlength="20">
     </div>
 
     <div class="mapDisplay" id="mapDisplay">
@@ -86,17 +77,7 @@ html to php links instead
     </div>
 
     <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-	<a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
-	
-	  </div>
-	  <script>
-	    var currentPoi = <?php echo $currentPoints; ?>;
-		document.getElementById('pointsDisplayTag').value = currentPoi;
-	  </script>
+		  	<a href="Scoreboard.html"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+		</div>
   </body>
 </html>
-<?php 
-	unset($_SESSION['apperror']);
-    unset($_SESSION['error']);
-	?>
