@@ -92,9 +92,9 @@ alert("Goto the new marker and scan the QR code!");
       var map = new google.maps.Map(
           document.getElementById('fullMapDisplay'), {zoom: 16.5,
         center: center,
-        mapTypeId: 'hybrid',
-        gestureHandling: 'none', 
-        zoomControl:true
+        mapTypeId: 'hybrid'
+        //gestureHandling: 'none', 
+        //zoomControl:true
         });
     
       var customStyled = [{
