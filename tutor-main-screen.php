@@ -79,7 +79,7 @@
               dropdownOptions();
               ?>
           </select>
-          <input type="submit"  name="addTutor" value="Add Thing"/>
+          <input type="submit"  name="addTutor" value="Add Tutor"/>
         </form>
       </div>
     </div>
@@ -155,10 +155,11 @@
 
       <div id="AddSection2">
         <form method="post" action="addData.php">
-          Enter X<input type="text" name="name"/><hr/>
-          Enter Y<input type="text" name="edition"/><hr/>
-          Enter Z<input type="number" name="amount"/><hr/>
-          <input type="submit"  name="addRoom" value="Add Thing"/>
+          Enter roomID<input type="number" name="roomID"/><hr/>
+          Enter Name<input type="text" name="name"/><hr/>
+          Enter Type<input type="text" name="type"/><hr/>
+	  Enter buildingID<input type="text" name="buildingID"/><hr/>
+          <input type="submit"  name="addRoom" value="Add Room"/>
         </form>
       </div>
     </div class=sessions>
