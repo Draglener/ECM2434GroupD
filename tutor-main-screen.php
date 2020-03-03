@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="tutor-style.css">
 	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     <script src="actions.js"></script>
+	<title>Game Master Page</title>
   </head>
 
   <body class="body" id="body" onload="openPage(event, 'Groups'); addVis()">
