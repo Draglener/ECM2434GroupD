@@ -31,7 +31,7 @@
         <form name="t-loginForm" action="tutor-login-action.php" method="post"
 
 
-          <label for="tutor"><b>Tutor:</b></label>
+          <p><label for="tutor"><b>Tutor:</b></label></p>
           <select name="tutor" required id="tutorList">
            <?php
               //function to populate drop-down menu from distinct tutorvalues in database
