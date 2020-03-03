@@ -98,6 +98,7 @@
             <th>TutorID</th>
             <th>Location</th>
             <th>Score</th>
+			<th>Help</th>
           </tr>
 
           <!-- PHP to fetch data, and fill table -->
@@ -106,7 +107,7 @@
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row["tutorID"]."</td><td>".$row["location"]."</td><td>".$row["points"]."</td></tr>";
+              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row["tutorID"]."</td><td>".$row["location"]."</td><td>".$row["points"]."</td><td>".$row["help"]."</td></tr>";
             }
             echo "</table>";
           }else{
