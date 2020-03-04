@@ -81,7 +81,10 @@ alert("Goto the new marker and scan the QR code!");
 </script>
     
     <!--The div element for the map -->
+
     <div id="fullMapDisplay" class="container"></div>
+		<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+		    <a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
     <script>
     //Initialize and add the map
     function initMap() {
@@ -160,8 +163,7 @@ alert("Goto the new marker and scan the QR code!");
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCav_BvOFlJ0fMtElRHjkI3xAFPLbe6IY4&callback=initMap">
     </script>
 
-		  	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-		    <a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
+		  
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
