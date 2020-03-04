@@ -1,127 +1,113 @@
 /* ----Katie Jones and Piranavie Thangasuthan---- */
 
 /* ----BASIC FORMATTING --- */
-#body {
+body {
     background-color: #98EAFA;
     width:-moz-available;
     width:-webkit-fill-available;
-    margin-top: 10%;
+    /* margin-top: 10%; */
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10%;
+    vertical-align: middle;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+}
+.top_buttons{
+	text-align: center;
 }
 
-#homeButton {
-    font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-    font-size: large;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #0700FF;
-    height: 50px;
-    width: 100px;
-    position: static;
-    margin: 10px;
-}
-
-#pointsDisplayTag {
+.title {
     font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    font-size: large;
-    font-weight: bold;
-    height: 50px;
-    width: 100px;
-    position:static;
-    border: thin solid #000000;
-    text-align: center;
-    border-radius: 50px;
-    margin-top:1%;
-    margin-left:1%;
-    float: right;
-}
-
-#mapDisplay{
-    background-color:black;
-    position: static;
-    height: 40%;
-    width:-webkit-fill-available;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-img.QRButton{
-  background-image: url(qrButton.jpg);
-  background-color: #F2E5E5;
-  width: 50px;
-  height: 50px;
-  display: block;
-  /* position: static; */
-  /* margin-top:430px; */
-  /* float:right; */
-  /* margin-right: -100%; */
-}
-
-#button {
-	float: left;
-	width: 50%;
-}
-
-#ScoreBoardButton {
-  font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-  font-size: large;
-  font-weight: bold;
-  border: thin solid #000000;
-  color: #090909;
-  background-color: #FCF8F8;
-  height: 50px;
-  width: 150px;
-  float: right;
-  /* margin: 10px; */
-}
-
-#ScoreBoardButton:hover{
-  background-color: #0b17b1;
-  color: white;
-}
-
-#closeButton {
-    font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
-    font-size: large;
-    font-weight: bold;
-    border: thin solid #000000;
-    color: #FCF8F8;
-    background-color: #090909;
-    height: 50px;
-    width: 50px;
-    float: left;
-    position: static;
-    margin: 10px;
-}
-
-#closeButton:hover {
-  background-color: #091c82;
-  color: white;
-}
-
-/* ----SCOREBOARD---- */
-#ScoreBoardDisplay{
-     background-color: #FCF8F8;
-    height: 70%;
-    width:-webkit-fill-available;
-    margin-top:3%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#ScoreBoardTitle {
-    ffont-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
     font-size: xx-large;
     font-weight: bold;
+    text-align: center;
     color: #00D7FF;
     background-color: #090909;
     height: 50px;
     width: 100%;
-    text-align: center;
     display: block;
+}
+#pointsDisplayTag {
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+    font-size: large;
+    font-weight: bold;
+    height: 30px;
+    width: 75px;
+    position:static;
+    border: thin solid #000000;
+    text-align: center;
+    border-radius: 50px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 10px;
+}
+
+
+.container{
+    background-color: #FCF8F8;
+    position: static;
+    height: 70%;
+    width:-webkit-fill-available;
+    width:-moz-available;
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+
+/* ----SCOREBOARD---- */
+
+
+#ScoreBoardButton, #homeButton, #helpButton, .QRButton {
+  font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+  border: thin solid #000000;
+  height: 30px;
+  width: 100px;
+  margin: 10px;
+  background:    #0b5394;
+  border-radius: 5px;
+  color:         #ffffff;
+  display:       inline-block;
+  font:          normal bold;
+  font-size: 0.9em;
+  text-align:    center;
+  float: left;
+}
+
+.QRButton{
+  background-image: url(qrButton.jpg);
+  background-size: cover;
+  float:right;
+  color:black;
+  text-shadow: -7px 0px 3px white, 7px 0px 3px white, 0px 7px 3px white, 0px 7px 3px white;
+  background-size: cover;
+  font-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  font-weight: 900;
+}
+
+#helpButton{
+	float:right;
+}
+#loginButton {
+  background-color: black;
+  font-size: 1.1em;
+  color: white;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  margin-top: 20px;
+}
+
+
+#ScoreBoardButton:hover, #loginButton:hover {
+  background-color: #0b17b1;
+  color: white;
 }
 
 table{
@@ -129,12 +115,12 @@ table{
   border-collapse: collapse;
   width: 100%;
   margin-top:100px;
-
+  text-align: center;
 }
 
 td, th {
   border: 1px solid #000;
-  padding: 8px;
+  padding: 20px;
   font-size:medium;
   text-align: center;
 }
@@ -158,27 +144,6 @@ th {
 
 
 /* ----QUIZ---- */
-#quiz{
-    background-color: #FCF8F8;
-    height: auto;
-    width:-webkit-fill-available;
-    width:-moz-available;
-    margin-top: 3%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#quizTitle {
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    font-size: xx-large;
-    font-weight: bold;
-    color: #00D7FF;
-    background-color: #090909;
-    height: 50px;
-    text-align: center;
-    padding: 30px;
-}
-
 
 .unchecked{
 	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
@@ -213,48 +178,18 @@ th {
 
 
 /* ----QR---- */
-#QRScanner{
-   background-color: #FCF8F8;
-    height: 70%;
-    width:-webkit-fill-available;
-	width:-moz-available;
-    margin-top:3%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
-#QRScannerTitle {
-    background-color: #090909;
-    height: 50px;
-    width:-webkit-fill-available;
-	width:-moz-available;
 
-}
 
-.QRScanner video{
-  /* position:static; */
+.container video{
   max-width: -webkit-fill-available;
   max-width: -moz-available;
-  /* height: 355px; */
-}
-.QRScanner{
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-
-  width:-webkit-fill-available;
-  width:-moz-available;
 }
 
 /* ----MAP---- */
 #fullMapDisplay{
   background-color:black;
-  /* position: static; */
-  height: 90%;
-  /* width: 480px; */
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+      height: 590px;
 }
 
 
@@ -263,10 +198,10 @@ th {
 .form-popup {
 	display: none;
 	position: fixed;
-	border: 3px solid #f1f1f1'
+	border: 3px solid #f1f1f1;
 	z-index: 9;
 }
-#usernameInput{
+#usernameInput, #tutorList{
    width: -webkit-fill-available;
    width:-moz-available;
    width: -moz-available;
@@ -279,35 +214,10 @@ th {
 input, select, label{
 	font-size: 1.1em;
 }
-#tutorList{
-    width: -webkit-fill-available;
-    width: -moz-available;
-    padding: 15px;
-    display: block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
 
 
-#loginButton {
-  background-color: black;
-  font-size: 1.1em;
-  color: white;
-  padding: 20px;
-  border: none;
-  cursor: pointer;
-  width: -webkit-fill-available;
-  width: -moz-available;
-  margin-top: 20px;
-}
 
-#loginButton:hover {
-  background-color: #0b17b1;
-  color: white;
-}
-
-img.topImage{
+img.topImage, img.bottomImage{
   width: 35%;
   display: block;
   margin-left: auto;
@@ -317,38 +227,12 @@ img.topImage{
   position: static;
 }
 
-img.bottomImage{
-  width: 35%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 60px;
-  position: static;
-}
-
 
 /* ----FAQ PAGE---- */
 #informationDisplay{
-    background-color: #FCF8F8;
-    /* position: static; */
-    /* height: 560px; */
-    width: -webkit-fill-available;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
     overflow: scroll;
 }
 
-#informationTitle {
-    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    font-size: xx-large;
-    font-weight: bold;
-    text-align: center;
-    color: #00D7FF;
-    background-color: #090909;
-    height: 50px;
-    width: -webkit-fill-available;
-}
 
 #informationText {
     font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
@@ -356,9 +240,7 @@ img.bottomImage{
     color: #000000;
     height: 500px;
     width: -webkit-fill-available;
+	width: -moz-available;
     padding: 10px;
-    /* margin-left: 15px; */
-    /* margin-right: 15px; */
-    /* overflow-y:scroll; */
     overflow-x:hide;
 }
