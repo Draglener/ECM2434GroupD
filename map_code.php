@@ -1,6 +1,12 @@
 <?php
 session_start();
 require('connection.php');
+$session = $_SESSION['appuser'];
+if ($_SESSION['status'] == "student"){
+}else{
+  header('Location: homepage.php');
+}
+
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -43,9 +49,8 @@ Added changes from html to php pages
   <head>
 
     <meta charset="UTF-8">
-		<title>The mapPage</title>
+		<title>Map</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	  <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     
   </head>
   <script>
@@ -66,13 +71,14 @@ alert("Goto the new marker and scan the QR code!");
     
     //To access the name of (e.g) the second building in the cycle, use buildings[2].name
     </script>
-  <body class="body" id="body">
-    <div>
+  <body>
+    <div class="top_buttons">
 		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
 		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+		  <button id = "helpButton">HELP</button>
     </div>
     
-    <button id = "helpButton">Help</button>
+    
     <script>
     var btn = document.getElementById("helpButton");
     btn.onclick = action(helpUpdate.php);
@@ -80,7 +86,7 @@ alert("Goto the new marker and scan the QR code!");
     </script>
     
     <!--The div element for the map -->
-    <div id="fullMapDisplay"></div>
+    <div id="fullMapDisplay" class="container"></div>
     <script>
     //Initialize and add the map
     function initMap() {
@@ -92,7 +98,7 @@ alert("Goto the new marker and scan the QR code!");
       var map = new google.maps.Map(
           document.getElementById('fullMapDisplay'), {zoom: 16.5,
         center: center,
-        mapTypeId: 'hybrid'
+        mapTypeId: 'hybrid',
         //gestureHandling: 'none', 
         //zoomControl:true
         });
@@ -159,10 +165,9 @@ alert("Goto the new marker and scan the QR code!");
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCav_BvOFlJ0fMtElRHjkI3xAFPLbe6IY4&callback=initMap">
     </script>
 
-    <div style="margin:10px;">
-		  	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-		    <a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a>
-		</div>
+		  	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
+		  
+			<a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
