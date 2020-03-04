@@ -11,13 +11,10 @@
 <html>
   <head class="head" id="head">
     <link rel="stylesheet" href="tutor-style.css">
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     <script src="actions.js"></script>
-	<title>Game Master Page</title>
   </head>
 
   <body class="body" id="body" onload="openPage(event, 'Groups'); addVis()">
-	<img src="findExeterLogo.png" height="150px" style="float: right;">
     <div><h1>Game Master Page</h1></div>
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Groups')">Tutor Groups</button>
@@ -56,6 +53,7 @@
           ?>
       </div>
 
+
       <div id="AddButton">
         <button onclick="addVis('AddSection')">Add New Tutor</button>
       </div>
@@ -69,7 +67,7 @@
           <select name="office" required id="officeList">
            <?php
               //function to populate drop-down menu for office rooms
-              function dropdownOptions() {
+              function dropdownOffice() {
                 require('connection.php');
                 $sql = "SELECT * FROM room WHERE type='office'";
                 $result = $conn->query($sql);
@@ -77,13 +75,18 @@
                   echo "<option value='".$row['roomID']."'>".$row['name']."</option>";
                 }
               }
-              dropdownOptions();
+              dropdownOffice();
               ?>
           </select>
           <input type="submit"  name="addTutor" value="Add Tutor"/>
         </form>
+        //delete
       </div>
     </div>
+
+
+
+
 
 
     <div id="Students" class="tabcontent">
@@ -96,26 +99,56 @@
           <tr>
             <th>ID</th>
             <th>Username</th>
-            <th>TutorID</th>
+            <th>Tutor</th>
             <th>Location</th>
             <th>Score</th>
-			<th>Help</th>
           </tr>
 
           <!-- PHP to fetch data, and fill table -->
           <?php
-          $sql = "SELECT * from user";
+          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name FROM user INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID INNER JOIN building ON user.location = building.buildingID GROUP BY user.username ORDER BY user.userID";
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row["tutorID"]."</td><td>".$row["location"]."</td><td>".$row["points"]."</td><td>".$row["help"]."</td></tr>";
+              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row['fName']." ".$row['lName']."</td><td>".$row["name"]."</td><td>".$row["points"]."</td></tr>";
             }
             echo "</table>";
           }else{
             echo "<p>Error:".$conn->error."</p>";
           }
           ?>
+
+
       </div>
+
+      <div id="AddButton2">
+        <button onclick="addVis('AddSection2')">Add New Student</button>
+      </div>
+
+      <div id="AddSection2">
+        <form method="post" action="addData.php">
+          Enter the username<input type="text" name="name"/><hr/>
+          <label for="tutor"><b>Tutor:</b></label>
+          <select name="tutor" required id="tutorList">
+           <?php
+              //function to populate drop-down menu for office rooms
+              function dropdownTutor() {
+                require('connection.php');
+                $sql = "SELECT * FROM tutorGroup";
+                $result = $conn->query($sql);
+                while($row = $result->fetch_assoc()){
+                  echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName']."</option>";
+                }
+              }
+              dropdownTutor();
+              ?>
+          </select>
+          <input type="submit"  name="addTutor" value="Add Student"/>
+        </form>
+      </div>
+      //delete
+
+
     </div>
 
 
@@ -137,11 +170,11 @@
 
           <!-- PHP to fetch data, and fill table -->
           <?php
-          $sql = "SELECT * from room";
+          $sql = "SELECT room.*, building.name AS bname from room INNER JOIN building ON room.buildingID = building.buildingID";
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-              echo "<tr><td>".$row["roomID"]."</td><td>".$row["name"]."</td><td>".$row["type"]."</td><td>".$row["buildingID"]."</td></tr>";
+              echo "<tr><td>".$row["roomID"]."</td><td>".$row["name"]."</td><td>".$row["type"]."</td><td>".$row["bname"]."</td></tr>";
             }
             echo "</table>";
           }else{
@@ -150,21 +183,36 @@
           ?>
       </div>
 
-      <div id="AddButton2">
-        <button onclick="addVis('AddSection2')">Add New Room</button>
+      <div id="AddButton3">
+        <button onclick="addVis('AddSection3')">Add New Room</button>
       </div>
 
-      <div id="AddSection2">
+      <div id="AddSection3">
         <form method="post" action="addData.php">
-          Enter roomID<input type="number" name="roomID"/><hr/>
-          Enter Name<input type="text" name="name"/><hr/>
-          Enter Type<input type="text" name="type"/><hr/>
-	  Enter buildingID<input type="text" name="buildingID"/><hr/>
-          <input type="submit"  name="addRoom" value="Add Room"/>
+          Enter the room name<input type="text" name="name"/><hr/>
+          Enter the room type<input type="text" name="type"/><hr/>
+          <label for="building"><b>Building:</b></label>
+          <select name="building" required id="buildingList">
+           <?php
+              function dropdownBuildings() {
+                require('connection.php');
+                $sql = "SELECT * FROM building";
+                $result = $conn->query($sql);
+                while($row = $result->fetch_assoc()){
+                  echo "<option value='".$row['buildingID']."'>".$row['name']."</option>";
+                }
+              }
+              dropdownBuildings();
+              ?>
+          </select>
+          <input type="submit"  name="addTutor" value="Add Room"/>
         </form>
       </div>
+      //delete
+
     </div class=sessions>
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
+
 
