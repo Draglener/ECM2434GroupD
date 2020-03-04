@@ -1,6 +1,12 @@
 <?php
 session_start();
 require('connection.php');
+$session = $_SESSION['appuser'];
+if ($_SESSION['status'] == "student"){
+}else{
+  header('Location: homepage.php');
+}
+
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -18,21 +24,22 @@ Adding score to page
 <html>
 	<head>
       <meta charset="UTF-8">
-    <title>The FAQPage</title>
+    <title>FAQ</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
 
-	<body class="body" id="body">
-		<div>
-			  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-			  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		</div>
+	<body>
+		<div class="top_buttons">
+		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
+		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+		  <button id = "helpButton">HELP</button>
+    </div>
 
-		<div class="informationDisplay" id="informationDisplay">
+		<div class="container" id="informationDisplay">
 		 		
-		    <a id= "informationTitle"><i class="fa fa-info-circle"></i>
+		    <a class= "title"><i class="fa fa-info-circle"></i>
             Information</a>
 			<div id="informationText">
 					<p><h2>Health and Wellbeing</h2></p>
@@ -54,12 +61,9 @@ Adding score to page
         </div>
 		</div>
 
-        
+		  	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
+		    	<a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
 
-		 <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		    	 <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
-		</div>
 <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;

@@ -1,6 +1,12 @@
 <?php
 session_start();
 require('connection.php');
+$session = $_SESSION['appuser'];
+if ($_SESSION['status'] == "student"){
+}else{
+  header('Location: homepage.php');
+}
+
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -21,28 +27,26 @@ Created terms and condition page
     <title>Terms</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
-		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
 
-	<body class="body" id="body">
+	<body>
 <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
 
 <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms and Conditions and Privacy Policy</a>
 <input type="submit" name="submit" value="submit" />
 
 </form>
-		<div>
-			  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-			  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		</div>
+		<div class="top_buttons">
+		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
+		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+		  <button id = "helpButton">HELP</button>
+    </div>
 
-		<div class="informationDisplay" id="informationDisplay">
-		 		<a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
-		    <a id= "informationTitle"></i>
+		<div class="container" id="informationDisplay">
+		    <a class= "title"></i>
              Terms</a>
-		</div>
-
-        <div id="informationText">
+			 <div id="informationText">
 <h2 dir="ltr">
     Terms and Conditions
 </h2>
@@ -405,12 +409,12 @@ Created terms and condition page
 </p>
 <br/>
 </div>
-
-		 <div style="margin:10px;">
-		  	<div id="button"><a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a></div>
-		    <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
-			 <div id="button"><a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a></div>
 		</div>
+
+	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
+		    <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
+	<a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
+
 <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;

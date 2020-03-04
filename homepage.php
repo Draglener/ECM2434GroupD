@@ -12,7 +12,7 @@ different images and sessions implemented
     <meta charset="UTF-8">
     <title>Student Login</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
   </head>
 
   <body class="body" id="body">

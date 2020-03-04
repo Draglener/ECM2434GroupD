@@ -1,6 +1,11 @@
 <?php
 session_start();
 require('connection.php');
+$session = $_SESSION['appuser'];
+if ($_SESSION['status'] == "student"){
+}else{
+  header('Location: homepage.php');
+}
 
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
@@ -93,27 +98,19 @@ and changed links from html pages to php
 	</style>
   </head>
 
-  <body class="body" id="body">
-    <div>
-  	  <a href="faq.php"><input type="button" id="homeButton" value="FAQ"></a>
-  	  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+  <body>
+    <div class="top_buttons">
+		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
+		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+		  <button id = "helpButton">HELP</button>
     </div>
 
-    <div class="mapDisplay" id="mapDisplay">
-
-    </div>
-
-    <div class="quiz" id="quiz">
-	<a id= "quizTitle">Quiz</a>
+    <div class="container" id="quiz">
+	<a class= "title">Quiz</a>
 	<p id="error"></p>
 	</div>
-    	<a href="map_code.php"><input type="button" id="closeButton" value="&#10006;"></a>
-        
-    
 
-    <div>
-    	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
-    </div>
+    	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
 	<script>
 	var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
