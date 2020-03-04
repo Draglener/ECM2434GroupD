@@ -73,11 +73,11 @@ alert("Goto the new marker and scan the QR code!");
     </div>
     
     <button id = "helpButton">Help</button>
-    <script>
-    var btn = document.getElementById("helpButton");
-    btn.onclick = action(helpUpdate.php);
-      
-    </script>
+    <script type="text/javascript">
+    document.getElementById("helpButton").onclick = function () {
+        location.href = "https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/helpUpdate.php";
+    };
+</script>
     
     <!--The div element for the map -->
     <div id="fullMapDisplay"></div>
