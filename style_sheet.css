@@ -12,27 +12,27 @@ body {
 }
 .top_buttons{
 	text-align: center;
+	display: flex;
 }
 
 .title {
-    font-size: xx-large;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
     color: #00D7FF;
     background-color: #090909;
-    height: 50px;
+    padding: 25px;
     width: 100%;
     display: block;
 }
 #pointsDisplayTag {
-    font-size: large;
+    font-size: xx-large;
     font-weight: bold;
-    height: 30px;
-    width: 75px;
-    position:static;
+    height: 75px;
+    width: 200px;
     border: thin solid #000000;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 20px;
     margin-right:auto;
     margin-left:auto;
     margin-top: 10px;
@@ -46,7 +46,8 @@ body {
     width:-webkit-fill-available;
     width:-moz-available;
     margin: 10px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
     display: block;
 }
 
@@ -56,15 +57,15 @@ body {
 
 #ScoreBoardButton, #homeButton, #helpButton, .QRButton {
   border: thin solid #000000;
-  height: 30px;
-  width: 100px;
+  height: 75px;
+  width: 200px;
   margin: 10px;
   background: #0b5394;
-  border-radius: 5px;
+  border-radius: 20px;
   color: #ffffff;
   display: inline-block;
-  font: normal bold;
-  font-size: 0.9em;
+  font-weight: bold;
+  font-size: 25px;
   text-align:center;
   float: left;
 }
@@ -138,24 +139,25 @@ th {
 /* ----QUIZ---- */
 
 .unchecked{
-	font-size: medium;
+	font-size: large;
 	text-align: center;
 	background-color: #FCF8F8;
 	color: #000000;
 	border-color: #000000;
-	padding: 30px;
+	padding: 40px;
 }
 #error{
 	margin: 0px;
 	padding: 33px;
 	text-align: center;
-	font-size: 1.1em;
+	font-size: 30px;
 }
 .question{
 	margin: 0px;
 	text-align: center;
-	font-size: 1.5em;
-	padding: 20px;
+	font-size: 50px;
+	padding: 40px;
+	font-weight: bolder;
 }
 
 #questionText {
@@ -201,9 +203,7 @@ img.topImage, img.bottomImage{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 0px;
-  position: static;
-  margin-bottom: 10%;
+  padding: 50px;
 }
 
 /* ----FAQ PAGE---- */
@@ -213,13 +213,20 @@ img.topImage, img.bottomImage{
 }
 
 input[type=checkbox] {
-	float: left;
+	    float: left;
+font-size: ;
+height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    margin-right: 20px;
+    border: 2px solid #555;
 }
 
 p {
 	font-size: 1.5em;
 }
 #informationText {
-    font-size: 1em;
+    font-size: 12px;
     color: #000000;
+    padding: 20px;
 }
