@@ -8,12 +8,7 @@ body {
     width:-webkit-fill-available;
     margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 10%;
-    vertical-align: middle;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    top: 50%;
-    position: absolute;
+    margin-top: 10%;
 }
 .top_buttons{
 	text-align: center;
@@ -47,11 +42,12 @@ body {
 .container{
     background-color: #FCF8F8;
     position: static;
-    height: 70%;
+    height: 90%;
     width:-webkit-fill-available;
     width:-moz-available;
     margin: 10px;
     margin-bottom: 0;
+    display: block;
 }
 
 
@@ -91,9 +87,9 @@ body {
 }
 #loginButton {
   background-color: black;
-  font-size: 1.1em;
+  font-size: 2em;
   color: white;
-  padding: 20px;
+  padding: 40px;
   border: none;
   cursor: pointer;
   width: -webkit-fill-available;
@@ -178,13 +174,6 @@ th {
   max-width: -moz-available;
 }
 
-/* ----MAP---- */
-#fullMapDisplay{
-  background-color:black;
-      height: 590px;
-}
-
-
 /* ----HOMEPAGE---- */
 
 .form-popup {
@@ -204,7 +193,7 @@ th {
    margin-top: 10px;
 }
 input, select, label{
-	font-size: 1.1em;
+	font-size: 2em;
 }
 
 img.topImage, img.bottomImage{
@@ -212,23 +201,25 @@ img.topImage, img.bottomImage{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30%;
   padding-top: 0px;
   position: static;
+  margin-bottom: 10%;
 }
 
 /* ----FAQ PAGE---- */
 #informationDisplay{
     overflow: scroll;
+    height: 1400px;
 }
 
+input[type=checkbox] {
+	float: left;
+}
 
+p {
+	font-size: 1.5em;
+}
 #informationText {
-    font-size: small;
+    font-size: 1em;
     color: #000000;
-    height: 500px;
-    width: -webkit-fill-available;
-	width: -moz-available;
-    padding: 10px;
-    overflow-x:hide;
 }

@@ -17,12 +17,9 @@ different images and sessions implemented
 
   <body class="body" id="body">
 
-     <div class="image">
         <img src="findExeterLogo.png" alt="topImage" class="topImage">
-      </div>
 
-    <form name="loginForm" action="login.php" method="post">
-      <div class="userLogin">
+    <form class="userLogin" name="loginForm" action="login.php" method="post">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
         <label id = "uniUserName" for="username"><b>University Username:</b></label>
         <input type="text" placeholder="Enter your university username" name="username" required id="usernameInput">
@@ -43,16 +40,11 @@ different images and sessions implemented
             dropdownOptions();
             ?>
         </select>
-        <p></p>
-        	<input type="checkbox" required name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="terms.php">Terms and Conditions and Privacy Policy</a>
-	<p></p>
-        <button type="submit" name="submit" id="loginButton">Join</button>
-      </div>
+        	<p>  <input type="checkbox" required name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="terms.php">Terms and Conditions and Privacy Policy</a></p>
+        <button type="submit" name="submit" id="loginButton">Log In</button>
       </form>
 
-      <div class="image">
         <img src="exeterLogo.png" alt="bottomImage" class="bottomImage">
-      </div>
 
   </body>
   <?php unset($_SESSION['apperror']); ?>
