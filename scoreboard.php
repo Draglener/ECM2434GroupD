@@ -1,6 +1,12 @@
 <?php
 session_start();
 require('connection.php');
+$session = $_SESSION['appuser'];
+if ($_SESSION['status'] == "student"){
+}else{
+  header('Location: homepage.php');
+}
+
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -17,38 +23,22 @@ Real Scoreboard showing everyones scores
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>The ScoreBoardPage</title>
-		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+	<title>Scoreboard</title>
         <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	<style>
-	table {
-		text-align: center;
-		width: 100%;
-		margin-top:0px;
-	}
-	th, td {
-		padding:10px;
-	}
-	.ScoreBoardDisplay {
-		overflow: scroll;
-	}
-	</style>
+		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
 
-	<body class="body" id="body">
-		<div>
-			  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-			   <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
- 
-		</div>
+	<body>
 
-		<div class="mapDisplay" id="mapDisplay">
+		<div class="top_buttons">
+		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
+		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+		  <button id = "helpButton">HELP</button>
+    </div>
 
-		</div>
-
-		<div class="ScoreBoardDisplay" id="ScoreBoardDisplay">
-		    <a id= "ScoreBoardTitle">ScoreBoard</a>
-			     <table>
+		<div class="container" id="ScoreBoardDisplay">
+		    <a class= "title">Scoreboard</a>
+			     <table style="margin-top:0;">
         <!-- Table headers -->
         <tr>
           <th>Username</th>
@@ -74,13 +64,10 @@ Real Scoreboard showing everyones scores
 
 		</div>
 
-		<div style="margin:10px;">
 		  	
-	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; ScoreBoard"></a>
+	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
 	
-	    <a href="qr.php"><img type="button" src="qrButton.jpg" alt="QRButton" class="QRButton"></a>
-		</div>
-		 
+	   <a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
