@@ -43,7 +43,7 @@ Added changes from html to php pages
   <head>
 
     <meta charset="UTF-8">
-		<title>The mapPage</title>
+		<title>Map</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
 	  <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     
