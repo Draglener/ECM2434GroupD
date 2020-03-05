@@ -6,11 +6,12 @@
   }elseif ($from == "removeTutor") {
     removeTutor($conn);
   }elseif ($from == "addStudent") {
-    //addStudent($conn);
+    addStudent($conn);
   }elseif ($from == "removeStudent") {
     removeStudent($conn);
   }elseif ($from == "addRoom") {
     //addRoom($conn);
+      header('Location: tutor-main-screen.php');
   }elseif ($from == "removeRoom") {
     removeRoom($conn);
   }else{
@@ -38,19 +39,15 @@
     header('Location: tutor-main-screen.php');
   }
 
-//fix using SQL dump
   function addStudent($conn){
-    $fName = htmlentities($_POST["fName"]);
-    $lName = htmlentities($_POST["lName"]);
-    $score = '0';
-    $office = htmlentities($_POST["office"]);
-    $current_pos = '0';
-    $password = htmlentities($_POST["password"]);
-    $query = "INSERT INTO tutorGroup (fName, lName, score, office, current_pos, password) VALUES ('". $fName ."', '" .$lName ."', '". $score ."', '" .$office ."', '". $current_pos ."', '" .$password ."');";
+    $username = htmlentities($_POST["username"]);
+    $tutorID = htmlentities($_POST["tutorID"]);
+    $location = '0';
+    $points = '0';
+    $query = "INSERT INTO user (username, tutorID, location, points) VALUES ('". $username ."', " .$tutorID .", ". $location .", " .$points .");";
     $conn->query($query);
     header('Location: tutor-main-screen.php');
   }
-
 
   function removeStudent($conn){
     $userID = htmlentities($_POST["userID"]);
@@ -81,3 +78,4 @@
   }
 
 ?>
+
