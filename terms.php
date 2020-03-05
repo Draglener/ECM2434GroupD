@@ -27,18 +27,6 @@ Created terms and condition page
 	</head>
 
 	<body>
-<form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
-
-<input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms and Conditions and Privacy Policy</a>
-<input type="submit" name="submit" value="submit" />
-
-</form>
-		<div class="top_buttons">
-		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		  <button id = "helpButton">HELP</button>
-    </div>
-
 		<div class="container" id="informationDisplay">
 		    <a class= "title"></i>
              Terms</a>
@@ -407,7 +395,7 @@ Created terms and condition page
 </div>
 		</div>
 
-	<a href="homepage.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
+	<a href="homepage.php"><input type="button" id="ScoreBoardButton" value="&#8682; Login Page"></a>
 
 
 <script>
