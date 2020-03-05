@@ -1,7 +1,7 @@
 <?php
 session_start();
-require(connection.php);
-$ID = $_SESSION['studentID']
+require('connection.php');
+$ID = $_SESSION['studentID'];
 
 $query = "UPDATE user SET score = 0 AND location = 0 WHERE userID = ".$ID.";";
 $conn->query($query);
