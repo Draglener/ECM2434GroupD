@@ -18,7 +18,7 @@
     header('Location: tutor-main-screen.php');
   }
 
-
+//function to query and add a tutor to the database
   function addTutor($conn){
     $fName = htmlentities($_POST["fName"]);
     $lName = htmlentities($_POST["lName"]);
@@ -31,7 +31,7 @@
     header('Location: tutor-main-screen.php');
   }
 
-
+//function to delete the selected tutor from the datavase
   function removeTutor($conn){
     $tutorID = htmlentities($_POST["tutorID"]);
     $query ="DELETE FROM tutorGroup WHERE tutorID =". $tutorID .";";
@@ -39,6 +39,7 @@
     header('Location: tutor-main-screen.php');
   }
 
+//function to query and add a tutor to the database
   function addStudent($conn){
     $username = htmlentities($_POST["username"]);
     $tutorID = htmlentities($_POST["tutorID"]);
@@ -49,6 +50,7 @@
     header('Location: tutor-main-screen.php');
   }
 
+//function to remove the selected student from the database
   function removeStudent($conn){
     $userID = htmlentities($_POST["userID"]);
     $query ="DELETE FROM user WHERE userID =". $userID .";";
@@ -69,7 +71,7 @@
     header('Location: tutor-main-screen.php');
   }
 
-
+//function to remove a rppm from the database
   function removeRoom($conn){
     $roomID = htmlentities($_POST["roomID"]);
     $query ="DELETE FROM room WHERE roomID =". $roomID .";";
@@ -78,4 +80,5 @@
   }
 
 ?>
+
 
