@@ -12,6 +12,7 @@
 <html>
   <head class="head" id="head">
     <link rel="stylesheet" href="tutor-style.css">
+    <img src="findExeterLogo.png" height="150px" style="float: right;">
     <script src="actions.js"></script>
   </head>
 
@@ -48,7 +49,7 @@
               echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["score"]."</td></tr>";
             }
             echo "</table>";
-          }else{ echo "<p>No stock.</p><p>Use buttons to add stock.</p>"; }
+          }else{ echo "<p>No tutors.</p><p>Use buttons to add tutors.</p>"; }
           ?>
       </div>
 
@@ -112,13 +113,14 @@
             <th>Tutor</th>
             <th>Location</th>
             <th>Score</th>
+            <th>Help</th>
           </tr>
           <?php
           $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name FROM user INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID INNER JOIN building ON user.location = building.buildingID GROUP BY user.username ORDER BY user.userID";
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row['fName']." ".$row['lName']."</td><td>".$row["name"]."</td><td>".$row["points"]."</td></tr>";
+              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row['fName']." ".$row['lName']."</td><td>".$row["name"]."</td><td>".$row["points"]."</td><td>".$row["help"]</td></tr>";
             }
             echo "</table>";
           }else{  echo "<p>Error:".$conn->error."</p>"; }
