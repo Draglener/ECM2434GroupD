@@ -66,7 +66,7 @@ Real Scoreboard showing everyones scores
 
 		  	
 	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
-	
+	<button onclick="tutor-logout.php">Logout</button>
 	   <a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
