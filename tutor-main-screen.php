@@ -6,6 +6,7 @@
   }else{
     header('Location: tutor-login.php');
   }
+
 ?>
 
 <html>
@@ -22,22 +23,23 @@
       <button class="tablinks" onclick="openPage(event, 'Rooms')">Rooms</button>
     </div>
 
+
+
+
+
+
+
     <div id="Groups" class="tabcontent">
       <h2>Tutor Groups</h2>
       <p>This is the Tutor groups page it displays the tutor ID name and the groups score.</p>
-
       <div class="Table"><h3>Tutor Table</h3>
-        <!-- Stock Table -->
         <table>
-          <!-- Table headers -->
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Lastname</th>
             <th>Score</th>
           </tr>
-
-          <!-- PHP to fetch data, and fill table -->
           <?php
           $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
           $result = $conn->query($sql);
@@ -46,20 +48,18 @@
               echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["score"]."</td></tr>";
             }
             echo "</table>";
-          }else{
-            echo "<p>No stock.</p><p>Use buttons to add stock.</p>";
-          }
-
+          }else{ echo "<p>No stock.</p><p>Use buttons to add stock.</p>"; }
           ?>
       </div>
 
 
       <div id="AddButton">
-        <button onclick="addVis('AddSection')">Add New Tutor</button>
+        <button onclick="addVis('AddSection')">Add & Remove Tutors</button>
       </div>
 
       <div id="AddSection">
         <form method="post" action="addData.php">
+          <input type="hidden" name="from" value="addTutor">
           Enter Your Firstname<input type="text" name="fName"/><hr/>
           Enter Your Lastname<input type="text" name="lName"/><hr/>
           Enter a Password<input type="text" name="password"/><hr/>
@@ -80,9 +80,21 @@
           </select>
           <input type="submit"  name="addTutor" value="Add Tutor"/>
         </form>
-        //delete
+
+        <form method="post" action="addData.php">
+          <input type="hidden" name="from" value="removeTutor">
+          <label for="tutor"><b>tutor name:</b></label>
+          <select name="tutorID" required id="tutorList">
+          <?php
+          dropdownTutor();
+          ?>
+          <input type="submit"  name="removeTutor" value="Remove Tutor"/>
+        </form>
+
       </div>
     </div>
+
+
 
 
 
@@ -93,9 +105,7 @@
       <h2>Students</h2>
       <p>This is the students page. It displays a table of the students, which group they are in and where they are</p>
       <div class="Table"><h3>Students Table</h3>
-        <!-- Stock Table -->
         <table>
-          <!-- Table headers -->
           <tr>
             <th>ID</th>
             <th>Username</th>
@@ -103,8 +113,6 @@
             <th>Location</th>
             <th>Score</th>
           </tr>
-
-          <!-- PHP to fetch data, and fill table -->
           <?php
           $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name FROM user INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID INNER JOIN building ON user.location = building.buildingID GROUP BY user.username ORDER BY user.userID";
           $result = $conn->query($sql);
@@ -113,25 +121,21 @@
               echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row['fName']." ".$row['lName']."</td><td>".$row["name"]."</td><td>".$row["points"]."</td></tr>";
             }
             echo "</table>";
-          }else{
-            echo "<p>Error:".$conn->error."</p>";
-          }
+          }else{  echo "<p>Error:".$conn->error."</p>"; }
           ?>
-
-
       </div>
 
       <div id="AddButton2">
-        <button onclick="addVis('AddSection2')">Add New Student</button>
+        <button onclick="addVis('AddSection2')">Add & Remove Students</button>
       </div>
 
       <div id="AddSection2">
         <form method="post" action="addData.php">
+          <input type="hidden" name="from" value="addStudent">
           Enter the username<input type="text" name="name"/><hr/>
           <label for="tutor"><b>Tutor:</b></label>
           <select name="tutor" required id="tutorList">
            <?php
-              //function to populate drop-down menu for office rooms
               function dropdownTutor() {
                 require('connection.php');
                 $sql = "SELECT * FROM tutorGroup";
@@ -143,13 +147,29 @@
               dropdownTutor();
               ?>
           </select>
-          <input type="submit"  name="addTutor" value="Add Student"/>
+          <input type="submit"  name="addStudent" value="Add Student"/>
+        </form>
+
+        <form method="post" action="addData.php">
+          <input type="hidden" name="from" value="removeStudent">
+          <label for="student"><b>student:</b></label>
+          <select name="studentID" required id="studentList">
+          <?php
+          function dropdownStudent() {
+            require('connection.php');
+            $sql = "SELECT * FROM user";
+            $result = $conn->query($sql);
+            while($row = $result->fetch_assoc()){
+              echo "<option value='".$row['userID']."'>".$row['username']."</option>";
+            }
+          }
+          dropdownStudent();
+          ?>
+          <input type="submit"  name="removeStudent" value="Remove Student"/>
         </form>
       </div>
-      //delete
-
-
     </div>
+
 
 
 
@@ -158,17 +178,13 @@
       <h2>Rooms</h2>
       <p>This is the rooms page is shows the rooms and which building they are in.</p>
       <div class="Table"><h3>Rooms Table</h3>
-        <!-- Stock Table -->
         <table>
-          <!-- Table headers -->
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Type</th>
             <th>BuildingID</th>
           </tr>
-
-          <!-- PHP to fetch data, and fill table -->
           <?php
           $sql = "SELECT room.*, building.name AS bname from room INNER JOIN building ON room.buildingID = building.buildingID";
           $result = $conn->query($sql);
@@ -177,18 +193,17 @@
               echo "<tr><td>".$row["roomID"]."</td><td>".$row["name"]."</td><td>".$row["type"]."</td><td>".$row["bname"]."</td></tr>";
             }
             echo "</table>";
-          }else{
-            echo "<p>Error:".$conn->error."</p>";
-          }
+          }else{  echo "<p>Error:".$conn->error."</p>";   }
           ?>
       </div>
 
       <div id="AddButton3">
-        <button onclick="addVis('AddSection3')">Add New Room</button>
+        <button onclick="addVis('AddSection3')">Add & Remove Rooms</button>
       </div>
 
       <div id="AddSection3">
         <form method="post" action="addData.php">
+          <input type="hidden" name="from" value="addRoom">
           Enter the room name<input type="text" name="name"/><hr/>
           Enter the room type<input type="text" name="type"/><hr/>
           <label for="building"><b>Building:</b></label>
@@ -205,14 +220,34 @@
               dropdownBuildings();
               ?>
           </select>
-          <input type="submit"  name="addTutor" value="Add Room"/>
+          <input type="submit"  name="addRoom" value="Add Room"/>
+        </form>
+
+        <form method="post" action="addData.php?from=removeRoom">
+          <input type="hidden" name="from" value="removeRoom">
+          <label for="room"><b>room name:</b></label>
+          <select name="roomID" required id="roomList">
+            <?php
+            function dropdownRoom() {
+              require('connection.php');
+              $sql = "SELECT * FROM room";
+              $result = $conn->query($sql);
+              while($row = $result->fetch_assoc()){
+                echo "<option value='".$row['roomID']."'>".$row['name']."</option>";
+              }
+            }
+            dropdownRoom();
+            ?>
+          <input type="submit"  name="removeRoom" value="Remove Room"/>
         </form>
       </div>
-      //delete
+
+
+
+
 
     </div class=sessions>
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
-
 
