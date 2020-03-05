@@ -2,10 +2,6 @@
 session_start();
 require('connection.php');
 $session = $_SESSION['appuser'];
-if ($_SESSION['status'] == "student"){
-}else{
-  header('Location: homepage.php');
-}
 
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
