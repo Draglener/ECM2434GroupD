@@ -9,7 +9,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql = "SELECT * from building";
+$sql = "SELECT * from building WHERE buildingID > 0";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
   $buildings = array();
