@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
 
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
 Last updated: 05/03 14:22
-Added in link from last question to the scoreboard
+Added 
 -->
 <!doctype html>
 <html>
@@ -68,16 +68,18 @@ Added in link from last question to the scoreboard
     len++;
 	  
     }
-    alert(n);
+
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
-		if(loc == n){
-		   window.location.href = "scoreboard.php"
-		   }
-		window.location.href = "quiz.php"
+		if(scannedText == n){
+		   window.location.href = "scoreboard.php"}
+		   
+		else{
+		window.location.href = "quiz.php"}
+
 		
-		}
+	}	
     }
 
     function JsQRScannerReady()
