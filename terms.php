@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <!-- Author: Keith Harrison
-Last updated: 02/03 14:34
+Last updated: 05/03 14:34
 Created terms and condition page 
 -->
 <!doctype html>
@@ -411,9 +411,8 @@ Created terms and condition page
 </div>
 		</div>
 
-	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
-		    <a data-ga-click="Footer, go to terms, text:terms" href="https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/terms.php">Terms</a>
-	<a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
+	<a href="homepage.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
+
 
 <script>
 var currentPoi = <?php echo $currentPoints; ?>;
