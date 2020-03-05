@@ -39,23 +39,33 @@
       <p>This is the Tutor groups page it displays the tutor ID name and the groups score.</p>
       <div class="Table"><h3>Tutor Table</h3>
         <!-- creating the titles for the table -->
-        <table>
+         <table>
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Lastname</th>
-            <th>Score</th>
+            <th>Group Score</th>
           </tr>
           <?php
           $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-              //filling in the table with content from the database
-              echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["score"]."</td></tr>";
-            }
+				 $sql2 = "SELECT SUM(points) as total from user WHERE tutorID = ".$row["tutorID"];
+				 $result2 = $conn->query($sql2);
+                 if ($result2->num_rows > 0){
+					while($row2 = $result2->fetch_assoc()){
+						$total = $row2['total'];
+						echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$total."</td></tr>";
+					}
+				} else{
+					echo $conn->error;
+				}
+			}
             echo "</table>";
-          }else{ echo "<p>No tutors.</p><p>Use buttons to add tutors.</p>"; }
+			} else { 
+				echo "<p>No tutors.</p><p>Use buttons to add tutors.</p>"; 
+			}
           ?>
       </div>
 
