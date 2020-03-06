@@ -302,7 +302,7 @@
             <th>Info</th>
           </tr>
           <?php
-          $sql = "SELECT building.*, building.name AS bname from room INNER JOIN building ON room.buildingID = building.buildingID";
+          $sql = "SELECT * FROM building";
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
