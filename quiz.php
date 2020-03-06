@@ -104,19 +104,13 @@ and changed links from html pages to php
   include('header.php');
   ?>
   <body>
-    <div class="top_buttons">
-		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		  <button id = "helpButton">HELP</button>
-    </div>
-
+   
+   <a class= "title">Quiz</a>
     <div class="container" id="quiz">
-	<a class= "title">Quiz</a>
+	
 	<p id="error"></p>
 	</div>
 
-    	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
-	<script>
 	var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
 var points = 3;

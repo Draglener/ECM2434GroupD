@@ -33,9 +33,9 @@ Created terms and condition page
   ?>
 
 	<body>
+	<a class= "title">Terms</a>
 		<div class="container" id="informationDisplay">
-		    <a class= "title"></i>
-             Terms</a>
+		    
 			 <div id="informationText">
 <h2 dir="ltr">
     Terms and Conditions
@@ -400,8 +400,6 @@ Created terms and condition page
 <br/>
 </div>
 		</div>
-
-	<a href="homepage.php"><input type="button" id="ScoreBoardButton" value="&#8682; Login Page"></a>
 
 
 <script>

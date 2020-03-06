@@ -115,17 +115,7 @@ Added
   include('header.php');
   ?>
   <body>
-    <div class="top_buttons">
-		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		  <button id = "helpButton">HELP</button>
-    </div>
-    <div  class="container" id="QRScanner">
  
-      <a id= "QRScannerTitle"></a>
-    </div>
-
-		  	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
