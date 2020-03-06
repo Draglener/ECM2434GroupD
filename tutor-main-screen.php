@@ -16,6 +16,8 @@
   <head class="head" id="head">
     <link rel="stylesheet" href="tutor-style.css">
     <img src="images/findExeterLogo.png" height="150px" style="float: right;">
+    <link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png">
+    <title>GM page</title>
     <script src="actions.js"></script>
   </head>
 
@@ -267,6 +269,7 @@
         <h3>Remove a room </h3>
         <form method="post" action="addData.php">
           <input type="hidden" name="from" value="removeRoom">
+
           <label for="room"><b>Select the Room to Remove:</b></label>
           <select name="roomID" required id="roomList">
             <?php
@@ -280,6 +283,7 @@
             }
             dropdownRoom();
             ?>
+
           <input type="submit"  name="removeRoom" value="Remove Room"/>
         </form>
       </div>
@@ -318,7 +322,7 @@
         <button onclick="addVis('AddSection4')">Add & Remove Buildings</button>
       </div>
 
-      <!-- Section to add and remove rooms from the database -->
+      <!-- Section to add and remove buildings from the database -->
       <div id="AddSection4">
         <h3>Add a Building </h3>
         <form method="post" action="addData.php">
@@ -343,10 +347,44 @@
         <input type="submit"  name="removeBuilding" value="Remove Building"/>
       </form>
     </div>
+  </div>
+
+
+
+
+  <div id="Cycles" class="tabcontent">
+    <h2>Cycles</h2>
+    <div>
+      <?php
+      $sql = "SELECT * FROM cycleGroup WHERE cycleID = 0";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+          //fill that table with data from the database
+          echo "<h3>Cycle ".$row["cycleID"].": ".$row["cName"]."</h3>";
+        }
+      }else{  echo "<p>Error:".$conn->error."</p>";   }
+
+      $x = 0;
+      $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle INNER JOIN building ON buildingCycle.buildingID = building.buildingID WHERE cycleID = ".$x."";
+      //SELECT room.*, building.name AS bname from room INNER JOIN building ON room.buildingID = building.buildingID
+      $result = $conn->query($sql);
+      echo "<table><tr>";
+      if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+          //fill that table with data from the database
+          echo "<td>Location ".$row["position"].": ".$row["name"]."</td>";
+        }
+        echo "</tr>";
+        echo "</table>";
+      }else{  echo "<p>Error:".$conn->error."</p>";   }
+      ?>
+     </div>
     </div>
 
-    </div>
+
 
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
+
