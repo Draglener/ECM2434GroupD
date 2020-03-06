@@ -1,5 +1,8 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<?php
 require('connection.php');
 $session = $_SESSION['appuser'];
 if ($_SESSION['status'] == "student"){
@@ -46,7 +49,7 @@ if ($result->num_rows > 0) {
 Last updated: 05/03 14:22
 Added 
 -->
-<!doctype html>
+
 <html>
   <head>
    <script type="text/javascript" src="https://raw.githack.com/jbialobr/JsQRScanner/master/war/js/jsqrscanner.nocache.js"></script>
@@ -108,7 +111,9 @@ Added
   </script>
 
   </head>
-
+ <?php
+  include('header.php');
+  ?>
   <body>
     <div class="top_buttons">
 		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>

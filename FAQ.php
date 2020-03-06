@@ -1,5 +1,8 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<?php
 require('connection.php');
 $session = $_SESSION['appuser'];
 if ($_SESSION['status'] == "student"){
@@ -20,7 +23,7 @@ if ($result->num_rows > 0) {
 Last updated: 01/03 14:34
 Adding score to page
 -->
-<!doctype html>
+
 <html>
 	<head>
       <meta charset="UTF-8">
@@ -29,14 +32,11 @@ Adding score to page
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
-
+	<?php
+  include('header.php');
+  ?>
 	<body>
-		<div class="top_buttons">
-		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		  <button id = "helpButton">HELP</button>
-    </div>
-
+		
 		<div class="container" id="informationDisplay">
 		 		
 		    <a class= "title"><i class="fa fa-info-circle"></i>
@@ -80,8 +80,6 @@ Adding score to page
         </div>
 		</div>
 
-		  	<a href="Scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
-		    	<a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
 
 <script>
 var currentPoi = <?php echo $currentPoints; ?>;

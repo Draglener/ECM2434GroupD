@@ -10,7 +10,7 @@ Created Landing Page
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Student Login</title>
+    <title>findExeter</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
   </head>

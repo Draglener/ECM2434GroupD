@@ -2,8 +2,10 @@
 
 /* ----BASIC FORMATTING --- */
 body {
-    background-color: #98EAFA;
-	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+      background-image: url(background.jpg);
+	  background-size:100% auto;
+
+	font-family: nrkis;
     width:-moz-available;
     width:-webkit-fill-available;
     margin-left: 20px;
@@ -11,6 +13,7 @@ body {
     margin-top: 10%;
 	margin-bottom: 10%;
 }
+
 .top_buttons{
 	text-align: center;
 	display: flex;
@@ -20,11 +23,12 @@ body {
     font-size: 40px;
     font-weight: bold;
     text-align: center;
-    color: #00D7FF;
-    background-color: #090909;
+    color: white;
+    background-color: #012060;
     padding: 25px;
-    width: 100%;
+	margin-top:70px;
     display: block;
+	
 }
 #pointsDisplayTag {
     font-size: xx-large;
@@ -53,42 +57,11 @@ body {
 }
 
 
-/* ----SCOREBOARD---- */
-
-
-#ScoreBoardButton, #homeButton, #helpButton, .QRButton {
-  border: thin solid #000000;
-  height: 75px;
-  width: 200px;
-  margin: 10px;
-  background: #0b5394;
-  border-radius: 20px;
-  color: #ffffff;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 25px;
-  text-align:center;
-  float: left;
-}
-
-.QRButton{
-  background-image: url(qrButton.jpg);
-  background-size: cover;
-  float:right;
-  color:black;
-  text-shadow: -7px 0px 3px white, 7px 0px 3px white, 0px 7px 3px white, 0px 7px 3px white;
-  background-size: cover;
-  font-size: 25px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  font-weight: 900;
-}
-
 #helpButton{
 	float:right;
 }
 #loginButton {
-  background-color: black;
+  background-color: #012060;
   font-size: 2em;
   color: white;
   padding: 40px;
@@ -100,22 +73,18 @@ body {
 }
 
 
-#ScoreBoardButton:hover, #loginButton:hover {
-  background-color: #0b17b1;
-  color: white;
-}
 
 table{
   border-collapse: collapse;
   width: 100%;
   margin-top:100px;
   text-align: center;
+  font-size:2em;
 }
 
 td, th {
   border: 1px solid #000;
   padding: 20px;
-  font-size:medium;
   text-align: center;
 }
 
@@ -231,3 +200,141 @@ p {
     color: #000000;
     padding: 20px;
 }
+
+
+  @font-face {
+    font-family: 'nrkis';
+    src: url('fonts/nrkis.ttf')  format('truetype');
+
+  }
+
+  .header_image{
+    width: 100%;
+    margin-top: -38%;
+    display: inline;
+    margin-right: auto;
+}
+  .main {
+    padding: 5px;
+    padding-bottom: 20px;
+    background: rgb(226,211,180);
+    background: rgb(226,211,180, 0.75);
+    width:70%;
+    overflow: hidden;
+    margin:auto;
+    text-align: center;
+    margin-bottom: 20%;
+  }
+  p{
+    margin: 20px;
+    font-family: nrkis;
+  }
+
+  .header{
+    background-color: #012060;
+    box-shadow: 5px black;
+    width: 100%;
+    height: 94px;
+    opacity: 0.8;
+    margin-top: 6%;
+    display: block;
+  }
+
+  .topnav{
+    list-style-type: none;
+    padding:0px;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
+      float: right;
+      display:flex;
+      flex-direction: row;
+      display: -ms-grid;
+      display: grid;
+      grid-template-columns: 19% 19% auto 19% 19%;
+      -ms-grid-template-columns: 19% 19% auto 19% 19%;
+      font-family: nrkis;
+      border-radius: 5px;
+      width:100%;
+
+  }
+  .topnav li:hover {
+    opacity: 1;
+  }
+
+
+.list{
+  text-align: left;
+  padding-left: 0px;
+  font-family: nrkis;
+    margin-left: 50px;
+}
+.list li, .list p{
+  margin-top: 5px;
+
+}
+
+  .topnav li a,  {
+    display: block;
+    color: #ffffff;
+    opacity: 0.8;
+    font-family: nrkis;
+    text-decoration: none;
+    text-align:center;
+    font-size:30px;
+    text-shadow:1px 1px 2px black;
+    padding: 15px;
+    width:100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .topnav li a:hover{
+    transition: 0.4s;
+    opacity: 1;
+  }
+
+.topnav li{
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  width:-webkit-fill-available;
+  margin-top: 10px;
+}
+
+.left{
+  display: inline;
+  float: left;
+  width:49%;
+  text-align: left;
+}
+.right{
+  display: inline;
+  float: right;
+  width:49%;
+  text-align: right;
+}
+
+.topnav li a{
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+}
+@media screen and (max-width: 600px) {
+
+.g-recaptcha{
+border-radius: 4px;
+border-right: 1px solid #d8d8d8;
+overflow: hidden;
+}
+}
+  @font-face {
+    font-family: 'nrkis';
+    src: url('fonts/nrkis.ttf')  format('truetype');
+
+  }

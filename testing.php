@@ -18,10 +18,12 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
+<!DOCTYPE html>
 <!-- Authors: Katie Jones and Anneliese Travis and Jasmine West
 Last updated: 01/03 16:35
 Real Scoreboard showing everyones scores
 -->
+
 <html>
 	<head>
 	<meta charset="UTF-8">
@@ -29,16 +31,10 @@ Real Scoreboard showing everyones scores
         <link href="style_sheet.css" rel="stylesheet" type="text/css">
 		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
-	 <?php
+	   <?php
   include('header.php');
   ?>
-	<body>
-
-		<div class="top_buttons">
-		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-		  <button id = "helpButton">HELP</button>
-    </div>
+	<body>  
 
 		<div class="container" id="ScoreBoardDisplay">
 		    <a class= "title">Scoreboard</a>
@@ -67,14 +63,8 @@ Real Scoreboard showing everyones scores
 
 
 		</div>
+<button id = "helpButton">HELP</button>
 
-
-	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
-  <form action="logout-student.php">
-    <input type="submit" value="Logout" />
-</form>
-
-	   <a href="qr.php"><input type="button" value="QR" class="QRButton"></a>
  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;

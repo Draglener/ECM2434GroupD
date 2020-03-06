@@ -48,6 +48,7 @@ Added changes from html to php pages
 	  <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
     
   </head>
+ 
   <script>
 
     var loc = <?php echo $location; ?>;
