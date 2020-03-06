@@ -10,7 +10,7 @@ $user = $_SESSION['studentID'];
 			session_unset();
 			// destroy the session
 			session_destroy();
-			header('Location: homepage.php');
+			header('Location: index.php');
 			exit();
 			 			  			 
 		 } else {
