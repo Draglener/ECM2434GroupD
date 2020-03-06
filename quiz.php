@@ -1,5 +1,8 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<?php
 require('connection.php');
 $session = $_SESSION['appuser'];
 if ($_SESSION['status'] == "student"){
@@ -97,7 +100,9 @@ and changed links from html pages to php
 	}
 	</style>
   </head>
-
+	   <?php
+  include('header.php');
+  ?>
   <body>
     <div class="top_buttons">
 		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<?php
 require('connection.php');
 $session = $_SESSION['appuser'];
 if ($_SESSION['status'] == "student"){
@@ -28,7 +31,7 @@ Added in links to php and database to ensure
 only the correct qr can be scanned after quiz question
 html to php links instead
 -->
-<!doctype html>
+
 <html>
   <head>
    <script type="text/javascript" src="https://raw.githack.com/jbialobr/JsQRScanner/master/war/js/jsqrscanner.nocache.js"></script>
@@ -75,7 +78,9 @@ html to php links instead
   </script>
 
   </head>
-
+ <?php
+  include('header.php');
+  ?>
   <body>
     <div class="top_buttons">
 		  <a href="FAQ.php"><input type="button" id="homeButton" value="FAQ"></a>

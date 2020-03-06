@@ -1,5 +1,8 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<?php
 require('connection.php');
 $session = $_SESSION['appuser'];
 if ($_SESSION['status'] == "student"){
@@ -19,7 +22,6 @@ if ($result->num_rows > 0) {
 Last updated: 01/03 16:35
 Real Scoreboard showing everyones scores
 -->
-<!doctype html>
 <html>
 	<head>
 	<meta charset="UTF-8">
@@ -27,7 +29,9 @@ Real Scoreboard showing everyones scores
         <link href="style_sheet.css" rel="stylesheet" type="text/css">
 		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
-
+	 <?php
+  include('header.php');
+  ?>
 	<body>
 
 		<div class="top_buttons">

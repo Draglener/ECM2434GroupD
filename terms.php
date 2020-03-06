@@ -1,5 +1,8 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<?php
 require('connection.php');
 $session = $_SESSION['appuser'];
 
@@ -16,7 +19,7 @@ if ($result->num_rows > 0) {
 Last updated: 05/03 14:34
 Created terms and condition page 
 -->
-<!doctype html>
+
 <html>
 	<head>
       <meta charset="UTF-8">
@@ -25,6 +28,9 @@ Created terms and condition page
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
 	</head>
+	<?php
+  include('header.php');
+  ?>
 
 	<body>
 		<div class="container" id="informationDisplay">
