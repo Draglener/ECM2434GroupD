@@ -119,11 +119,6 @@ alert("Goto the new marker and scan the QR code!");
       console.log("location");
       }
       
-      const x = document.getElementById('testButton');
-      var cname = "center"
-      var cinfo = "uwu"
-    //  x.onclick = addMarker(center,map,cname,cinfo);
-    //  x.onclick = function(){var marker = new google.maps.Marker({position: center,map: map,title: 'center'});};
     }
 
     function addMarker(location,map,label,information){
