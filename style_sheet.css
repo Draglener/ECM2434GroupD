@@ -338,3 +338,8 @@ overflow: hidden;
     src: url('fonts/nrkis.ttf')  format('truetype');
 
   }
+.container video {
+    max-width: -webkit-fill-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
+}

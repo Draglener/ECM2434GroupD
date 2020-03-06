@@ -117,9 +117,10 @@ Added
   <body>
    
 		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-    <div  class="container" id="QRScanner">
+		  <a id= "QRScannerTitle"></a>
+    <div class="container" id="QRScanner">
  
-      <a id= "QRScannerTitle"></a>
+      
     </div>
 
 		  	
