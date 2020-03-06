@@ -36,12 +36,12 @@ Adding score to page
   include('header.php');
   ?>
 	<body>
-	 <a class= "title"><i class="fa fa-info-circle"></i>
+	 <a class= "title"><i class="fa fa-info-circle"></i>  Information</a>
 		
 		<div class="container" id="informationDisplay">
 		 		
 		   
-            Information</a>
+            
 			<div id="informationText">
 					<p><h2>Health and Wellbeing</h2></p>
 					<p><b>University Information</b></p>

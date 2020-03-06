@@ -179,7 +179,7 @@ img.topImage, img.bottomImage{
 /* ----FAQ PAGE---- */
 #informationDisplay{
     overflow: scroll;
-    height: 1400px;
+    height: 1200px;
 }
 
 input[type=checkbox] {
