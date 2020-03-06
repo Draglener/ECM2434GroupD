@@ -12,12 +12,12 @@ different images and sessions implemented
     <meta charset="UTF-8">
     <title>Student Login</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+	<link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
   </head>
 
   <body class="body" id="body">
 
-        <img src="findExeterLogo.png" alt="topImage" class="topImage">
+        <img src="images/findExeterLogo.png" alt="topImage" class="topImage">
 
     <form class="userLogin" name="loginForm" action="login.php" method="post">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
@@ -44,7 +44,7 @@ different images and sessions implemented
         <button type="submit" name="submit" id="loginButton">Log In</button>
       </form>
 
-        <img src="exeterLogo.png" alt="bottomImage" class="bottomImage">
+        <img src="images/exeterLogo.png" alt="bottomImage" class="bottomImage">
 
   </body>
   <?php unset($_SESSION['apperror']); ?>

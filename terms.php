@@ -26,7 +26,7 @@ Created terms and condition page
     <title>Terms</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	<link href="style_sheet.css" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+	<link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
 	</head>
 	<?php
   include('header.php');

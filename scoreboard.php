@@ -27,7 +27,7 @@ Real Scoreboard showing everyones scores
 	<meta charset="UTF-8">
 	<title>Scoreboard</title>
         <link href="style_sheet.css" rel="stylesheet" type="text/css">
-		<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+		<link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
 	</head>
 	 <?php
   include('header.php');

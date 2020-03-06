@@ -15,7 +15,7 @@
 <html>
   <head class="head" id="head">
     <link rel="stylesheet" href="tutor-style.css">
-    <img src="findExeterLogo.png" height="150px" style="float: right;">
+    <img src="images/findExeterLogo.png" height="150px" style="float: right;">
     <script src="actions.js"></script>
   </head>
 
