@@ -101,7 +101,7 @@ and changed links from html pages to php
 	</style>
   </head>
 	   <?php
-  include('header.php');
+  include('header3.php');
   ?>
   <body>
 
