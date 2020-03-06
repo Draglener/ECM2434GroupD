@@ -4,5 +4,5 @@ session_start();
 session_unset();
 // destroy the session
 session_destroy();
-header('Location: tutor-login.php');
+header('Location: index.php');
 ?>
