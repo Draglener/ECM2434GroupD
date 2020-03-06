@@ -72,17 +72,11 @@ alert("Goto the new marker and scan the QR code!");
   ?>
   <body class="body" id="body">
   
-    <script type="text/javascript">
-    document.getElementById("helpButton").onclick = function () {
-        location.href = "helpUpdate.php";
-    };
-</script>
-    
+
     <!--The div element for the map -->
 
     <div id="fullMapDisplay" class="container"></div>
 	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
-	<button style="display=none;" id ="helpButton">Help</button>
     <script>
     //Initialize and add the map
     function initMap() {
