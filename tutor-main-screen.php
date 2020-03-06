@@ -26,6 +26,8 @@
       <button class="tablinks" onclick="openPage(event, 'Groups')">Tutor Groups</button>
       <button class="tablinks" onclick="openPage(event, 'Students')">Students</button>
       <button class="tablinks" onclick="openPage(event, 'Rooms')">Rooms</button>
+      <button class="tablinks" onclick="openPage(event, 'Buildings')">Buildings</button>
+      <button class="tablinks" onclick="openPage(event, 'Cycles')">Cycles</button>
     </div>
 
 
@@ -282,11 +284,43 @@
         </form>
       </div>
 
+    </div>
+	
+	
 
 
 
+    <div id="Buildings" class="tabcontent">
+      <h2>Buildings</h2>
+      <p>This is the buildings page and will show all current buildings.</p>
+      <div class="Table"><h3>Buildings Table</h3>
+        <table>
+          <!-- output the titles for the columns -->
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Info</th>
+          </tr>
+          <?php
+          $sql = "SELECT * FROM building";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+              //fill that table with data from the database
+              echo "<tr><td>".$row["buildingID"]."</td><td>".$row["name"]."</td><td>".$row["info"]."</td></tr>";
+            }
+            echo "</table>";
+          }else{  echo "<p>Error:".$conn->error."</p>";   }
+          ?>
+      </div>
 
-    </div class=sessions>
+
+      
+    </div>
+	
+	
+	
+	
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
