@@ -24,12 +24,30 @@ if ($result->num_rows > 0) {
     $currentPoints = $row['points'];
   }
 }
+
+$sql = "SELECT * from building WHERE buildingID > 0";
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  $buildings = array();
+  $n = 0;
+  while ($row = $result->fetch_assoc()){
+    $id = $row['buildingID'];
+    $name = $row['name'];
+    $info = $row['info'];
+    $latitude = floatval($row['latitude']);
+    $longitude = floatval($row['longitude']);
+    $buildings[$n] = array($id, $name, $info, $latitude, $longitude);
+    $n++;
+  }
+
+} else {
+  echo $sql." ".$conn->error;
+}
 ?>
+
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Last updated: 25/02 14:22
-Added in links to php and database to ensure 
-only the correct qr can be scanned after quiz question
-html to php links instead
+Last updated: 05/03 14:22
+Added 
 -->
 
 <html>
@@ -43,13 +61,28 @@ html to php links instead
 
   <script type="text/javascript">
   var loc = <?php echo $location; ?>;
+      var buildings = {}
+    // pass PHP array to JavaScript array
+    var prep = <?php echo json_encode($buildings); ?>;
+    var n = <?php echo $n; ?>;
+    var len = 0;
+    for (i = 0; i < n; i++) {
+    buildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
+    len++;
+	  
+    }
+
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
+		if(scannedText == n){
+		   window.location.href = "scoreboard.php"}
+		   
+		else{
+		window.location.href = "quiz.php"}
 
-		window.location.href = "quiz.php"
 		
-		}
+	}	
     }
 
     function JsQRScannerReady()
