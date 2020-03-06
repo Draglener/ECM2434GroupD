@@ -115,18 +115,13 @@ Added
   include('header.php');
   ?>
   <body>
-   
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
 		  <a id= "QRScannerTitle"></a>
-    <div class="container" id="QRScanner">
- 
-      
-    </div>
-
+    <div class="container" id="QRScanner"></div>
+	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span>Points </p>
 		  	
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
+document.getElementById('points').innerHTML = currentPoi;
 </script>
   </body>
 </html>
