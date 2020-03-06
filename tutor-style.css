@@ -69,7 +69,7 @@ tr:hover {background-color: #c2d0d1;}
 /* Style the buttons inside the tab */
 .tab button {
   color: black;
-  width: 33%;
+  width: 25%;
   background-color: inherit;
   float: left;
   border: none;
