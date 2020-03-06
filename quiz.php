@@ -105,12 +105,13 @@ and changed links from html pages to php
   ?>
   <body>
    
-   <a class= "title">Quiz</a>
     <div class="container" id="quiz">
 	
 	<p id="error"></p>
 	</div>
 
+    	
+	<script>
 	var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
 var points = 3;
