@@ -6,7 +6,7 @@
   if ($_SESSION['status'] == "gamemaster"){
   }else{
     //redirects the user if they do not have the correct session
-    header('Location: tutor-login.php');
+    header('Location: index.php');
   }
 
 ?>
