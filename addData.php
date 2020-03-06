@@ -14,6 +14,8 @@
       header('Location: tutor-main-screen.php');
   }elseif ($from == "removeRoom") {
     removeRoom($conn);
+  }elseif ($from == "addBuilding") {
+    addBuilding($conn);
   }else{
     header('Location: tutor-main-screen.php');
   }
@@ -79,6 +81,15 @@
     header('Location: tutor-main-screen.php');
   }
 
+    function addBuilding($conn){
+      $name = htmlentities($_POST["name"]);
+      $info = htmlentities($_POST["info"]);
+      $latitude = htmlentities($_POST["latitude"]);
+      $longitude = htmlentities($_POST["longitude"]);
+      $query = "INSERT INTO building (name, info, latitude, longitude) VALUES  ('".$name."', '".$info."', '".$latitude."', '".$longitude."');";
+      $conn->query($query);
+      header('Location: tutor-main-screen.php');
+    }
+
+
 ?>
-
-

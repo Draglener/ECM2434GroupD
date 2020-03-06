@@ -11,6 +11,7 @@ function openPage(evt, cityName) {
   document.getElementById("AddSection").style.display = "none";
   document.getElementById("AddSection2").style.display = "none";
   document.getElementById("AddSection3").style.display = "none";
+  document.getElementById("AddSection4").style.display = "none";
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
