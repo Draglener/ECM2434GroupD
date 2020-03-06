@@ -113,7 +113,6 @@ and changed links from html pages to php
 	<p id="error"></p>
 	</div>
 
-    	<a href="scoreboard.php"><input type="button" id="ScoreBoardButton" value="&#8682; Scoreboard"></a>
 	<script>
 	var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
