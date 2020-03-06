@@ -74,7 +74,7 @@ alert("Goto the new marker and scan the QR code!");
   
     <script type="text/javascript">
     document.getElementById("helpButton").onclick = function () {
-        location.href = "https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/helpUpdate.php";
+        location.href = "helpUpdate.php";
     };
 </script>
     
