@@ -115,7 +115,14 @@ Added
   include('header.php');
   ?>
   <body>
+   
+		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+    <div  class="container" id="QRScanner">
  
+      <a id= "QRScannerTitle"></a>
+    </div>
+
+		  	
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('pointsDisplayTag').value = currentPoi;
