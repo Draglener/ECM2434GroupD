@@ -20,7 +20,7 @@ Created pick cycle page
 
         <img src="findExeterLogo.png" alt="topImage" class="topImage">
 
- <form  name="loginForm" action="login.php" method="post">
+ <form  name="loginForm" action="cycleUpdate.php" method="post">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
 
         <label id="cycleName" for="cycle"><b>Select Cycle:</b></label>
