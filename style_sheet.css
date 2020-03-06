@@ -139,7 +139,11 @@ th {
     width: 470px;
     margin-left: 10px;
 }
-
+#fullMapDisplay {
+	margin-left: 0;
+	margin-right:0;
+	width:100%;
+}
 
 /* ----QR---- */
 
