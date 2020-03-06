@@ -29,7 +29,7 @@ Created terms and condition page
 	<link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
 	</head>
 	<?php
-  include('header.php');
+  include('header2.php');
   ?>
 
 	<body>
