@@ -313,14 +313,27 @@
           }else{  echo "<p>Error:".$conn->error."</p>";   }
           ?>
       </div>
+	      
+      <div id="AddButton4">
+        <button onclick="addVis('AddSection4')">Add & Remove Buildings</button>
+      </div>
 
-
-      
+      <!-- Section to add and remove rooms from the database -->
+      <div id="AddSection4">
+        <h3>Add a Building </h3>
+        <form method="post" action="addData.php">
+          <input type="hidden" name="from" value="addRoom">
+          Enter the Building name<input type="text" name="name"/><hr/>
+          Enter the Building information<input type="text" name="information"/><hr/>
+          Enter the Building Latitude<input type="text" name="latitude"/><hr/>
+          Enter the Building Longitude<input type="text" name="longitude"/><hr/>
+          </select>
+          <input type="submit"  name="addBuilding" value="Add Building"/>
+        </form>
+      </div>
+	    
     </div>
-	
-	
-	
-	
+
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
