@@ -105,17 +105,16 @@ and changed links from html pages to php
   ?>
   <body>
 
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
-
 <a class= "title">Quiz</a>
     <div class="container" id="quiz">
 	
 	<p id="error"></p>
 	</div>
+	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
 
 	<script>
-	var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
+var currentPoi = <?php echo $currentPoints; ?>;
+document.getElementById('points').innerHTML = currentPoi;
 var points = 3;
 function next(numb){
 		  switch(numb) {

@@ -25,6 +25,7 @@ if ($sql->num_rows > 0) {
           session_start();
           $_SESSION['status'] = "student";
 		  $_SESSION['studentID'] = $id;
+		  $_SESSION['username'] = $username;
           header("Location: quiz.php");
         exit();
       } else {

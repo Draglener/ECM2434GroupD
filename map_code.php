@@ -71,8 +71,7 @@ alert("Goto the new marker and scan the QR code!");
   include('header.php');
   ?>
   <body class="body" id="body">
-
-		  <input type="text" id="pointsDisplayTag" size="30" maxlength="20" disabled>
+  
     <script type="text/javascript">
     document.getElementById("helpButton").onclick = function () {
         location.href = "https://www.secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master/helpUpdate.php";
@@ -82,7 +81,8 @@ alert("Goto the new marker and scan the QR code!");
     <!--The div element for the map -->
 
     <div id="fullMapDisplay" class="container"></div>
-	 <button id = "helpButton">Help</button>
+	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
+	<button style="display=none;" id ="helpButton">Help</button>
     <script>
     //Initialize and add the map
     function initMap() {
@@ -164,7 +164,7 @@ alert("Goto the new marker and scan the QR code!");
 		  
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
+document.getElementById('points').value = currentPoi;
 </script>
   </body>
 </html>

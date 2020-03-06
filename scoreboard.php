@@ -33,9 +33,9 @@ Real Scoreboard showing everyones scores
   include('header.php');
   ?>
 	<body>
-
+	<a class= "title">Scoreboard</a>
 		<div class="container" id="ScoreBoardDisplay">
-		    <a class= "title">Scoreboard</a>
+		    
 			     <table style="margin-top:0;">
         <!-- Table headers -->
         <tr>
@@ -59,12 +59,12 @@ Real Scoreboard showing everyones scores
         $conn->close();
         ?>
 
-
 		</div>
+		<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
 
  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
+document.getElementById('points').innerHTML = currentPoi;
 </script>
 	</body>
 </html>

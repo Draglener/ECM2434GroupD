@@ -23,7 +23,7 @@ Created Landing Page
 
 <a href="tutor-login.php"><input type="button" id="loginButton" value="&#8682; Tutor Login"></a>
 
-        <img src="exeterLogo.png" alt="bottomImage" class="bottomImage">
+        <img src="images/exeterLogo.png" alt="bottomImage" class="bottomImage">
 
   </body>
   <?php unset($_SESSION['apperror']); ?>
