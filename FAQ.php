@@ -63,12 +63,21 @@ Adding score to page
 					<p>The Guild is the student union. They represent the interests of the students to the university, facilitate over 250 societies, and offer advice to students on a number of issues. More information on the Guild can be found on <a href="https://www.exeterguild.org/">their website</a>.</p>
 					<p><b>Devonshire House</b></p>
 					<p>Attached to the Guild, Devonshire House contains food outlets, study spaces, and facilities for societies.</p>
-					<p>There are three floors to Devonshire House. DH1 contains an informal study space with sofas, food outlets, and the offices of the Full Time Officers (who run the Guild). DH2 has more places to eat, the joint eXmedia, and Exepose office, and a bank. DH3 contains a silent study space called The Loft.</p>
+					<p>There are three floors to Devonshire House. DH1 contains an informal study space with sofas, food outlets, and the offices of the Full Time Officers (who run the Guild). DH2 has more places to eat, the joint eXmedia and Exepose office, and a bank. DH3 contains a silent study space called The Loft.</p>
 					<p><b>Full-Time Officers</b></p>
 					<p>The Guild has Full-Time Officers that are elected each year. They run the Guild and represent the interests of the students to the university. You can find more information on the Full-Time Officers <a href="https://www.exeterguild.org/officers/">here</a>.</p>
 					<p><b>Societies</b></p>
-					<p>The Guild is responsible for over 250 societies. This includes subject societies, music and drama, politics and activism, volunteering, special interest, and the Athletics Union. Societies are run by a committee elected by society members. Information about societies can be found on the <a href="https://www.exeterguild.org/societies/">Guild website</a> where you can also buy membership.</p>>
+					<p>The Guild is responsible for over 250 societies. This includes subject societies, music and drama, politics and activism, volunteering, special interest, and the Athletics Union. Societies are run by a committee elected by society members. Information about societies can be found on the <a href="https://www.exeterguild.org/societies/">Guild website</a> where you can also buy membership.</p>
 					
+					<p><h2>Student Safety</h2></p>
+					<p><b>Estate Patrol</b></p>
+					<p>Estate Patrol are responsible for student safety on campus. They can deal with lock-outs, intruders, emergency maintance calls, noise complaints, and are trained in first aid. They are available 24/7 and can be called 01392 723999 for routine calls and 01392 722222 for emergencies.</p>
+					
+					<p><h2>Careers</h2></p>
+					<p><b>The Career Zone</b></p>
+					<p>The Career Zone runs talks, workshops, and much more to help you plan your career planning. You can login to your page in the Career Zone using your univeristy login and from there research opportunities. As well as skills workshops, there are internship and jobs listings you can search through.</p>
+					<p><b>The Exeter Award</b></p>
+					<p>The Exeter Award is an employability award given out by the university. It requires a minimum number of hours worked and attendence at a nubmer of personal development workshops and talks. It is a great addition to your CV.</p>
         </div>
 		</div>
 
