@@ -65,8 +65,8 @@
 				}
 			}
             echo "</table>";
-			} else { 
-				echo "<p>No tutors.</p><p>Use buttons to add tutors.</p>"; 
+			} else {
+				echo "<p>No tutors.</p><p>Use buttons to add tutors.</p>";
 			}
           ?>
       </div>
@@ -247,7 +247,7 @@
           Enter the room name<input type="text" name="name"/><hr/>
           Enter the room type<input type="text" name="type"/><hr/>
           <label for="building"><b>Building:</b></label>
-          <select name="building" required id="buildingList">
+          <select name="buildingID" required id="buildingList">
            <?php
            //fucntion to populate the drop-down list
               function dropdownBuildings() {
@@ -285,8 +285,8 @@
       </div>
 
     </div>
-	
-	
+
+
 
 
 
@@ -313,7 +313,7 @@
           }else{  echo "<p>Error:".$conn->error."</p>";   }
           ?>
       </div>
-	      
+
       <div id="AddButton4">
         <button onclick="addVis('AddSection4')">Add & Remove Buildings</button>
       </div>
@@ -322,19 +322,31 @@
       <div id="AddSection4">
         <h3>Add a Building </h3>
         <form method="post" action="addData.php">
-          <input type="hidden" name="from" value="addRoom">
+          <input type="hidden" name="from" value="addBuilding">
           Enter the Building name<input type="text" name="name"/><hr/>
-          Enter the Building information<input type="text" name="information"/><hr/>
+          Enter the Building information<input type="text" name="info"/><hr/>
           Enter the Building Latitude<input type="text" name="latitude"/><hr/>
           Enter the Building Longitude<input type="text" name="longitude"/><hr/>
           </select>
           <input type="submit"  name="addBuilding" value="Add Building"/>
         </form>
-      </div>
-	    
+
+
+      <h3>Remove a building </h3>
+      <form method="post" action="addData.php">
+        <input type="hidden" name="from" value="removeBuilding">
+        <label for="building"><b>Select the Building to Remove:</b></label>
+        <select name="buildingID" required id="buildingList">
+          <?php
+          dropdownBuildings();
+          ?>
+        <input type="submit"  name="removeBuilding" value="Remove Building"/>
+      </form>
+    </div>
+    </div>
+
     </div>
 
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
-
