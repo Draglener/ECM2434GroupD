@@ -164,7 +164,7 @@ alert("Goto the new marker and scan the QR code!");
 		  
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('points').value = currentPoi;
+document.getElementById('points').innerHTML = currentPoi;
 </script>
   </body>
 </html>
