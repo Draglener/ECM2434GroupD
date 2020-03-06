@@ -10,12 +10,13 @@
   }elseif ($from == "removeStudent") {
     removeStudent($conn);
   }elseif ($from == "addRoom") {
-    //addRoom($conn);
-      header('Location: tutor-main-screen.php');
+    addRoom($conn);
   }elseif ($from == "removeRoom") {
     removeRoom($conn);
   }elseif ($from == "addBuilding") {
     addBuilding($conn);
+  }elseif ($from == "removeBuilding") {
+    removeBuilding($conn);
   }else{
     header('Location: tutor-main-screen.php');
   }
@@ -62,14 +63,11 @@
 
 //fix using SQL dump
   function addRoom($conn){
-    $fName = htmlentities($_POST["fName"]);
-    $lName = htmlentities($_POST["lName"]);
-    $score = '0';
-    $office = htmlentities($_POST["office"]);
-    $current_pos = '0';
-    $password = htmlentities($_POST["password"]);
-    $query = "INSERT INTO tutorGroup (fName, lName, score, office, current_pos, password) VALUES ('". $fName ."', '" .$lName ."', '". $score ."', '" .$office ."', '". $current_pos ."', '" .$password ."');";
-    $conn->query($query);
+    $name = htmlentities($_POST["name"]);
+    $type = htmlentities($_POST["type"]);
+    $buildingID = htmlentities($_POST["buildingID"]);
+    $query = "INSERT INTO room (name, type, buildingID) VALUES ('".$name."', '".$type."', ".$buildingID.");";
+    $conn->query($query);#
     header('Location: tutor-main-screen.php');
   }
 
@@ -81,12 +79,21 @@
     header('Location: tutor-main-screen.php');
   }
 
+
     function addBuilding($conn){
       $name = htmlentities($_POST["name"]);
       $info = htmlentities($_POST["info"]);
       $latitude = htmlentities($_POST["latitude"]);
       $longitude = htmlentities($_POST["longitude"]);
       $query = "INSERT INTO building (name, info, latitude, longitude) VALUES  ('".$name."', '".$info."', '".$latitude."', '".$longitude."');";
+      $conn->query($query);
+      header('Location: tutor-main-screen.php');
+    }
+
+  //function to remove a rppm from the database
+    function removeBuilding($conn){
+      $buildingID = htmlentities($_POST["buildingID"]);
+      $query ="DELETE FROM building WHERE buildingID =". $buildingID .";";
       $conn->query($query);
       header('Location: tutor-main-screen.php');
     }
