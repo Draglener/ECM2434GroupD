@@ -15,7 +15,7 @@ $user = $_SESSION['studentID'];
 				  $current = $row['points'];
 			  }
 			  $points = $points + $current;
-			  $sql = $conn->prepare("UPDATE user SET points = ? WHERE userID = ?");
+			  $sql = $conn->prepare("UPDATE user SET points = ?,quizDone = 1 WHERE userID = ?");
 			   $sql->bind_param('ii', $points, $user);
 		      $sql->execute();
 			 header("Location: map_code.php");	
