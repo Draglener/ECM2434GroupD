@@ -22,16 +22,15 @@
   </head>
 
   <!-- cresting the tabs and linking them to openPage -->
-  <body class="body" id="body" onload="openPage(event, 'Groups'); addVis()">
+  <body class="body" id="body" onload="openPage(event, 'Groups',  <?php echo $_SESSION['user'];?>); addVis()">
     <div><h1>Game Master Page</h1></div>
     <div class="tab">
-      <button class="tablinks" onclick="openPage(event, 'Groups')">Tutor Groups</button>
-      <button class="tablinks" onclick="openPage(event, 'Students')">Students</button>
-      <button class="tablinks" onclick="openPage(event, 'Rooms')">Rooms</button>
-      <button class="tablinks" onclick="openPage(event, 'Buildings')">Buildings</button>
-      <button class="tablinks" onclick="openPage(event, 'Cycles')">Cycles</button>
+      <button class="tablinks" onclick="openPage(event, 'Groups', <?php echo $_SESSION['user'];?>)">Tutor Groups</button>
+      <button class="tablinks" onclick="openPage(event, 'Students', 0)">Students</button>
+      <button class="tablinks" onclick="openPage(event, 'Rooms', 0)">Rooms</button>
+      <button class="tablinks" onclick="openPage(event, 'Buildings', 0">Buildings</button>
+      <button class="tablinks" onclick="openPage(event, 'Cycles', 0)">Cycles</button>
     </div>
-
 
 
 
@@ -72,8 +71,12 @@
 			}
           ?>
       </div>
+    </div>
 
-      <!-- Button to show the add and delete section -->
+
+
+    <!-- Button to show the add and delete section -->
+
       <div id="AddButton">
         <button onclick="addVis('AddSection')">Add & Remove Tutors</button>
       </div>
@@ -106,21 +109,21 @@
         </form>
 
 
-        <h3>Remove a tutor </h3>
-        <form method="post" action="addData.php">
-          <!-- Allows the user to select a tutor from a drop-down list to delete from the database -->
-          <input type="hidden" name="from" value="removeTutor">
-          <label for="tutor"><b>Select Tutor to Remove:</b></label>
-          <select name="tutorID" required id="tutorList">
-          <?php
-          dropdownTutor();
-          ?>
-          </select>
-          <input type="submit"  name="removeTutor" value="Remove Tutor"/>
-        </form>
-
-      </div>
+      <h3>Remove a tutor </h3>
+      <form method="post" action="addData.php">
+        <!-- Allows the user to select a tutor from a drop-down list to delete from the database -->
+        <input type="hidden" name="from" value="removeTutor">
+        <label for="tutor"><b>Select Tutor to Remove:</b></label>
+        <select name="tutorID" required id="tutorList">
+        <?php
+        dropdownTutor();
+        ?>
+        </select>
+        <input type="submit"  name="removeTutor" value="Remove Tutor"/>
+      </form>
     </div>
+
+
 
 
 
@@ -369,29 +372,43 @@
     <h2>Cycles</h2>
     <div>
       <?php
+      $loop = 0;
+      $maxloop=0;
 
-      $x = 0;
       $sql = "SELECT * FROM cycleGroup";
       $result = $conn->query($sql);
       if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-
-          $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle INNER JOIN building ON buildingCycle.buildingID = building.buildingID WHERE cycleID = 3";//  ".$row["cycleID"]."";
-
-          echo "<h3>Cycle ".$row["cycleID"].": ".$row["cName"]."</h3>";
-          $result = $conn->query($sql);
-
-          if ($result->num_rows > 0){
-            echo "<table><tr>";
-            while($row = $result->fetch_assoc()){
-              echo "<td>Location ".$row["position"].": ".$row["name"].$row["cycleID"]."</td>";
-            }
-            echo "</tr></table>";
-          }else{  echo "<p>Error:".$conn->error."</p>"; }
-
-
+          //echo "<h3>Cycle ".$row["cycleID"].": ".$row["position"]."</h3>";
+          if ($row["cycleID"]>$maxloop) {
+            $maxloop=$row["cycleID"]; }
         }
-      }else{  echo "<p>Error:".$conn->error."</p>"; }
+      }else{  echo "<p>Error1:".$conn->error."</p>"; }
+
+
+      while ($loop <= $maxloop) {
+        $sql = "SELECT * FROM cycleGroup WHERE cycleID = ".$loop;
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+            echo "<h3>Cycle ".$row["cycleID"].": ".$row["cName"]."</h3>";
+          }
+        }else{  echo "<p>Error1:".$conn->error."</p>"; }
+
+
+        echo "<table><tr>";
+        $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$loop;
+
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+            echo "<td>Location ".$row["position"].": ".$row["name"]."</td>";
+          }
+        }else{  echo "<p>No Buildings in cycle</p>"; }
+        echo "</tr></table>";
+        $loop = $loop+1;
+      }
+
       ?>
       </div>
 
@@ -464,4 +481,3 @@
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
 </html>
-
