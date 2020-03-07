@@ -12,6 +12,8 @@ function openPage(evt, cityName) {
   document.getElementById("AddSection2").style.display = "none";
   document.getElementById("AddSection3").style.display = "none";
   document.getElementById("AddSection4").style.display = "none";
+  document.getElementById("AddSection5").style.display = "none";
+
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -25,10 +27,3 @@ function openPage(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
-function addTutor(){
-
-}
-
-function addRoom(){
-
-}
