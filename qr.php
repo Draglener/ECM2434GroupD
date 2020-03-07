@@ -75,7 +75,7 @@ Added
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
-		if(scannedText == n){
+		if(scannedText == buildings[n-1][0]){
 		   window.location.href = "scoreboard.php"}
 		   
 		else{
