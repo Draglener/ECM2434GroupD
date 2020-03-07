@@ -61,10 +61,15 @@ Real Scoreboard showing everyones scores
 
 		</div>
 		<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
-
+		<p></p>
+		<p id = resetCycle class ="score">Change Cycle/Route</p>
  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('points').innerHTML = currentPoi;
+var resetCycle = document.getElementById("resetCycle");
+resetCycle.onclick = function(){
+    location.replace("resetCycle.php");
+}
 </script>
 	</body>
 </html>
