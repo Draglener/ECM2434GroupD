@@ -9,7 +9,7 @@ echo "<div class='header'>
   <li><a id='demo' href='#' onclick='myFunction();'>Logout</a></li>
   </ul>
   </div>";
-echo '<script type="text/javascript">function myFunction(){alert(reset);}</script>';
+echo '<script type="text/javascript">function myFunction(){location.replace("logout-student.php");}</script>';
 ?>
 
 
