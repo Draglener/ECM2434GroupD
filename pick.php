@@ -34,6 +34,9 @@ Created pick cycle page
   <body class="body" id="body">
 	<script>
 	var currentCycl = <?php echo $currentCycle;?>;
+	if (currentCycl != 0){
+		location.replace("quiz.php")
+	}
 	</script>
 
 
