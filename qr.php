@@ -43,15 +43,6 @@ if ($result->num_rows > 0) {
 } else {
   echo $sql." ".$conn->error;
 }
-
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentQuizDone = $row['quizDone'];
-  }
-}
-
 ?>
 
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
@@ -77,21 +68,23 @@ Added
     var len = 0;
     for (i = 0; i < n; i++) {
     buildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
-    len++;	  
+
+
+    len++; 
     }
-	var currentquizDone = <?php echo $currentQuizDone; ?>;
+	
+	
 
 
     function onQRCodeScanned(scannedText)
     {
 		if(loc == scannedText){
-		if(scannedText == n){
+
+		if(scannedText ==  n){
 		   window.location.href = "scoreboard.php"}
 		   
 		else{
-		
-		window.location.href = "quizUpdate.php?from = ".$currentquizDone"}
-			
+		window.location.href = "quizUpdate.php"}
 
 		
 	}	
