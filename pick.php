@@ -34,12 +34,15 @@ Created pick cycle page
   <body class="body" id="body">
 	<script>
 	var currentCycl = <?php echo $currentCycle;?>;
+	if (currentCycl != 0){
+		location.replace("quiz.php")
+	}
 	</script>
 
 
         <img src="images/findExeterLogo.png" alt="topImage" class="topImage">
 
- <form  name="loginForm" action="cycleUpdate.php" method="post">
+ <form  name="loginForm" action="cycleUpdate.php?cycle" method="post">
         <p class="error"><?php echo $_SESSION['apperror']; ?></p>
 
         <label id="cycleName" for="cycle"><b>Select Cycle:</b></label>
@@ -48,7 +51,7 @@ Created pick cycle page
             //function to populate drop-down menu from distinct tutorvalues in database
             function dropdownOptions() {
               require('connection.php');
-              $sql = "SELECT * FROM cycleGroup WHERE cycleID > 0";
+              $sql = "SELECT * FROM cycleGroup WHERE cycleID >= 0";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
 
