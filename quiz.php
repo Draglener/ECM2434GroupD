@@ -81,6 +81,13 @@ if ($result->num_rows > 0) {
     $currentPoints = $row['points'];
   }
 }
+$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+    $currentQuizDone = $row['quizDone'];
+  }
+}
 ?>
 <!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
 Last updated: 25/02 15:12
@@ -114,6 +121,10 @@ and changed links from html pages to php
 
 	<script>
 var currentPoi = <?php echo $currentPoints; ?>;
+var currentquizDone = <?php echo $currentQuizDone; ?>;
+if (currentquizDone==1 ){
+	window.location.href = 'map_code.php';
+}
 document.getElementById('points').innerHTML = currentPoi;
 var points = 3;
 function next(numb){
