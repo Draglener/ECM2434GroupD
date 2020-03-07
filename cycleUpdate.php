@@ -1,10 +1,10 @@
 <?php
-session_start();
-require('connection.php');
-$cycle = $_GET['cycle'];
+Session_start();
+Require('connection.php');
+$cycle = htmlentities($_POST["cycle"]);
 $user = $_SESSION['studentID'];
-$sql2 = $conn->prepare("UPDATE user SET currentCycle = ? WHERE userID = ?");
-$sql2->bind_param('ii', $cycle, $user);
-$sql2->execute();
-header("Location: quiz.php");
+$sql2 = "UPDATE user SET currentCycle = ".$cycle." WHERE userID = ".$user;
+$conn->query($sql2);
+header("Location: pick.php");
 ?>
+
