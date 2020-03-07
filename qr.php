@@ -90,7 +90,8 @@ Added
 		   
 		else{
 		
-		window.location.href = "quizUpdate.php?from=currentquizDone"}
+		window.location.href = "quizUpdate.php?from = ".$currentquizDone"}
+			
 
 		
 	}	
