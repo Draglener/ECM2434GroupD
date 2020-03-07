@@ -115,6 +115,7 @@
           <?php
           dropdownTutor();
           ?>
+          </select>
           <input type="submit"  name="removeTutor" value="Remove Tutor"/>
         </form>
 
@@ -138,18 +139,29 @@
             <th>ID</th>
             <th>Username</th>
             <th>Tutor</th>
+            <th>Cycle</th>
             <th>Location</th>
             <th>Score</th>
             <th>Help</th>
           </tr>
           <?php
-          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name FROM user INNER JOIN building ON user.location = building.buildingID INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID  ORDER BY user.userID";
-           //
+          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name, cycleGroup.cName FROM user
+          INNER JOIN building ON user.location = building.buildingID
+          INNER JOIN cycleGroup ON user.currentCycle = cycleGroup.cycleID
+          INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID  ORDER BY user.userID";
           $result = $conn->query($sql);
+
+
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
               //filling the database with the data retreved from the database
-              echo "<tr><td>".$row["userID"]."</td><td>".$row["username"]."</td><td>".$row['fName']." ".$row['lName']."</td><td>".$row["name"]."</td><td>".$row["points"]."</td><td>".$row["help"]."</td></tr>";
+              echo "<tr><td>".$row["userID"]."</td>
+              <td>".$row["username"]."</td>
+              <td>".$row['fName']." ".$row['lName']."</td>
+              <td>".$row["cName"]."</td>
+              <td>".$row["name"]."</td>
+              <td>".$row["points"]."</td>
+              <td>".$row["help"]."</td></tr>";
             }
             echo "</table>";
           }else{  echo "<p>Error:".$conn->error."</p>"; }
@@ -164,7 +176,7 @@
         <h3>Add a Student </h3>
         <form method="post" action="addData.php">
           <input type="hidden" name="from" value="addStudent">
-          Enter the username<input type="text" name="username"/><hr/>
+          Enter their username<input type="text" name="username"/><hr/>
           <label for="tutor"><b>Tutor:</b></label>
           <select name="tutorID" required id="tutorList">
            <?php
@@ -200,6 +212,7 @@
           }
           dropdownStudent();
           ?>
+          </select>
           <input type="submit"  name="removeStudent" value="Remove Student"/>
         </form>
       </div>
@@ -248,7 +261,7 @@
           <input type="hidden" name="from" value="addRoom">
           Enter the room name<input type="text" name="name"/><hr/>
           Enter the room type<input type="text" name="type"/><hr/>
-          <label for="building"><b>Building:</b></label>
+          <label for="building"><b>Enter the building the room is in:</b></label>
           <select name="buildingID" required id="buildingList">
            <?php
            //fucntion to populate the drop-down list
@@ -283,7 +296,7 @@
             }
             dropdownRoom();
             ?>
-
+            </select>
           <input type="submit"  name="removeRoom" value="Remove Room"/>
         </form>
       </div>
@@ -331,7 +344,7 @@
           Enter the Building information<input type="text" name="info"/><hr/>
           Enter the Building Latitude<input type="text" name="latitude"/><hr/>
           Enter the Building Longitude<input type="text" name="longitude"/><hr/>
-          </select>
+
           <input type="submit"  name="addBuilding" value="Add Building"/>
         </form>
 
@@ -356,33 +369,97 @@
     <h2>Cycles</h2>
     <div>
       <?php
-      $sql = "SELECT * FROM cycleGroup WHERE cycleID = 0";
-      $result = $conn->query($sql);
-      if ($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-          //fill that table with data from the database
-          echo "<h3>Cycle ".$row["cycleID"].": ".$row["cName"]."</h3>";
-        }
-      }else{  echo "<p>Error:".$conn->error."</p>";   }
 
       $x = 0;
-      $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle INNER JOIN building ON buildingCycle.buildingID = building.buildingID WHERE cycleID = ".$x."";
-      //SELECT room.*, building.name AS bname from room INNER JOIN building ON room.buildingID = building.buildingID
+      $sql = "SELECT * FROM cycleGroup";
       $result = $conn->query($sql);
-      echo "<table><tr>";
       if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-          //fill that table with data from the database
-          echo "<td>Location ".$row["position"].": ".$row["name"]."</td>";
+
+          $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle INNER JOIN building ON buildingCycle.buildingID = building.buildingID WHERE cycleID = 3";//  ".$row["cycleID"]."";
+
+          echo "<h3>Cycle ".$row["cycleID"].": ".$row["cName"]."</h3>";
+          $result = $conn->query($sql);
+
+          if ($result->num_rows > 0){
+            echo "<table><tr>";
+            while($row = $result->fetch_assoc()){
+              echo "<td>Location ".$row["position"].": ".$row["name"].$row["cycleID"]."</td>";
+            }
+            echo "</tr></table>";
+          }else{  echo "<p>Error:".$conn->error."</p>"; }
+
+
         }
-        echo "</tr>";
-        echo "</table>";
-      }else{  echo "<p>Error:".$conn->error."</p>";   }
+      }else{  echo "<p>Error:".$conn->error."</p>"; }
       ?>
-     </div>
+      </div>
+
+       <div id="AddButton5">
+         <button onclick="addVis('AddSection5')">Add a New Cycle</button>
+       </div>
+
+       <!-- Section to add and remove buildings from the database -->
+       <div id="AddSection5">
+         <h3>Add a new cycle </h3>
+         <form method="post" action="addData.php">
+           <input type="hidden" name="from" value="addCycle">
+           Enter the cycle name<input type="text" name="name"/><hr/>
+
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID1" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID2" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID3" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID4" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID5" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            <option value='0'>End Cycle</option>
+            </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID6" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            <option value='0'>End Cycle</option>
+            </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID7" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            <option value='0'>End Cycle</option>
+            </select>
+            <label for="building"><b>Select a building to add to the cycle:</b></label>
+            <select name="buildingID8" required id="buildingList">
+             <option value='0'>Select a building...</option>
+             <?php dropdownBuildings(); ?>
+             <option value='0'>End Cycle</option>
+             </select>
+           <label for="building"><b>Select a building to add to the cycle:</b></label>
+           <select name="buildingID9" required id="buildingList">
+            <option value='0'>Select a building...</option>
+            <?php dropdownBuildings(); ?>
+            <option value='0'>End Cycle</option>
+            </select>
+           <input type="submit"  name="addBuilding" value="Add Cycle"/>
+         </form>
+      </div>
     </div>
-
-
 
       <button onclick="window.location.href = 'logout.php';">Logout</button>
   </body>
