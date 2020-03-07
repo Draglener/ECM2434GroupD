@@ -7,12 +7,18 @@ function addVis(visName){
     }
   }
 
-function openPage(evt, cityName) {
+function notAdmin(){
+    //document.getElementById('abc').style.display = 'none';
+}
+
+function openPage(evt, cityName, admin) {
+  document.getElementById("AddButton").style.display = "none";
   document.getElementById("AddSection").style.display = "none";
   document.getElementById("AddSection2").style.display = "none";
   document.getElementById("AddSection3").style.display = "none";
   document.getElementById("AddSection4").style.display = "none";
   document.getElementById("AddSection5").style.display = "none";
+
 
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -25,5 +31,8 @@ function openPage(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
+  if (admin == 0) {
+      document.getElementById("AddButton").style.display = "block";
+      //document.getElementById("AddSection").style.display = "block";
+  }
 }
-
