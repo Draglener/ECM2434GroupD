@@ -133,12 +133,14 @@
       <div class="Table"><h3>Students Table</h3>
         <table>
           <!-- table headers -->
-          <tr><th>ID</th><th>Username</th><th>Tutor</th><th>Cycle</th><th>Location</th><th>Score</th><th>Help</th></tr>
+          <tr><th>ID</th><th>Username</th><th>Tutor</th><th>Cycle</th><th>Points</th><th>Location</th></tr>
           <?php
-          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name, cycleGroup.cName FROM user
-          INNER JOIN building ON user.location = building.buildingID
+          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName,  cycleGroup.cName, buildingCycle.buildingID, building.name FROM user
+          INNER JOIN buildingCycle  ON user.location = buildingCycle.position AND user.currentCycle = buildingCycle.cycleID
           INNER JOIN cycleGroup ON user.currentCycle = cycleGroup.cycleID
-          INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID  ORDER BY user.userID";
+          INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID
+          INNER JOIN building ON buildingCycle.buildingID = building.buildingID
+          ORDER BY user.userID";
           $result = $conn->query($sql);
 
 
@@ -149,14 +151,15 @@
               <td>".$row["username"]."</td>
               <td>".$row['fName']." ".$row['lName']."</td>
               <td>".$row["cName"]."</td>
-              <td>".$row["name"]."</td>
               <td>".$row["points"]."</td>
-              <td>".$row["help"]."</td></tr>";
+              <td>".$row["name"]."</td>";
             }
             echo "</table>";
           }else{  echo "<p>Error:".$conn->error."</p>"; }
           ?>
       </div>
+
+
 
       <div id="AddButton2">
         <button onclick="addVis('AddSection2')">Add & Remove Students</button>
