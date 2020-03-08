@@ -6,27 +6,10 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()){
 	  $location = $row['location'];
+	$cycleID = $row['currentCycle'];
   }
 }
 
-$sql = "SELECT * from building WHERE buildingID > 0";
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  $buildings = array();
-  $n = 0;
-  while ($row = $result->fetch_assoc()){
-    $id = $row['buildingID'];
-    $name = $row['name'];
-    $info = $row['info'];
-    $latitude = floatval($row['latitude']);
-    $longitude = floatval($row['longitude']);
-    $buildings[$n] = array($id, $name, $info, $latitude, $longitude);
-    $n++;
-  }
-
-} else {
-  echo $sql." ".$conn->error;
-}
 $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -34,6 +17,29 @@ if ($result->num_rows > 0) {
     $currentPoints = $row['points'];
   }
 }
+
+
+$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID;
+$result = $conn->query($sql);
+if ($result->num_rows > 0){
+	$cycleBuildings = array();
+	$n2= 0;
+	while($row = $result->fetch_assoc()){
+		 $info = $row['info'];	
+		$id = $row["buildingID"]; //the id of the building
+		$name =$row["name"]; //the name of the building
+    		$latitude = floatval($row['latitude']);
+    		$longitude = floatval($row['longitude']);
+	    	$cycleBuildings[$n2] = array($id, $name, $info, $latitude, $longitude);
+
+
+    		$n2++;
+		
+	}
+}else{
+echo"<p>No Buildings in cycle</p>"; 
+}
+
 ?>
 <!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
 Last updated: 25/02 15:12
@@ -51,21 +57,22 @@ Added changes from html to php pages
  
   <script>
 
+    var cycleID = <?php echo $cycleID; ?>;
+	console.log(cycleID);
     var loc = <?php echo $location; ?>;
 	console.log(loc);
-alert("Goto the new marker and scan the QR code!");
-    var buildings = {}
-    // pass PHP array to JavaScript array
-    var prep = <?php echo json_encode($buildings); ?>;
-    var n = <?php echo $n; ?>;
+
+    //To access the name of (e.g) the second building in the cycle, use cycleBuildings[2].name
+
+  var cycleBuildings = {}
+    var prep = <?php echo json_encode($cycleBuildings); ?>;
+    var n2 = <?php echo $n2; ?>;
     var len = 0;
-    for (i = 0; i < n; i++) {
-    buildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
+    for (i = 0; i < n2; i++) {
+    cycleBuildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
     len++;
-	  console.log(buildings[i]);
-  }
-    
-    //To access the name of (e.g) the second building in the cycle, use buildings[2].name
+	  console.log(cycleBuildings[i]);
+}
     </script>
 		   <?php
   include('header.php');
@@ -105,11 +112,11 @@ alert("Goto the new marker and scan the QR code!");
       // The markers, positioned at Library
       
       for(var i = 0;i<loc;i++){
-        var location = {lat: buildings[i].lat,lng: buildings[i].lng};
-        var name = buildings[i].name;
-        var info = buildings[i].info;
+        var location = {lat: cycleBuildings[i].lat,lng: cycleBuildings[i].lng};
+        var name = cycleBuildings[i].name;
+        var info = cycleBuildings[i].info;
         addMarker(location,map,name,info);
-        console.log(buildings[i].name);
+        console.log(cycleBuildings[i].name);
       console.log("location");
       }
       
