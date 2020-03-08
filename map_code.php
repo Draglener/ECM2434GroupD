@@ -7,14 +7,7 @@ if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()){
 	  $location = $row['location'];
 	$cycleID = $row['currentCycle'];
-  }
-}
-
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentPoints = $row['points'];
+	      $currentPoints = $row['points'];
   }
 }
 
@@ -58,9 +51,8 @@ Added changes from html to php pages
   <script>
 
     var cycleID = <?php echo $cycleID; ?>;
-	console.log(cycleID);
     var loc = <?php echo $location; ?>;
-	console.log(loc);
+
 
     //To access the name of (e.g) the second building in the cycle, use cycleBuildings[2].name
 
