@@ -17,6 +17,8 @@
     addBuilding($conn);
   }elseif ($from == "removeBuilding") {
     removeBuilding($conn);
+  }elseif ($from == "addCycle") {
+    addCycle($conn);
   }else{
     header('Location: tutor-main-screen.php');
   }
@@ -46,9 +48,7 @@
   function addStudent($conn){
     $username = htmlentities($_POST["username"]);
     $tutorID = htmlentities($_POST["tutorID"]);
-    $location = '0';
-    $points = '0';
-    $query = "INSERT INTO user (username, tutorID, location, points) VALUES ('". $username ."', " .$tutorID .", ". $location .", " .$points .");";
+    $query = "INSERT INTO user (username, tutorID, location, points, tAndC, help, currentCycle, quizDone) VALUES ('". $username ."', " .$tutorID .", 0,0,0,0,0,0);";
     $conn->query($query);
     header('Location: tutor-main-screen.php');
   }
@@ -85,7 +85,27 @@
       $info = htmlentities($_POST["info"]);
       $latitude = htmlentities($_POST["latitude"]);
       $longitude = htmlentities($_POST["longitude"]);
+
+      $question = htmlentities($_POST["question"]);
+      $wBuilding1 = htmlentities($_POST["wBuilding1"]);
+      $wBuilding2 = htmlentities($_POST["wBuilding2"]);
+      $wBuilding3 = htmlentities($_POST["wBuilding3"]);
+
       $query = "INSERT INTO building (name, info, latitude, longitude) VALUES  ('".$name."', '".$info."', '".$latitude."', '".$longitude."');";
+      $conn->query($query);
+
+      $query2 = "SELECT buildingID FROM building";
+      $buildingID = 0;
+      $result = $conn->query($query2);
+      if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+          if ($buildingID < $row["buildingID"]) {
+            $buildingID = $row["buildingID"];
+          }
+        }
+      }else{  echo "<p>Error:".$conn->error."</p>";   }
+      $query = "INSERT INTO question (correctBuildingID, question, wrongBuilding1, wrongBuilding2, wrongBuilding3)
+            VALUES  ('".$buildingID."', '".$question."', '".$wBuilding1."','".$wBuilding2."', '".$wBuilding3."');";
       $conn->query($query);
       header('Location: tutor-main-screen.php');
     }
@@ -98,5 +118,45 @@
       header('Location: tutor-main-screen.php');
     }
 
+
+//Add selected buildings into building cycle in the order specified
+    function addCycle($conn){
+      $name = htmlentities($_POST["name"]);
+      $buildingID1 = htmlentities($_POST["buildingID1"]);
+      $buildingID2 = htmlentities($_POST["buildingID2"]);
+      $buildingID3 = htmlentities($_POST["buildingID3"]);
+      $buildingID4 = htmlentities($_POST["buildingID4"]);
+      $buildingID5 = htmlentities($_POST["buildingID5"]);
+      $buildingID6 = htmlentities($_POST["buildingID6"]);
+      $buildingID7 = htmlentities($_POST["buildingID7"]);
+      $buildingID8 = htmlentities($_POST["buildingID8"]);
+      $buildingID9 = htmlentities($_POST["buildingID9"]);
+      $buildings = array($buildingID1, $buildingID2, $buildingID3, $buildingID4, $buildingID5, $buildingID6, $buildingID7, $buildingID8, $buildingID9);
+      if ($buildingID1 != 0 && $buildingID2 != 0 && $buildingID3 != 0 && $buildingID4 != 0) {
+        $query = "INSERT INTO cycleGroup (cName) VALUES ('".$name."');";
+        $conn->query($query);
+        $cycleid = 0;
+        $query2 = "SELECT * FROM cycleGroup";
+        $result = $conn->query($query2);
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+            if ($cycleid < $row["cycleID"]) {
+              $cycleid = $row["cycleID"];
+            }
+          }
+        }else{  echo "<p>Error:".$conn->error."</p>";   }
+        $count = 1;
+        foreach( $buildings as $ID ) {
+          if ($ID==0) {
+            break;
+          }
+          $query3 = "INSERT INTO buildingCycle (buildingID, cycleID, position) VALUES (".$ID.", ".$cycleid.", ".$count.");";
+          $conn->query($query3);
+          $count = $count + 1;
+
+        }
+      }
+      header('Location: tutor-main-screen.php');
+    }
 
 ?>
