@@ -10,13 +10,6 @@ if ($_SESSION['status'] == "student"){
   header('Location: homepage.php');
 }
 
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentPoints = $row['points'];
-  }
-}
 ?>
 
 <!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
@@ -82,10 +75,6 @@ Adding score to page
 		</div>
 
 
-<script>
-var currentPoi = <?php echo $currentPoints; ?>;
-document.getElementById('pointsDisplayTag').value = currentPoi;
-</script>
 	</body>
 <?php 
 	unset($_SESSION['apperror']);
