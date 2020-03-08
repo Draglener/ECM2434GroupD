@@ -7,11 +7,8 @@ function addVis(visName){
     }
   }
 
-function notAdmin(){
-    //document.getElementById('abc').style.display = 'none';
-}
 
-function openPage(evt, cityName, admin) {
+function openPage(evt, tab, admin) {
   document.getElementById("AddButton").style.display = "none";
   document.getElementById("AddSection").style.display = "none";
   document.getElementById("AddSection2").style.display = "none";
@@ -29,9 +26,9 @@ function openPage(evt, cityName, admin) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tab).style.display = "block";
   evt.currentTarget.className += " active";
-  if (admin == 0) {
+  if (admin == 0 && tab== 'Groups') {
       document.getElementById("AddButton").style.display = "block";
       //document.getElementById("AddSection").style.display = "block";
   }
