@@ -162,7 +162,7 @@ return numb;
 }
     var question = <?php echo json_encode($question); ?>;
 	var names = <?php echo json_encode($names); ?>;
-	var nextLoc = <?php echo $building; ?>;
+	var nextLoc = <?php echo $nextLocation; ?>;
 	
 function create() {
     var numb = Math.floor( Math.random() * 3 )+1;
