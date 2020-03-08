@@ -68,24 +68,26 @@ Added
     for (i = 0; i < n2; i++) {
     cycleBuildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
     len++;
-	  console.log(cycleBuildings[i].id);
+
 }
+var rightLocation = loc - 1;
+console.log(cycleBuildings[rightLocation].id);
 	
 	
 
 
     function onQRCodeScanned(scannedText)
-    {
-		if(loc == scannedText){
+    {		
 
-		if(scannedText ==  n){
-		   window.location.href = "scoreboard.php"}
-		   
-		else{
-		window.location.href = "quizUpdate.php"}
 
+			if(cycleBuildings[rightLocation].id == scannedText){
+				if(scannedText == cycleBuildings[n2-1].id){
+				window.location.href="scoreboard.php"
+				}else{
+				window.location.href="quizUpdate.php"
+				}
+			}
 		
-	}	
     }
 
     function JsQRScannerReady()
