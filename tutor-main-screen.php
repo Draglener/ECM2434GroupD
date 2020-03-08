@@ -28,7 +28,7 @@
       <button class="tablinks" onclick="openPage(event, 'Groups', <?php echo $_SESSION['user'];?>)">Tutor Groups</button>
       <button class="tablinks" onclick="openPage(event, 'Students', 0)">Students</button>
       <button class="tablinks" onclick="openPage(event, 'Rooms', 0)">Rooms</button>
-      <button class="tablinks" onclick="openPage(event, 'Buildings', 0">Buildings</button>
+      <button class="tablinks" onclick="openPage(event, 'Buildings', 0)">Buildings</button>
       <button class="tablinks" onclick="openPage(event, 'Cycles', 0)">Cycles</button>
     </div>
 
@@ -43,12 +43,7 @@
       <div class="Table"><h3>Tutor Table</h3>
         <!-- creating the titles for the table -->
          <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Lastname</th>
-            <th>Group Score</th>
-          </tr>
+          <tr><th>ID</th><th>Name</th><th>Lastname</th><th>Group Score</th></tr>
           <?php
           $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
           $result = $conn->query($sql);
@@ -138,15 +133,7 @@
       <div class="Table"><h3>Students Table</h3>
         <table>
           <!-- table headers -->
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Tutor</th>
-            <th>Cycle</th>
-            <th>Location</th>
-            <th>Score</th>
-            <th>Help</th>
-          </tr>
+          <tr><th>ID</th><th>Username</th><th>Tutor</th><th>Cycle</th><th>Location</th><th>Score</th><th>Help</th></tr>
           <?php
           $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name, cycleGroup.cName FROM user
           INNER JOIN building ON user.location = building.buildingID
@@ -289,15 +276,15 @@
           <label for="room"><b>Select the Room to Remove:</b></label>
           <select name="roomID" required id="roomList">
             <?php
-            function dropdownRoom() {
+            function dropdownRoomWOOffice() {
               require('connection.php');
-              $sql = "SELECT * FROM room";
+              $sql = "SELECT * FROM room WHERE type != 'Office'";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
                 echo "<option value='".$row['roomID']."'>".$row['name']."</option>";
               }
             }
-            dropdownRoom();
+            dropdownRoomWOOffice();
             ?>
             </select>
           <input type="submit"  name="removeRoom" value="Remove Room"/>
@@ -335,7 +322,7 @@
       </div>
 
       <div id="AddButton4">
-        <button onclick="addVis('AddSection4')">Add & Remove Buildings</button>
+        <button onclick="addVis('AddSection4')">Add Buildings</button>
       </div>
 
       <!-- Section to add and remove buildings from the database -->
@@ -347,21 +334,33 @@
           Enter the Building information<input type="text" name="info"/><hr/>
           Enter the Building Latitude<input type="text" name="latitude"/><hr/>
           Enter the Building Longitude<input type="text" name="longitude"/><hr/>
-
+          Enter the Question for the Building <input type="text" name="question"/><hr/>
+          <label for="building"><b>Select three building to be the wrong answers:</b></label>
+          <select name="wBuilding1" required id="buildingList">
+            <?php dropdownBuildings();  ?>
+          </select>
+          <select name="wBuilding2" required id="buildingList">
+            <?php  dropdownBuildings();  ?>
+          </select>
+          <select name="wBuilding3" required id="buildingList">
+            <?php  dropdownBuildings();  ?>
+          </select>
           <input type="submit"  name="addBuilding" value="Add Building"/>
         </form>
 
 
+        <!--
       <h3>Remove a building </h3>
       <form method="post" action="addData.php">
         <input type="hidden" name="from" value="removeBuilding">
         <label for="building"><b>Select the Building to Remove:</b></label>
         <select name="buildingID" required id="buildingList">
           <?php
-          dropdownBuildings();
+          //dropdownBuildings();
           ?>
         <input type="submit"  name="removeBuilding" value="Remove Building"/>
       </form>
+      -->
     </div>
   </div>
 
@@ -383,7 +382,7 @@
           if ($row["cycleID"]>$maxloop) {
             $maxloop=$row["cycleID"]; }
         }
-      }else{  echo "<p>Error1:".$conn->error."</p>"; }
+      }else{  echo ""; }
 
 
       while ($loop <= $maxloop) {
@@ -393,7 +392,7 @@
           while($row = $result->fetch_assoc()){
             echo "<h3>Cycle ".$row["cycleID"].": ".$row["cName"]."</h3>";
           }
-        }else{  echo "<p>Error1:".$conn->error."</p>"; }
+        }else{  echo ""; }
 
 
         echo "<table><tr>";
@@ -404,7 +403,7 @@
           while($row = $result->fetch_assoc()){
             echo "<td>Location ".$row["position"].": ".$row["name"]."</td>";
           }
-        }else{  echo "<p>No Buildings in cycle</p>"; }
+        }else{  echo ""; }
         echo "</tr></table>";
         $loop = $loop+1;
       }
