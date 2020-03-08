@@ -68,7 +68,7 @@ Added
     for (i = 0; i < n2; i++) {
     cycleBuildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
     len++;
-	  console.log(cycleBuildings[i]);
+	  console.log(cycleBuildings[i].id);
 }
 	
 	
