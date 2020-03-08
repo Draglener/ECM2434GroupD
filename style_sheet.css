@@ -167,14 +167,16 @@ th {
    width: -webkit-fill-available;
    width:-moz-available;
    width: -moz-available;
-   padding: 15px;
+   padding-top: 40px;
+   padding-bottom: 40px;
+   padding-left: 5px;
    display: inline-block;
    border: 1px solid #ccc;
    box-sizing: border-box;
    margin-top: 10px;
 }
 input, select, label{
-	font-size: 2em;
+	font-size: 30px;
 }
 
 img.topImage, img.bottomImage{
@@ -202,7 +204,7 @@ height: 30px;
 }
 
 p {
-	font-size: 1.5em;
+	font-size: 31px;
 }
 #informationText {
     font-size: 12px;
@@ -271,6 +273,15 @@ p {
     opacity: 1;
   }
 
+option {
+	font-size: 12px;
+	/* margin: -10px; */
+	/* padding: 0; */
+	padding-left: -5px;
+	/* white-space: unset; */
+	/* text-align: left; */
+	/* text-indent: -202.5px; */
+}
 
 .list{
   text-align: left;
