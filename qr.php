@@ -15,33 +15,28 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()){
 	  $location = $row['location'];
-  }
-}
-$sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-    $currentPoints = $row['points'];
+	$cycleID = $row['currentCycle'];
+	      $currentPoints = $row['points'];
   }
 }
 
-$sql = "SELECT * from building WHERE buildingID > 0";
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  $buildings = array();
-  $n = 0;
-  while ($row = $result->fetch_assoc()){
-    $id = $row['buildingID'];
-    $name = $row['name'];
-    $info = $row['info'];
-    $latitude = floatval($row['latitude']);
-    $longitude = floatval($row['longitude']);
-    $buildings[$n] = array($id, $name, $info, $latitude, $longitude);
-    $n++;
-  }
 
-} else {
-  echo $sql." ".$conn->error;
+$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID;
+$result = $conn->query($sql);
+if ($result->num_rows > 0){
+	$cycleBuildings = array();
+	$n2= 0;
+	while($row = $result->fetch_assoc()){
+		 $info = $row['info'];	
+		$id = $row["buildingID"]; //the id of the building
+		$name =$row["name"]; //the name of the building
+    		$latitude = floatval($row['latitude']);
+    		$longitude = floatval($row['longitude']);
+	    	$cycleBuildings[$n2] = array($id, $name, $info, $latitude, $longitude);
+   		$n2++;		
+	}
+}else{
+echo"<p>No Buildings in cycle</p>"; 
 }
 ?>
 
@@ -60,18 +55,21 @@ Added
 
 
   <script type="text/javascript">
-  var loc = <?php echo $location; ?>;
-      var buildings = {}
-    // pass PHP array to JavaScript array
-    var prep = <?php echo json_encode($buildings); ?>;
-    var n = <?php echo $n; ?>;
+    var cycleID = <?php echo $cycleID; ?>;
+    var loc = <?php echo $location; ?>;
+
+
+    //To access the name of (e.g) the second building in the cycle, use cycleBuildings[2].name
+
+  var cycleBuildings = {}
+    var prep = <?php echo json_encode($cycleBuildings); ?>;
+    var n2 = <?php echo $n2; ?>;
     var len = 0;
-    for (i = 0; i < n; i++) {
-    buildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
-
-
-    len++; 
-    }
+    for (i = 0; i < n2; i++) {
+    cycleBuildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
+    len++;
+	  console.log(cycleBuildings[i]);
+}
 	
 	
 
