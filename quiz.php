@@ -14,17 +14,11 @@ $sql = "SELECT * from user WHERE userID = ".$_SESSION['studentID'];
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()){
-	  $location = $row['location'];
+	  $position = $row['location'];
 	  $cycle = $row['currentCycle'];
   }
 }
-$sql = "SELECT * from buildingCycle WHERE buildingID = ".$location." AND cycleID = ".$cycle;
-$result =  $conn->query($sql);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()){
-	  $position = $row['position'];
-  }
-}
+
 if ($position == 9){
 	$nextLocation = 0;
 } else {
