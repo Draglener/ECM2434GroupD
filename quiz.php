@@ -15,15 +15,32 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()){
 	  $location = $row['location'];
+	  $cycle = $row['currentCycle'];
   }
 }
-if ($location == 9){
+$sql = "SELECT * from buildingCycle WHERE buildingID = ".$location." AND cycleID = ".$cycle;
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+	  $position = $row['position'];
+  }
+}
+if ($position == 9){
 	$nextLocation = 0;
 } else {
-	$nextLocation = $location + 1;
+	$nextLocation = $position + 1;
 	
 }
-$sql = "SELECT * from question WHERE correctBuildingID = ".$nextLocation." LIMIT 1";
+$sql = "SELECT buildingID from buildingCycle WHERE position = ".$nextLocation." AND cycleID = ".$cycle;
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()){
+	  $building = $row['buildingID'];
+  }
+}
+
+
+$sql = "SELECT * from question WHERE correctBuildingID = ".$building." LIMIT 1";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()){
@@ -145,7 +162,7 @@ return numb;
 }
     var question = <?php echo json_encode($question); ?>;
 	var names = <?php echo json_encode($names); ?>;
-	var nextLoc = <?php echo $nextLocation; ?>;
+	var nextLoc = <?php echo $building; ?>;
 	
 function create() {
     var numb = Math.floor( Math.random() * 3 )+1;
