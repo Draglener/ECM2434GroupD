@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
 }
 
 
-$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID;
+$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID." AND buildingCycle.position!=0";
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
 	$cycleBuildings = array();
