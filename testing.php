@@ -21,6 +21,7 @@ if ($result->num_rows > 0) {
 <!DOCTYPE html>
 <!-- Authors: Katie Jones and Anneliese Travis and Jasmine West
 Last updated: 01/03 16:35
+OBSOLETE
 Real Scoreboard showing everyones scores
 -->
 
