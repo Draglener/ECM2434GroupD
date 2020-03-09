@@ -1,3 +1,13 @@
+/**
+ * Implements two functions to control visibility on the game master pages depending on the tab
+ *
+ *@author Jasmine West & Annelise Travis
+ *@version 09/03/2020 13:38
+ */
+
+/**
+ * changes the visibility of a given div
+ */
 function addVis(visName){
   var x = document.getElementById(visName);
     if (x.style.display === "none") {
@@ -7,7 +17,9 @@ function addVis(visName){
     }
   }
 
-
+/**
+ * ensures the right divs are visible on the right tab on the game master page
+ */
 function openPage(evt, tab, admin) {
   document.getElementById("AddButton").style.display = "none";
   document.getElementById("AddSection").style.display = "none";
