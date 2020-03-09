@@ -43,7 +43,7 @@
       <div class="Table"><h3>Tutor Table</h3>
         <!-- creating the titles for the table -->
          <table>
-          <tr><th>ID</th><th>Name</th><th>Lastname</th><th>Group Score</th></tr>
+          <tr><th>Name</th><th>Lastname</th><th>Group Score</th></tr>
           <?php
           $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
           $result = $conn->query($sql);
@@ -54,7 +54,7 @@
                  if ($result2->num_rows > 0){
 					while($row2 = $result2->fetch_assoc()){
 						$total = $row2['total'];
-						echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$total."</td></tr>";
+						echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$total."</td></tr>";
 					}
 				} else{
 					echo $conn->error;
@@ -399,8 +399,7 @@
 
 
         echo "<table><tr>";
-        $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$loop;
-
+        $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$loop." ORDER BY buildingCycle.position";
         $result = $conn->query($sql);
         if ($result->num_rows > 0){
           while($row = $result->fetch_assoc()){
