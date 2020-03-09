@@ -1,7 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 4.9.4
 -- https://www.phpmyadmin.net/
---
+-- OBSOLETE
 -- Host: db5000293954.hosting-data.io
 -- Generation Time: Mar 06, 2020 at 01:17 PM
 -- Server version: 5.7.29-log
