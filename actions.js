@@ -6,7 +6,9 @@
  */
 
 /**
- * changes the visibility of a given div
+ * Changes the visibility (wether or not it appears) of a given element.
+ *
+ * @param visName The nameof the element that needs to have its visibility changed
  */
 function addVis(visName){
   var x = document.getElementById(visName);
@@ -18,7 +20,11 @@ function addVis(visName){
   }
 
 /**
- * ensures the right divs are visible on the right tab on the game master page
+ * Ensures the right elements are visible on the right tab on the game master page.
+ *
+ * @param evt   Checks the right event has occurred
+ * @param tab   Checks which tab is open
+ * @param admin A check value to check if the current session is an administrator.
  */
 function openPage(evt, tab, admin) {
   document.getElementById("AddButton").style.display = "none";
@@ -37,6 +43,7 @@ function openPage(evt, tab, admin) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
+  // Gives the admin the ability to add and remove tutors.
   document.getElementById(tab).style.display = "block";
   evt.currentTarget.className += " active";
   if (admin == 0 && tab== 'Groups') {
