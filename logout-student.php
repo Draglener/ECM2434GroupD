@@ -1,7 +1,12 @@
+<!-- 
+Author: Annelise Travis, Jasmine West and Keith Harrison 
+Last updated: 09/03 13:24
+-->
 <?php
 session_start();
 require('connection.php');
-//reset location
+
+//reset the current users location
 $from = htmlentities($_GET["from"]);
 $user = $_SESSION['studentID'];
 	if ($from == 1){
