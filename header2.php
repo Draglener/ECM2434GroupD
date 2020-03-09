@@ -1,4 +1,6 @@
 <?php
+
+//creates the header for the student page
 echo "<div class='header'>
   <ul class='topnav' id='myNav'>
   <li><a href='homepage.php'>Login</a></li>
