@@ -16,7 +16,6 @@ function openPage(evt, tab, admin) {
   document.getElementById("AddSection4").style.display = "none";
   document.getElementById("AddSection5").style.display = "none";
 
-
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -30,6 +29,5 @@ function openPage(evt, tab, admin) {
   evt.currentTarget.className += " active";
   if (admin == 0 && tab== 'Groups') {
       document.getElementById("AddButton").style.display = "block";
-      //document.getElementById("AddSection").style.display = "block";
   }
 }
