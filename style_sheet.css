@@ -1,4 +1,7 @@
-/* ----Katie Jones and Piranavie Thangasuthan---- */
+/*
+:Author: Anneliese Travis, Katie Jones and Piranavie Thangasuthan
+Stylesheet for the tutor/gamemaster screens
+*/
 
 /* ----BASIC FORMATTING --- */
 body {
@@ -12,7 +15,7 @@ body {
     margin-top: 10%;
 	margin-bottom: 10%;
 }
-
+/* ----Formatting for buttons at top of screen --- */
 .top_buttons{
 	text-align: center;
 	display: flex;
@@ -34,6 +37,7 @@ body {
 	z-index:-1;
 }
 
+/* ---- formatting for containers for map, qr code scanner video and quiz --- */
 .container{
     background-color: #FCF8F8;
     position: static;
@@ -48,6 +52,7 @@ body {
     position: relative;
 }
 
+/* formatting for score text */
 .score{
 	font-size: 40px;
 	font-weight: bold;
@@ -61,9 +66,11 @@ body {
 	margin-left: 10px;
 	margin-right: 10px;
 }
+
 #helpButton{
 	float:right;
 }
+/* formatting for login button */
 #loginButton {
   background-color: #012060;
   font-size: 2em;
@@ -78,7 +85,7 @@ body {
 }
 
 
-
+/* formatting for the scoreboard table */
 table{
   border-collapse: collapse;
   width: 100%;
@@ -127,6 +134,7 @@ th {
 	text-align: center;
 	font-size: 30px;
 }
+/* formatting for question box */
 .question{
 	margin: 0px;
 	text-align: center;
@@ -134,7 +142,7 @@ th {
 	padding: 40px;
 	font-weight: bolder;
 }
-
+/* formatting for question text*/
 #questionText {
     font-size: small;
     color: #000000;
@@ -142,6 +150,7 @@ th {
     width: 470px;
     margin-left: 10px;
 }
+/* formatting for map */
 #fullMapDisplay {
 	margin-left: 0;
 	margin-right:0;
@@ -175,10 +184,12 @@ th {
    box-sizing: border-box;
    margin-top: 10px;
 }
+/* formatting for input box */
 input, select, label{
 	font-size: 30px;
 }
 
+/* formatting for logos on screen*/
 img.topImage, img.bottomImage{
   width: 35%;
   display: block;
@@ -192,7 +203,7 @@ img.topImage, img.bottomImage{
     overflow: scroll;
     height: 1200px;
 }
-
+/* formatting for checkbox input for terms*/
 input[type=checkbox] {
 	    float: left;
 font-size: ;
@@ -293,6 +304,7 @@ option {
   margin-top: 5px;
 
 }
+/* formatting for drop down boxes and its contents */
 .dropbtn{
   margin-left:auto;
   margin-right:auto;
