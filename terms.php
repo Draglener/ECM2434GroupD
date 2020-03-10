@@ -1,3 +1,8 @@
+<!-- 
+Author: Keith Harrison, Annelise Travis and Katie Jones
+Last updated: 05/03 14:34
+-->
+
 <?php
 session_start();
 ?>
@@ -14,11 +19,6 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-
-<!-- Author: Keith Harrison
-Last updated: 05/03 14:34
-Created terms and condition page 
--->
 
 <html>
 	<head>
@@ -48,6 +48,8 @@ Created terms and condition page
     findExeter's Website, located at
     secondchancelarp.co.uk/ECM2434GroupD-master/ECM2434GroupD-master.
 </p>
+<!--
+Adds and formats all relevant information for the T&Cs-->
 
 <p dir="ltr">
     The following terminology applies to these Terms and Conditions, Privacy
