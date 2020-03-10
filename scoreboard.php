@@ -1,3 +1,7 @@
+<!-- Authors: Katie Jones, Anneliese Travis, Jasmine West and Keith Harrison
+Last updated: 01/03 16:35
+-->
+
 <?php
 session_start();
 ?>
@@ -18,10 +22,7 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-<!-- Authors: Katie Jones and Anneliese Travis and Jasmine West
-Last updated: 01/03 16:35
-Real Scoreboard showing everyones scores
--->
+
 <html>
 	<head>
 	<meta charset="UTF-8">
@@ -64,6 +65,7 @@ Real Scoreboard showing everyones scores
 		<p></p>
 		<p id = resetCycle class ="score">Change Cycle/Route</p>
  <script>
+	 //Allows users to change their cycle
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('points').innerHTML = currentPoi;
 var resetCycle = document.getElementById("resetCycle");
