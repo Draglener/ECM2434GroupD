@@ -1,6 +1,7 @@
 <!-- 
 Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Last updated: 05/03 14:22
+Page for the QR code scanner
+Last updated: 10/03 13:30
 -->
 <?php
 session_start();
@@ -74,7 +75,7 @@ console.log(cycleBuildings[rightLocation].id);
 	
 
     /**
-     * Runs code after the QR code is scanned. Speciffically updates the score, location and quiz
+     * Runs code after the QR code is scanned. Specifically updates the score, location and quiz
      *
      * @param scannedText	the input from the scanned QR code.
      */
@@ -90,7 +91,7 @@ console.log(cycleBuildings[rightLocation].id);
     }
 	  
     /**
-     * Initializes the scanner.
+     * Initializes the scanner and adds it to the html object scannerParentElement
      */
     function JsQRScannerReady()
     {
@@ -103,24 +104,6 @@ console.log(cycleBuildings[rightLocation].id);
     	}
 	}
 	
-	/**
-         * Hides the QR scanner
-         *
-         * @param JsQRScanner 
-         */
-	function hide(JsQRScanner)
-	{
-		var x = document.getElementById("QRScanner");
-		if (x.style.display === "none")
-		{
-			x.style.display = "block";
-		} else
-		{
-			x.style.display = "none";
-		}
-}
-
-
   </script>
 
   </head>
