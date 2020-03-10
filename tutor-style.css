@@ -1,7 +1,15 @@
+/*
+:Author: Jasmine West, Keith Harrison, Anneliese Travis 
+Stylesheet for the tutor/gamemaster screens
+*/
+
+/*Background colour and default font for the tutor login page*/
 body {font-family: Arial, Helvetica, sans-serif; background-color: #c2eaed;}
 
+/*Padding for tutor login text*/
 h1{padding: 20px;}
 
+/*formatting for the border of the table and its background colour */
 table {
   border: 1px solid black;
   border-collapse: collapse;
@@ -9,16 +17,18 @@ table {
   width: 100%;
 }
 
+/*formatting for the tables text */
 th, td {
   border: 1px solid black;
   padding: 8px;
   text-align: left;
 }
 
+/*formatting for the tables box's colors */
 tr:nth-child(even) {background-color: #e6f1f2;}
 tr:hover {background-color: #c2d0d1;}
 
-
+  /*formatting for the input boxes*/
   input{
     width: 100%;
     padding: 12px 20px;
@@ -27,7 +37,7 @@ tr:hover {background-color: #c2d0d1;}
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-
+  /*formatting for the drop down boxes*/
   select{
     width: 100%;
     padding: 12px 20px;
@@ -37,7 +47,7 @@ tr:hover {background-color: #c2d0d1;}
     box-sizing: border-box;
   }
 
-
+  /*formatting for the add and remove buttons*/
   button {
     color: black;
     padding: 14px 20px;
@@ -98,7 +108,7 @@ tr:hover {background-color: #c2d0d1;}
   animation: fadeEffect 1s;
 }
 
-/* Nice button */
+/* Login button on tutor-login page */
 #loginButton {
   background-color: #012060;
   font-size: 2em;
