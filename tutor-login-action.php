@@ -1,3 +1,7 @@
+<!-- 
+Author: Anneliseb Travis
+Last updated: 10/03 9:24
+-->
 <?php
 session_start();
 require('connection.php');
