@@ -1,5 +1,5 @@
 <!-- 
-Author: Anneliseb Travis
+Author: Annelise Travis
 Last updated: 10/03 9:24
 -->
 <?php
