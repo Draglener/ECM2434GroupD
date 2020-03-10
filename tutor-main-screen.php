@@ -1,3 +1,7 @@
+<!-- 
+Author: Annelise Travis and Jasmine West and Keith Harrison 
+Last updated: 09/03 13:24
+-->
 <?php
   //checks the correct session is established
   session_start();
@@ -88,7 +92,9 @@
           <label for="office"><b>Office:</b></label>
           <select name="office" required id="officeList">
            <?php
-              //function to populate drop-down menu for office rooms
+	      /**
+	       * Function to populate drop-down menu for office rooms
+	       */
               function dropdownOffice() {
                 require('connection.php');
                 $sql = "SELECT * FROM room WHERE type='office'";
@@ -111,6 +117,9 @@
         <label for="tutor"><b>Select Tutor to Remove:</b></label>
         <select name="tutorID" required id="tutorList">
         <?php
+	  /**
+	   * Select a tutor to delete froma drop down menu
+	   */
           function dropdownDeleteTutor() {
             require('connection.php');
             $sql = "SELECT * FROM tutorGroup WHERE tutorID >=1";
@@ -126,14 +135,6 @@
         <input type="submit"  name="removeTutor" value="Remove Tutor"/>
       </form>
     </div>
-
-
-
-
-
-
-
-
 
     <!-- Student tab section -->
     <div id="Students" class="tabcontent">
@@ -182,7 +183,9 @@
           <label for="tutor"><b>Tutor:</b></label>
           <select name="tutorID" required id="tutorList">
            <?php
-           //function to populate the drop-down list with tutors from the database
+	      /**
+	       * Function to populate the drop-down list with tutors from the database
+	       */
               function dropdownTutor() {
                 require('connection.php');
                 $sql = "SELECT * FROM tutorGroup";
@@ -203,7 +206,9 @@
           <label for="student"><b>Select the Student to Remove:</b></label>
           <select name="userID" required id="studentList">
           <?php
-          //function to populate the dropdown list with students using the database.
+	  /**
+	   * Function to populate the drop-down list with students from the database
+	   */
           function dropdownStudent() {
             require('connection.php');
             $sql = "SELECT * FROM user";
@@ -219,12 +224,6 @@
         </form>
       </div>
     </div>
-
-
-
-
-
-
 
     <div id="Rooms" class="tabcontent">
       <h2>Rooms</h2>
@@ -266,7 +265,9 @@
           <label for="building"><b>Enter the building the room is in:</b></label>
           <select name="buildingID" required id="buildingList">
            <?php
-           //fucntion to populate the drop-down list
+	      /**
+	       * Function to populate the drop-down list with buildings from the database
+	       */
               function dropdownBuildings() {
                 require('connection.php');
                 $sql = "SELECT * FROM building";
@@ -288,6 +289,9 @@
           <label for="room"><b>Select the Room to Remove:</b></label>
           <select name="roomID" required id="roomList">
             <?php
+	    /**
+	     * Function to remove a room from the database
+	     */
             function dropdownRoomWOOffice() {
               require('connection.php');
               $sql = "SELECT * FROM room WHERE type != 'Office'";
