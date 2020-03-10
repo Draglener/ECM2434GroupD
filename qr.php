@@ -1,3 +1,7 @@
+<!-- 
+Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
+Last updated: 05/03 14:22
+-->
 <?php
 session_start();
 ?>
@@ -20,7 +24,6 @@ if ($result->num_rows > 0) {
   }
 }
 
-
 $sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID." AND buildingCycle.position!=0";
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
@@ -39,11 +42,6 @@ if ($result->num_rows > 0){
 echo"<p>No Buildings in cycle</p>"; 
 }
 ?>
-
-<!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Last updated: 05/03 14:22
-Added 
--->
 
 <html>
   <head>
@@ -75,11 +73,13 @@ console.log(cycleBuildings[rightLocation].id);
 	
 	
 
-
+    /**
+     * Runs code after the QR code is scanned. Speciffically updates the score, location and quiz
+     *
+     * @param scannedText	the input from the scanned QR code.
+     */
     function onQRCodeScanned(scannedText)
     {		
-
-
 			if(cycleBuildings[rightLocation].id == scannedText){
 				if(scannedText == cycleBuildings[n2-1].id){
 				window.location.href="scoreboard.php"
@@ -87,9 +87,11 @@ console.log(cycleBuildings[rightLocation].id);
 				window.location.href="quizUpdate.php"
 				}
 			}
-		
     }
-
+	  
+    /**
+     * Initializes the scanner.
+     */
     function JsQRScannerReady()
     {
 		var jbScanner = new JsQRScanner(onQRCodeScanned);
@@ -100,6 +102,12 @@ console.log(cycleBuildings[rightLocation].id);
     		jbScanner.appendTo(scannerParentElement);
     	}
 	}
+	
+	/**
+         * Hides the QR scanner
+         *
+         * @param JsQRScanner 
+         */
 	function hide(JsQRScanner)
 	{
 		var x = document.getElementById("QRScanner");
