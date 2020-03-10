@@ -1,3 +1,7 @@
+<!-- 
+Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
+Last updated: 25/02 15:12
+-->
 <?php
 session_start();
 ?>
@@ -100,11 +104,7 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-<!-- Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
-Last updated: 25/02 15:12
-Has the quiz linked to the PHP to change location of current user
-and changed links from html pages to php
--->
+
 <!doctype html>
 <html>
   <head>
@@ -138,6 +138,12 @@ if (currentquizDone==1 ){
 }
 document.getElementById('points').innerHTML = currentPoi;
 var points = 3;
+
+/**
+ * Loads the next question
+ *
+ * @param numb	tracks the number of the output
+ */
 function next(numb){
 		  switch(numb) {
   case 1:
@@ -146,7 +152,7 @@ function next(numb){
   case 2:
     numb++;
     break;
-	case 3:
+  case 3:
    numb++;
     break;
   default:
@@ -157,7 +163,10 @@ return numb;
     var question = <?php echo json_encode($question); ?>;
 	var names = <?php echo json_encode($names); ?>;
 	var nextLoc = <?php echo $nextLocation; ?>;
-	
+
+/**
+ * Creates the question and multiple choice answers. 
+ */	
 function create() {
     var numb = Math.floor( Math.random() * 3 )+1;
 	console.log(question[5]);
@@ -236,6 +245,10 @@ function create() {
 	  document.getElementById("error").innerHTML = points + " points available to win."
   }
   create();
+  
+  /**
+   * Validates the given answer to see if it is correct or incorrect and carrys out the appropriate response
+   */
   function validate(answer){
 	  if (answer == question[1]){
 		  document.getElementById(answer).setAttribute('style', 'background-color:green;');
