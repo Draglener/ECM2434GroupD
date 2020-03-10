@@ -1,6 +1,6 @@
 <!-- 
 Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Page for the QR code scanner
+Page for the QR code scanner.
 Last updated: 10/03 13:30
 -->
 <?php
