@@ -76,7 +76,10 @@ echo"<p>No Buildings in cycle</p>";
     <div id="fullMapDisplay" class="container"></div>
 	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
     <script>
-    //Initialize and add the map along with its style
+    
+    /**
+     * Initialize and add the map along with its style
+     */
     function initMap() {
 
       var center = { lat: 50.735801, lng:  -3.533297};
@@ -87,8 +90,6 @@ echo"<p>No Buildings in cycle</p>";
           document.getElementById('fullMapDisplay'), {zoom: 16.5,
         center: center,
         mapTypeId: 'hybrid'
-        //gestureHandling: 'none', 
-        //zoomControl:true
         });
     
       var customStyled = [{
