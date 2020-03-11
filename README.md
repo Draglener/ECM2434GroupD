@@ -9,6 +9,7 @@
 	- [Tutor](#tutor)
 	- [Administrator](#administrator)
 	- [Developer](#developer)
+	- [Database](#database)
 - [Requirements](#requirements)
 - [Tests](#tests)
 - [License](#license)
@@ -88,8 +89,11 @@ All other data can be changed from the game master page, in order to remove buil
 In order to replace the logo, change the image link in header.php, header2.php, and header3.php.
 
 For information about the structure of the database please refer to the ER diagram.
-![Image of Yaktocat](https://github.com/Draglener/ECM2434GroupD/blob/master/ER%20diagram.png)
+![ER DIAGRAM](https://github.com/Draglener/ECM2434GroupD/blob/master/ER%20diagram.png)
 
+## Database
+For the database to be implemented follow the SQL dump found and implement it into your own database
+[SQL DUMP](https://github.com/Draglener/ECM2434GroupD/blob/master/sql_dump.sql)
 ## Requirements
 
 In order to deploy new changes to the website, a server is required alongside a cross platform FTP application such as FileZilla. 
@@ -105,3 +109,5 @@ Unit tests can be ran in selenium.
 ## Authors 
 
 Jasmine West, Keith Harrison, Annelise Travis, Steven Reynolds, Katie Jones, and Piranavie Thangusthan
+
+
