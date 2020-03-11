@@ -1,4 +1,5 @@
 <?php
+session_start();
   /**
    * @author Jasmine West
    * @version 09/03 9:24
