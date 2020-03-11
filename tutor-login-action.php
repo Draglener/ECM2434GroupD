@@ -1,10 +1,11 @@
-<!-- 
-Author: Annelise Travis
-Last updated: 10/03 9:24
--->
 <?php
 session_start();
 require('connection.php');
+
+/*
+Author: Anneliese Travis
+Last updated: 10/03 9:24
+*/
 
 $tutor = htmlentities($_POST["tutor"]) ;
 $password = htmlentities($_POST["password"]) ;
