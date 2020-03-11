@@ -1,10 +1,11 @@
-<!-- 
-Author: Annelise Travis and Jasmine West and Keith Harrison 
-Last updated: 09/03 13:24
--->
 <?php
   //checks the correct session is established
   session_start();
+  
+/*
+Author: Annelise Travis and Jasmine West and Keith Harrison 
+Last updated: 09/03 13:24
+*/
   require('connection.php');
   $session = $_SESSION['appuser'];
   if ($_SESSION['status'] == "gamemaster"){
