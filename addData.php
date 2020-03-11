@@ -176,6 +176,9 @@ session_start();
             }
           }
         }else{  echo "<p>Error:".$conn->error."</p>";   }
+	$query3 = "INSERT INTO buildingCycle (buildingID, cycleID, position) VALUES (0, ".$cycleid.", 0);";
+        $conn->query($query3);
+
         $count = 1;
         foreach( $buildings as $ID ) {
           if ($ID==0) {
