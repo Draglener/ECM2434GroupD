@@ -48,9 +48,11 @@ echo"<p>No Buildings in cycle</p>";
   <head>
    <script type="text/javascript" src="https://raw.githack.com/jbialobr/JsQRScanner/master/war/js/jsqrscanner.nocache.js"></script>
    <meta charset="UTF-8">
+   <link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
+   <img src="images/findExeterLogo.png" height="150px" style="float: right;">
    <title>QR Scanner</title>
    <link href="style_sheet.css" rel="stylesheet" type="text/css">
-   <link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+
 
 
   <script type="text/javascript">
