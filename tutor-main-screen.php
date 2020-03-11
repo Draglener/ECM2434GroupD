@@ -20,9 +20,9 @@ Last updated: 09/03 13:24
 <html>
   <head class="head" id="head">
     <link rel="stylesheet" href="tutor-style.css">
-    <img src="images/findExeterLogo.png" height="150px" style="float: right;">
-    <link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
     <title>GM page</title>
+    <link href="style_sheet.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
     <script src="actions.js"></script>
   </head>
 
