@@ -1,3 +1,7 @@
+<!-- 
+Author: Jasmine West
+Last updated: 09/03 13:24
+-->
 <?php
   require("connection.php");
   $from = htmlentities($_POST["from"]);
@@ -23,7 +27,10 @@
     header('Location: tutor-main-screen.php');
   }
 
-//function to query and add a tutor to the database
+  /**
+   * Function to query and add a tutor to the database
+   *
+   */
   function addTutor($conn){
     $fName = htmlentities($_POST["fName"]);
     $lName = htmlentities($_POST["lName"]);
@@ -35,8 +42,11 @@
     $conn->query($query);
     header('Location: tutor-main-screen.php');
   }
-
-//function to delete the selected tutor from the datavase
+  
+   /**
+    * Function to delete the selected tutor from the database
+    *
+    */
   function removeTutor($conn){
     $tutorID = htmlentities($_POST["tutorID"]);
     $query ="DELETE FROM tutorGroup WHERE tutorID =". $tutorID .";";
@@ -44,7 +54,10 @@
     header('Location: tutor-main-screen.php');
   }
 
-//function to query and add a tutor to the database
+  /**
+    * Function to query and add a student to the database
+    *
+    */
   function addStudent($conn){
     $username = htmlentities($_POST["username"]);
     $tutorID = htmlentities($_POST["tutorID"]);
@@ -52,16 +65,22 @@
     $conn->query($query);
     header('Location: tutor-main-screen.php');
   }
-
-//function to remove the selected student from the database
+  
+  /**
+    * Function to delete the selected student from the database
+    *
+    */
   function removeStudent($conn){
     $userID = htmlentities($_POST["userID"]);
     $query ="DELETE FROM user WHERE userID =". $userID .";";
     $conn->query($query);
     header('Location: tutor-main-screen.php');
   }
-
-//fix using SQL dump
+  
+  /**
+    * Function to add the selected room to the database
+    *
+    */
   function addRoom($conn){
     $name = htmlentities($_POST["name"]);
     $type = htmlentities($_POST["type"]);
@@ -71,7 +90,10 @@
     header('Location: tutor-main-screen.php');
   }
 
-//function to remove a rppm from the database
+  /**
+    * Function to remove a selected room from the database
+    *
+    */
   function removeRoom($conn){
     $roomID = htmlentities($_POST["roomID"]);
     $query ="DELETE FROM room WHERE roomID =". $roomID .";";
@@ -79,7 +101,10 @@
     header('Location: tutor-main-screen.php');
   }
 
-
+    /**
+      * Function to add a building to the database
+      *
+      */
     function addBuilding($conn){
       $name = htmlentities($_POST["name"]);
       $info = htmlentities($_POST["info"]);
@@ -110,7 +135,10 @@
       header('Location: tutor-main-screen.php');
     }
 
-  //function to remove a rppm from the database
+    /**
+      * Function to remove the selected building from the database
+      * 
+      */
     function removeBuilding($conn){
       $buildingID = htmlentities($_POST["buildingID"]);
       $query ="DELETE FROM building WHERE buildingID =". $buildingID .";";
@@ -118,8 +146,10 @@
       header('Location: tutor-main-screen.php');
     }
 
-
-//Add selected buildings into building cycle in the order specified
+    /**
+      * Function to add a cycle to the database
+      *
+      */
     function addCycle($conn){
       $name = htmlentities($_POST["name"]);
       $buildingID1 = htmlentities($_POST["buildingID1"]);

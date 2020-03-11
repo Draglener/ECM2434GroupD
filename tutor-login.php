@@ -1,4 +1,7 @@
-
+<!-- 
+Author: Jasmine West, Katie Jones and Annelise Travis
+Last updated: 10/03 9:34
+-->
 <?php
   session_start();
 
@@ -34,7 +37,9 @@
           <p><label for="tutor"><b>Tutor:</b></label></p>
           <select name="tutor" required id="tutorList">
            <?php
-              //function to populate drop-down menu from distinct tutorvalues in database
+	      /**
+	       * Function to populate drop-down menu from distinct tutorvalues in database
+	       */
               function dropdownOptions() {
                 require('connection.php');
                 $sql = "SELECT * FROM tutorGroup";

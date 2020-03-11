@@ -1,3 +1,8 @@
+<!-- 
+Author: Annelise Travis
+Last updated: 09/03 13:24
+-->
+
 <?php
 session_start();
 require('connection.php');

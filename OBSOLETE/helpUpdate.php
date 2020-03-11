@@ -8,3 +8,4 @@ $sql2->bind_param('ii', $help, $user);
 $sql2->execute();
 header("Location: map_code.php");
 ?>
+ 

@@ -1,3 +1,8 @@
+<!-- 
+Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
+Page for the QR code scanner.
+Last updated: 10/03 13:30
+-->
 <?php
 session_start();
 ?>
@@ -20,8 +25,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-
-$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID;
+$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID." AND buildingCycle.position!=0";
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
 	$cycleBuildings = array();
@@ -39,11 +43,6 @@ if ($result->num_rows > 0){
 echo"<p>No Buildings in cycle</p>"; 
 }
 ?>
-
-<!-- Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
-Last updated: 05/03 14:22
-Added 
--->
 
 <html>
   <head>
@@ -68,26 +67,32 @@ Added
     for (i = 0; i < n2; i++) {
     cycleBuildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
     len++;
-	  console.log(cycleBuildings[i].id);
+
 }
+var rightLocation = loc - 1;
+console.log(cycleBuildings[rightLocation].id);
 	
 	
 
-
+    /**
+     * Runs code after the QR code is scanned. Specifically updates the score, location and quiz
+     *
+     * @param scannedText	the input from the scanned QR code.
+     */
     function onQRCodeScanned(scannedText)
-    {
-		if(loc == scannedText){
-
-		if(scannedText ==  n){
-		   window.location.href = "scoreboard.php"}
-		   
-		else{
-		window.location.href = "quizUpdate.php"}
-
-		
-	}	
+    {		
+			if(cycleBuildings[rightLocation].id == scannedText){
+				if(scannedText == cycleBuildings[n2-1].id){
+				window.location.href="scoreboard.php"
+				}else{
+				window.location.href="quizUpdate.php"
+				}
+			}
     }
-
+	  
+    /**
+     * Initializes the scanner and adds it to the html object scannerParentElement
+     */
     function JsQRScannerReady()
     {
 		var jbScanner = new JsQRScanner(onQRCodeScanned);
@@ -98,19 +103,7 @@ Added
     		jbScanner.appendTo(scannerParentElement);
     	}
 	}
-	function hide(JsQRScanner)
-	{
-		var x = document.getElementById("QRScanner");
-		if (x.style.display === "none")
-		{
-			x.style.display = "block";
-		} else
-		{
-			x.style.display = "none";
-		}
-}
-
-
+	
   </script>
 
   </head>

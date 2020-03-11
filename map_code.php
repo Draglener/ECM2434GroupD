@@ -1,3 +1,8 @@
+<!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
+Last updated: 25/02 15:12
+Added changes from html to php pages
+-->
+
 <?php
 session_start();
 require('connection.php');
@@ -12,7 +17,7 @@ if ($result->num_rows > 0) {
 }
 
 
-$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID;
+$sql = "SELECT buildingCycle.*, building.* FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$cycleID." AND buildingCycle.position!=0";
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
 	$cycleBuildings = array();
@@ -34,10 +39,7 @@ echo"<p>No Buildings in cycle</p>";
 }
 
 ?>
-<!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
-Last updated: 25/02 15:12
-Added changes from html to php pages
--->
+
 <html>
   <head>
 
@@ -52,9 +54,6 @@ Added changes from html to php pages
 
     var cycleID = <?php echo $cycleID; ?>;
     var loc = <?php echo $location; ?>;
-
-
-    //To access the name of (e.g) the second building in the cycle, use cycleBuildings[2].name
 
   var cycleBuildings = {}
     var prep = <?php echo json_encode($cycleBuildings); ?>;
@@ -77,7 +76,10 @@ Added changes from html to php pages
     <div id="fullMapDisplay" class="container"></div>
 	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
     <script>
-    //Initialize and add the map
+    
+    /**
+     * Initialize and add the map along with its style
+     */
     function initMap() {
 
       var center = { lat: 50.735801, lng:  -3.533297};
@@ -88,8 +90,6 @@ Added changes from html to php pages
           document.getElementById('fullMapDisplay'), {zoom: 16.5,
         center: center,
         mapTypeId: 'hybrid'
-        //gestureHandling: 'none', 
-        //zoomControl:true
         });
     
       var customStyled = [{
@@ -101,7 +101,7 @@ Added changes from html to php pages
       }];
       map.set('styles',customStyled);
 
-      // The markers, positioned at Library
+      // Adds markers up to the next place the user has to visit
       
       for(var i = 0;i<loc;i++){
         var location = {lat: cycleBuildings[i].lat,lng: cycleBuildings[i].lng};
@@ -113,7 +113,14 @@ Added changes from html to php pages
       }
       
     }
-
+    /**
+      * Adds a marker to the map.
+      *
+      * @param location		The location of the marker
+      * @param map		The map to add the marker to
+      * @param label		The name of the marker
+      * @param information	The information about the marker
+      */
     function addMarker(location,map,label,information){
       var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -140,10 +147,8 @@ Added changes from html to php pages
       google.maps.event.addListener(map, 'click', closeInfoWindow);
     }
     </script>
-    <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
+    <!--
+    * Loads the API from the specified URL and product key
     -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCav_BvOFlJ0fMtElRHjkI3xAFPLbe6IY4&callback=initMap">

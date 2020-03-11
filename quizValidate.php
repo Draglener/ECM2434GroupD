@@ -1,3 +1,8 @@
+<!-- 
+Author: Anneliese Travis and Keith Harrison
+Last updated: 25/02 15:15
+-->
+
 <?php
 session_start();
 require('connection.php');
@@ -5,7 +10,7 @@ $location = $_GET['loc'];
 $points = $_GET['points'];
 $user = $_SESSION['studentID'];
 
- 
+ 	 //Updates the users location and points based on their answers to the test
          $sql2 = $conn->prepare("UPDATE user SET location = ? WHERE userID = ?");
 		 $sql2->bind_param('ii', $location, $user);
 		 if ($sql2->execute()){
@@ -29,8 +34,3 @@ $user = $_SESSION['studentID'];
         
 
 ?>
-<!-- Author: Anneliese Travis
-Last updated: 25/02 15:15
-Has the quiz linked to the PHP for points and location
-and changed links from html pages to php
--->

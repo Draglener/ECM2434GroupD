@@ -1,3 +1,7 @@
+<!-- 
+Author: Keith Harrison 
+Last updated: 10/03 08:24
+-->
 <?php
 session_start();
 require('connection.php');

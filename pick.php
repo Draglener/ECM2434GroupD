@@ -1,3 +1,7 @@
+<!-- 
+Author: Keith Harrison
+Last updated: 06/02 15:54
+-->
 <?php
   session_start();
 
@@ -14,13 +18,8 @@ if ($result->num_rows > 0) {
 	  $currentCycle = $row['currentCycle'];
   }
 }
+?>
 
-
-  ?>
-  <!-- Author: Keith Harrison
-Last updated: 06/02 15:54
-Created pick cycle page
--->
 
 <!DOCTYPE html>
 <html>
@@ -48,7 +47,10 @@ Created pick cycle page
         <label id="cycleName" for="cycle"><b>Select Cycle:</b></label>
         <select name="cycle" required id="cycleList">
          <?php
-            //function to populate drop-down menu from distinct tutorvalues in database
+	    /**
+ 	      * Function to populate drop-down menu from distinct Cycles in database
+ 	      *
+ 	      */
             function dropdownOptions() {
               require('connection.php');
               $sql = "SELECT * FROM cycleGroup WHERE cycleID >= 0";
@@ -63,9 +65,6 @@ Created pick cycle page
         </select>
         	<button type="submit" name="submit" id="loginButton">Start Cycle</button>
       </form>
-
-
-
 
         <img src="images/exeterLogo.png" alt="bottomImage" class="bottomImage">
 

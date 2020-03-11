@@ -1,3 +1,7 @@
+<!-- 
+Author: Annelise Travis and Jasmine West and Keith Harrison 
+Last updated: 09/03 13:24
+-->
 <?php
   //checks the correct session is established
   session_start();
@@ -43,7 +47,7 @@
       <div class="Table"><h3>Tutor Table</h3>
         <!-- creating the titles for the table -->
          <table>
-          <tr><th>ID</th><th>Name</th><th>Lastname</th><th>Group Score</th></tr>
+          <tr><th>Name</th><th>Lastname</th><th>Group Score</th></tr>
           <?php
           $sql = "SELECT tutorID, fName, lName, score from tutorGroup";
           $result = $conn->query($sql);
@@ -54,7 +58,7 @@
                  if ($result2->num_rows > 0){
 					while($row2 = $result2->fetch_assoc()){
 						$total = $row2['total'];
-						echo "<tr><td>".$row["tutorID"]."</td><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$total."</td></tr>";
+						echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$total."</td></tr>";
 					}
 				} else{
 					echo $conn->error;
@@ -88,7 +92,9 @@
           <label for="office"><b>Office:</b></label>
           <select name="office" required id="officeList">
            <?php
-              //function to populate drop-down menu for office rooms
+	      /**
+	       * Function to populate drop-down menu for office rooms
+	       */
               function dropdownOffice() {
                 require('connection.php');
                 $sql = "SELECT * FROM room WHERE type='office'";
@@ -111,20 +117,24 @@
         <label for="tutor"><b>Select Tutor to Remove:</b></label>
         <select name="tutorID" required id="tutorList">
         <?php
-        dropdownTutor();
+	  /**
+	   * Select a tutor to delete froma drop down menu
+	   */
+          function dropdownDeleteTutor() {
+            require('connection.php');
+            $sql = "SELECT * FROM tutorGroup WHERE tutorID >=1";
+            $result = $conn->query($sql);
+            while($row = $result->fetch_assoc()){
+              echo "<option value='".$row['tutorID']."'>".$row['fName']." ".$row['lName']."</option>";
+            }
+          }
+
+        dropdownDeleteTutor();
         ?>
         </select>
         <input type="submit"  name="removeTutor" value="Remove Tutor"/>
       </form>
     </div>
-
-
-
-
-
-
-
-
 
     <!-- Student tab section -->
     <div id="Students" class="tabcontent">
@@ -133,12 +143,14 @@
       <div class="Table"><h3>Students Table</h3>
         <table>
           <!-- table headers -->
-          <tr><th>ID</th><th>Username</th><th>Tutor</th><th>Cycle</th><th>Location</th><th>Score</th><th>Help</th></tr>
+          <tr><th>ID</th><th>Username</th><th>Tutor</th><th>Cycle</th><th>Points</th><th>Location</th></tr>
           <?php
-          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName, building.name, cycleGroup.cName FROM user
-          INNER JOIN building ON user.location = building.buildingID
+          $sql = "SELECT user.*, tutorGroup.lName, tutorGroup.fName,  cycleGroup.cName, buildingCycle.buildingID, building.name FROM user
+          INNER JOIN buildingCycle  ON user.location = buildingCycle.position AND user.currentCycle = buildingCycle.cycleID
           INNER JOIN cycleGroup ON user.currentCycle = cycleGroup.cycleID
-          INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID  ORDER BY user.userID";
+          INNER JOIN tutorGroup ON user.tutorID = tutorGroup.tutorID
+          INNER JOIN building ON buildingCycle.buildingID = building.buildingID
+          ORDER BY user.userID";
           $result = $conn->query($sql);
 
 
@@ -149,14 +161,15 @@
               <td>".$row["username"]."</td>
               <td>".$row['fName']." ".$row['lName']."</td>
               <td>".$row["cName"]."</td>
-              <td>".$row["name"]."</td>
               <td>".$row["points"]."</td>
-              <td>".$row["help"]."</td></tr>";
+              <td>".$row["name"]."</td>";
             }
             echo "</table>";
           }else{  echo "<p>Error:".$conn->error."</p>"; }
           ?>
       </div>
+
+
 
       <div id="AddButton2">
         <button onclick="addVis('AddSection2')">Add & Remove Students</button>
@@ -170,7 +183,9 @@
           <label for="tutor"><b>Tutor:</b></label>
           <select name="tutorID" required id="tutorList">
            <?php
-           //function to populate the drop-down list with tutors from the database
+	      /**
+	       * Function to populate the drop-down list with tutors from the database
+	       */
               function dropdownTutor() {
                 require('connection.php');
                 $sql = "SELECT * FROM tutorGroup";
@@ -191,7 +206,9 @@
           <label for="student"><b>Select the Student to Remove:</b></label>
           <select name="userID" required id="studentList">
           <?php
-          //function to populate the dropdown list with students using the database.
+	  /**
+	   * Function to populate the drop-down list with students from the database
+	   */
           function dropdownStudent() {
             require('connection.php');
             $sql = "SELECT * FROM user";
@@ -207,12 +224,6 @@
         </form>
       </div>
     </div>
-
-
-
-
-
-
 
     <div id="Rooms" class="tabcontent">
       <h2>Rooms</h2>
@@ -254,7 +265,9 @@
           <label for="building"><b>Enter the building the room is in:</b></label>
           <select name="buildingID" required id="buildingList">
            <?php
-           //fucntion to populate the drop-down list
+	      /**
+	       * Function to populate the drop-down list with buildings from the database
+	       */
               function dropdownBuildings() {
                 require('connection.php');
                 $sql = "SELECT * FROM building";
@@ -276,6 +289,9 @@
           <label for="room"><b>Select the Room to Remove:</b></label>
           <select name="roomID" required id="roomList">
             <?php
+	    /**
+	     * Function to remove a room from the database
+	     */
             function dropdownRoomWOOffice() {
               require('connection.php');
               $sql = "SELECT * FROM room WHERE type != 'Office'";
@@ -396,8 +412,7 @@
 
 
         echo "<table><tr>";
-        $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$loop;
-
+        $sql = "SELECT buildingCycle.*, building.name FROM buildingCycle, building WHERE building.buildingID=buildingCycle.buildingID AND buildingCycle.cycleID = ".$loop." ORDER BY buildingCycle.position";
         $result = $conn->query($sql);
         if ($result->num_rows > 0){
           while($row = $result->fetch_assoc()){
