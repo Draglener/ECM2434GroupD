@@ -61,8 +61,11 @@ Added changes from html to php pages
     for (i = 0; i < n2; i++) {
     cycleBuildings[i] = {id: prep[i][0], name: prep[i][1], info:prep[i][2],  lat:prep[i][3], lng:prep[i][4]};
     len++;
-	  console.log(cycleBuildings[i]);
+	  
 }
+    </script>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCav_BvOFlJ0fMtElRHjkI3xAFPLbe6IY4&callback=initMap">
     </script>
 		   <?php
   include('header.php');
@@ -76,6 +79,8 @@ Added changes from html to php pages
 	<p class="score"><?php echo $_SESSION['username']; ?>'s current score: <span id="points"><span> Points </p>
     <script>
     
+
+	
     /**
      * Initialize and add the map along with its style
      */
@@ -99,7 +104,8 @@ Added changes from html to php pages
         ]
       }];
       map.set('styles',customStyled);
-
+	
+	
       // Adds markers up to the next place the user has to visit
       
       for(var i = 0;i<loc;i++){
@@ -107,11 +113,21 @@ Added changes from html to php pages
         var name = cycleBuildings[i].name;
         var info = cycleBuildings[i].info;
         addMarker(location,map,name,info);
-        console.log(cycleBuildings[i].name);
-      console.log("location");
       }
-      
+	  // Adds marker for current location
+	if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var coords = new google.maps.LatLng(latitude, longitude);
+		addMarker2(coords,map)
+     },function error(msg) {alert('Please enable your GPS position feature.');},
+    {maximumAge:10000, timeout:5000, enableHighAccuracy: true})};
     }
+	
+
+
+	
     /**
       * Adds a marker to the map.
       *
@@ -119,6 +135,7 @@ Added changes from html to php pages
       * @param map		The map to add the marker to
       * @param label		The name of the marker
       * @param information	The information about the marker
+	  * @param icon the image we want to use for the marker 
       */
     function addMarker(location,map,label,information){
       var contentString = '<div id="content">'+
@@ -142,21 +159,46 @@ Added changes from html to php pages
       closeInfoWindow = function() {
         infoWindow.close();
       };
+	  
+      google.maps.event.addListener(map, 'click', closeInfoWindow);
+    }
+	//Same function overloaded 
+	function addMarker2(location,map){
+
+      var infowindow = new google.maps.InfoWindow({
+        content: "Current Position"
+      });
+      var marker = new google.maps.Marker({position: location,map: map,title: "current loc",icon: {
+      url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    }
+	  });
+      marker.addListener('click', function() {
+        
+        infowindow.open(map, marker);
+      });
+
+      closeInfoWindow = function() {
+        infoWindow.close();
+      };
 
       google.maps.event.addListener(map, 'click', closeInfoWindow);
     }
+	
     </script>
     <!--
     * Loads the API from the specified URL and product key
     -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCav_BvOFlJ0fMtElRHjkI3xAFPLbe6IY4&callback=initMap">
-    </script>
 
 		  
 	  <script>
 var currentPoi = <?php echo $currentPoints; ?>;
 document.getElementById('points').innerHTML = currentPoi;
+function redomap(){
+    initMap();
+}
+//Refreshes timer to allow for current location to be found
+setInterval(function(){
+    redomap()}, 8000)
 </script>
   </body>
 </html>
