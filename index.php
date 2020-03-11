@@ -16,7 +16,7 @@ session_start();
 	</head>
 
   	<body class="body" id="body">
-		//redirects users to either tutor or student login
+		<!-- Redirects to home page or tutor page . -->
         	<img src="images/findExeterLogo.png" alt="topImage" class="topImage">
 		<a href="homepage.php"><input type="button" id="loginButton" value="&#8682; Student Login"></a>
 		<a href="tutor-login.php"><input type="button" id="loginButton" value="&#8682; Tutor Login"></a>
