@@ -1,8 +1,3 @@
-<!-- 
-Author: Keith Harrison, Annelise Travis and Katie Jones
-Last updated: 05/03 14:34
--->
-
 <?php
 session_start();
 ?>
@@ -19,6 +14,10 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
+<!-- 
+Author: Keith Harrison, Annelise Travis and Katie Jones
+Last updated: 05/03 14:34
+-->
 
 <html>
 	<head>
