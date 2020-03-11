@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db5000293954.hosting-data.io
--- Generation Time: Mar 07, 2020 at 09:06 PM
+-- Generation Time: Mar 11, 2020 at 04:36 PM
 -- Server version: 5.7.29-log
 -- PHP Version: 7.0.33-0+deb9u7
 
@@ -19,8 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `database`
+-- Database: `dbs287158`
 --
+CREATE DATABASE IF NOT EXISTS `dbs287158` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `dbs287158`;
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,37 @@ INSERT INTO `buildingCycle` (`id`, `buildingID`, `cycleID`, `position`) VALUES
 (38, 0, 0, 8),
 (39, 0, 0, 9),
 (40, 0, 0, 8),
-(41, 0, 0, 9);
+(41, 0, 0, 9),
+(42, 8, 5, 1),
+(43, 5, 5, 2),
+(44, 4, 5, 3),
+(45, 6, 5, 4),
+(46, 9, 5, 5),
+(47, 9, 2, 1),
+(48, 8, 2, 2),
+(49, 7, 2, 3),
+(50, 6, 2, 4),
+(51, 5, 2, 5),
+(52, 4, 2, 6),
+(53, 3, 2, 7),
+(54, 2, 2, 8),
+(55, 1, 2, 9),
+(65, 8, 3, 1),
+(66, 4, 3, 2),
+(67, 7, 3, 3),
+(68, 6, 3, 4),
+(69, 5, 3, 5),
+(70, 0, 1, 0),
+(71, 0, 0, 0),
+(72, 0, 5, 0),
+(73, 0, 3, 0),
+(74, 0, 2, 0),
+(75, 0, 6, 0),
+(76, 3, 6, 1),
+(77, 4, 6, 2),
+(78, 5, 6, 3),
+(79, 6, 6, 4),
+(80, 9, 6, 5);
 
 -- --------------------------------------------------------
 
@@ -108,9 +140,11 @@ CREATE TABLE `cycleGroup` (
 
 INSERT INTO `cycleGroup` (`cycleID`, `cName`) VALUES
 (0, 'default'),
-(1, 'compsci\r\n'),
+(1, 'Computer Science'),
 (2, 'Backwards CompSci'),
-(3, 'Law Cycle');
+(3, 'Law'),
+(5, 'English'),
+(6, 'Philosophy');
 
 -- --------------------------------------------------------
 
@@ -141,7 +175,14 @@ INSERT INTO `question` (`questionID`, `correctBuildingID`, `question`, `wrongBui
 (7, 9, 'Seminar rooms and colourful lecture theatres, this building contains four colours', 8, 1, 7),
 (8, 3, 'Rumour has it the maze-like corridors and stairs inspired the Hogwarts moving staircases', 9, 6, 4),
 (9, 8, 'A building fit for royalty!', 6, 9, 2),
-(10, 7, 'It houses the organisation that defends our rights as students', 4, 2, 3);
+(10, 7, 'It houses the organisation that defends our rights as students', 4, 2, 3),
+(12, 15, 'cccc', 4, 2, 3),
+(13, 16, 'where is harrision?', 1, 4, 2),
+(14, 17, 'fe', 8, 0, 0),
+(15, 18, 'fe', 8, 0, 0),
+(16, 19, 'fe', 8, 0, 0),
+(17, 20, 'fe', 8, 0, 0),
+(18, 21, 'fe', 8, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -241,12 +282,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `username`, `tutorID`, `location`, `points`, `tAndC`, `help`, `currentCycle`, `quizDone`) VALUES
-(1, 'jw936', 1, 2, 18, 0, 0, 1, 0),
-(2, 'admt201', 2, 3, 15, 0, 0, 0, 0),
-(3, 'kj334', 3, 0, 25, 0, 0, 0, 0),
-(4, 'sjr239', 1, 2, 6, 0, 0, 0, 0),
-(5, 'pt366', 1, 0, 32, 0, 0, 0, 0),
-(6, 'kh530', 1, 9, 68, 0, 1, 3, 0);
+(1, 'jw936', 1, 0, 0, 0, 0, 1, 1),
+(2, 'admt201', 2, 0, 0, 0, 0, 3, 1),
+(3, 'kj334', 3, 0, 0, 0, 0, 1, 1),
+(4, 'sjr239', 1, 0, 0, 0, 0, 5, 0),
+(5, 'pt366', 1, 0, 0, 0, 0, 1, 1),
+(6, 'kh530', 1, 0, 0, 0, 1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -302,43 +343,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `building`
 --
 ALTER TABLE `building`
-  MODIFY `buildingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `buildingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `buildingCycle`
 --
 ALTER TABLE `buildingCycle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `cycleGroup`
 --
 ALTER TABLE `cycleGroup`
-  MODIFY `cycleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cycleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tutorGroup`
 --
 ALTER TABLE `tutorGroup`
-  MODIFY `tutorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `tutorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
