@@ -1,9 +1,11 @@
-<!-- 
-Author: Keith Harrison 
-Last updated: 10/03 08:24
--->
 <?php
 session_start();
+
+/*
+Author: Keith Harrison 
+Last updated: 10/03 08:24
+*/
+
 require('connection.php');
 //reset location
 $user = $_SESSION['studentID'];

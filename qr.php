@@ -1,12 +1,12 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
 <!-- 
 Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
 Page for the QR code scanner.
 Last updated: 10/03 13:30
 -->
-<?php
-session_start();
-?>
-<!DOCTYPE html>
 <?php
 require('connection.php');
 $session = $_SESSION['appuser'];
