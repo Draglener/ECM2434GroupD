@@ -1,9 +1,11 @@
-<!-- 
-Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
-Last updated: 25/02 15:12
--->
 <?php
 session_start();
+
+/*
+Author: Katie Jones, Anneliese Travis and Piranavie Thangasuthan
+Last updated: 25/02 15:12
+*/
+
 ?>
 <!DOCTYPE html>
 <?php
