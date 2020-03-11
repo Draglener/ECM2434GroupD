@@ -1,8 +1,8 @@
 <?php
-/*
-Author: Annelise Travis
-Last updated: 09/03 13:24
-*/
+/**
+ * @author Annelise Travis
+ * @version 09/03 13:24
+ */
 
 $servername = "db5000293954.hosting-data.io";
 $username = "dbu477057";
