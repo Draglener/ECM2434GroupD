@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 
 require('connection.php');
 $session = $_SESSION['appuser'];
@@ -15,7 +15,6 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-
 
 <!DOCTYPE html>
 <!-- 
