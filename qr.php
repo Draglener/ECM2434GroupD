@@ -5,7 +5,7 @@ session_start();
 <!-- 
 Author: Piranavie Thangasuthan and Katie Jones and Keith Harrison
 Page for the QR code scanner.
-Last updated: 10/03 13:30
+Last updated: 11/03 13:30
 -->
 <?php
 require('connection.php');
