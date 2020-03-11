@@ -24,9 +24,10 @@ Last updated: 06/02 15:54
 <html>
   <head>
     <meta charset="UTF-8">
+	 <link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
+	<img src="images/findExeterLogo.png" height="150px" style="float: right;">
     <title>Pick Cycle Page</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
   </head>
 
   <body class="body" id="body">
