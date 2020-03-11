@@ -108,6 +108,6 @@ Unit tests can be ran in selenium.
 
 ## Authors 
 
-Jasmine West, Keith Harrison, Annelise Travis, Steven Reynolds, Katie Jones, and Piranavie Thangusthan
+Jasmine West, Keith Harrison, Annelise Travis, Steven Reynolds, Katie Jones, and Piranavie Thangasuthan
 
 
