@@ -5,12 +5,10 @@
 - [Link](#link)
 - [Description](#description)
 - [Usage](#usage)
-  - [Client-side](#client-side)
 	- [Student](#student)
 	- [Tutor](#tutor)
 	- [Administrator](#administrator)
 	- [Developer](#developer)
-  - [Server-side](#server-side)
 - [Requirements](#requirements)
 - [Tests](#tests)
 - [License](#license)
@@ -90,6 +88,7 @@ All other data can be changed from the game master page, in order to remove buil
 In order to replace the logo, change the image link in header.php, header2.php, and header3.php.
 
 For information about the structure of the database please refer to the ER diagram.
+![Image of Yaktocat](https://github.com/Draglener/ECM2434GroupD/blob/master/ER%20diagram.png)
 
 ## Requirements
 
