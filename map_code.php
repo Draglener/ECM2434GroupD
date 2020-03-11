@@ -1,8 +1,3 @@
-<!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
-Last updated: 25/02 15:12
-Added changes from html to php pages
--->
-
 <?php
 session_start();
 require('connection.php');
@@ -39,6 +34,10 @@ echo"<p>No Buildings in cycle</p>";
 }
 
 ?>
+<!-- Author: Steven Reynolds & Keith Harrison & Anneliese Travis
+Last updated: 25/02 15:12
+Added changes from html to php pages
+-->
 
 <html>
   <head>
