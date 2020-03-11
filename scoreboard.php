@@ -1,11 +1,12 @@
-<!-- Authors: Katie Jones, Anneliese Travis, Jasmine West and Keith Harrison
-Last updated: 01/03 16:35
--->
+
 
 <?php
 session_start();
 ?>
 <!DOCTYPE html>
+<!-- Authors: Katie Jones, Anneliese Travis, Jasmine West and Keith Harrison
+Last updated: 01/03 16:35
+-->
 <?php
 require('connection.php');
 $session = $_SESSION['appuser'];
