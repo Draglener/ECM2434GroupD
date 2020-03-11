@@ -1,9 +1,11 @@
-<!-- 
-Author: Annelise Travis and Keith Harrison 
-Last updated: 09/03 13:24
--->
 <?php
-//Creates the header for the student page, specifies which other pages can be accessd from this page
+/*
+Author: Anneliese Travis and Keith Harrison 
+Last updated: 09/03 13:24
+
+Creates the header for the student page, specifies which other pages can be accessd from this page
+*/
+
 echo "<div class='header'>
   <ul class='topnav' id='myNav'>
   <li></li>
@@ -36,10 +38,4 @@ echo "<div class='header'>
 }
 
   </script>";
-  
-
 ?>
-
-
-
-
