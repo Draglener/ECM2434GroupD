@@ -1,7 +1,3 @@
-<!-- 
-Author: Keith Harrison
-Last updated: 06/02 15:54
--->
 <?php
   session_start();
 
@@ -22,6 +18,10 @@ if ($result->num_rows > 0) {
 
 
 <!DOCTYPE html>
+<!-- 
+Author: Keith Harrison
+Last updated: 06/02 15:54
+-->
 <html>
   <head>
     <meta charset="UTF-8">
@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
  	      */
             function dropdownOptions() {
               require('connection.php');
-              $sql = "SELECT * FROM cycleGroup WHERE cycleID >= 0";
+              $sql = "SELECT * FROM cycleGroup WHERE cycleID > 0";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()){
 
