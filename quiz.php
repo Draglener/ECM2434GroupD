@@ -111,9 +111,11 @@ if ($result->num_rows > 0) {
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
+    <img src="images/findExeterLogo.png" height="150px" style="float: right;">
     <title>Quiz</title>
     <link href="style_sheet.css" rel="stylesheet" type="text/css">
-	  	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+
 	<style>
 	#quiz{
 		display:grid;
