@@ -41,7 +41,7 @@ body {
 .container{
     background-color: #FCF8F8;
     position: static;
-    height: 90%;
+    height: 80%;
     opacity:0.8;
     width:-webkit-fill-available;
     width:-moz-available;
