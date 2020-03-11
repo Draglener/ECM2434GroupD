@@ -1,6 +1,3 @@
-<!-- Author: Keith Harrison
-Last updated: 06/02 15:54
--->
 
 <?php
 session_start();
@@ -8,6 +5,10 @@ session_start();
 
 <!DOCTYPE html>
 <html>
+	<!-- Author: Keith Harrison
+	Last updated: 06/02 15:54
+	-->
+
   	<head>
     		<meta charset="UTF-8">
     		<title>findExeter</title>
