@@ -1,8 +1,3 @@
-<!-- 
-Author: Keith Harrison 
-Last updated: 09/03 13:24
--->
-
 <?php
 Session_start();
 Require('connection.php');
@@ -14,3 +9,7 @@ $conn->query($sql2);
 header("Location: pick.php");
 ?>
 
+<!-- 
+Author: Keith Harrison 
+Last updated: 09/03 13:24
+-->
