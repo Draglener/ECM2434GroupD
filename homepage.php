@@ -1,13 +1,11 @@
+<?php
+session_start();
+?>
 <!-- 
 Author: Katie Jones, Piranavie Thangasuthan & Anneliese Travis
 Last updated: 25/02 15:54
 different images and sessions implemented
 -->
-
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -55,3 +53,4 @@ session_start();
   	</body>
   	<?php unset($_SESSION['apperror']); ?>
 </html>
+
