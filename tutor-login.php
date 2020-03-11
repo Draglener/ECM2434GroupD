@@ -1,9 +1,10 @@
+<?php
+  session_start();
+/*
 <!-- 
 Author: Jasmine West, Katie Jones and Annelise Travis
 Last updated: 10/03 9:34
--->
-<?php
-  session_start();
+*/
 
   if ( isset($_SESSION['appuser'])){
     header('Location: tutor-main-screen.php');
