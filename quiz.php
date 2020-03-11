@@ -257,7 +257,7 @@ function create() {
 		  document.getElementById("error").innerHTML = "Correct - well done! You scored " + points + " points!"
 		  setTimeout(function(){
 			  window.location.href = 'quizValidate.php?points='+points+"&loc="+nextLoc;
-         }, 3000);
+         }, 1000);
 		  
 	  } else {
 		  document.getElementById(answer).setAttribute('disabled', 'true');
