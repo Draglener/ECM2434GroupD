@@ -1,5 +1,9 @@
 <?php
 Session_start();
+/**
+ *@author Keith Harrison 
+ *@version 09/03 13:24
+ */
 Require('connection.php');
 $cycle = htmlentities($_POST["cycle"]);
 $user = $_SESSION['studentID'];
@@ -9,7 +13,3 @@ $conn->query($sql2);
 header("Location: pick.php");
 ?>
 
-<!-- 
-Author: Keith Harrison 
-Last updated: 09/03 13:24
--->

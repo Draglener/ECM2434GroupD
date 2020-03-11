@@ -1,4 +1,8 @@
 <?php
+  /**
+   * @author Jasmine West
+   * @version 09/03 9:24
+   */
   require("connection.php");
   $from = htmlentities($_POST["from"]);
   if ($from == "addTutor") {
@@ -186,8 +190,3 @@
     }
 
 ?>
-
-<!-- 
-Author: Jasmine West
-Last updated: 09/03 13:24
--->
