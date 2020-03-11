@@ -26,7 +26,7 @@ if ($sql->num_rows > 0) {
           $_SESSION['status'] = "student";
 		  $_SESSION['studentID'] = $id;
 		  $_SESSION['username'] = $username;
-          header("Location: quiz.php");
+          header("Location: pick.php");
         exit();
       } else {
       $error = "Incorrect Tutor";
