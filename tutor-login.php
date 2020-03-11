@@ -22,7 +22,7 @@ Last updated: 10/03 9:34
   <head>
     <script src="Validate.js"></script>
     <link href="tutor-style.css" rel='stylesheet' type='text/css'/>
-	<link rel="shortcut icon" type="image/png" href="findExeterLogo.png"/>
+	<link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
 	<img src="images/findExeterLogo.png" height="150px" style="float: right;">
     <title>Login</title>
 
