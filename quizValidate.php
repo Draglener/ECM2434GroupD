@@ -1,10 +1,11 @@
-<!-- 
-Author: Anneliese Travis and Keith Harrison
-Last updated: 25/02 15:15
--->
-
 <?php
 session_start();
+
+/*
+Author: Anneliese Travis and Keith Harrison
+Last updated: 25/02 15:15
+*/
+
 require('connection.php');
 $location = $_GET['loc'];
 $points = $_GET['points'];
@@ -29,8 +30,4 @@ $user = $_SESSION['studentID'];
 		 } else {
 			 echo $conn->error;
 		 }
-		 
-          
-        
-
 ?>
