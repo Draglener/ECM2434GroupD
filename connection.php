@@ -1,4 +1,9 @@
 <?php
+/*
+Author: Annelise Travis
+Last updated: 09/03 13:24
+*/
+
 $servername = "db5000293954.hosting-data.io";
 $username = "dbu477057";
 $password = "2020GroupProject!";
@@ -15,7 +20,3 @@ else {
   //echo "Connected successfully <br />";
 }
 ?>
-<!-- 
-Author: Annelise Travis
-Last updated: 09/03 13:24
--->
