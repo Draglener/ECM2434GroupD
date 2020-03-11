@@ -163,7 +163,7 @@ th {
 	border: 3px solid #f1f1f1;
 	z-index: 9;
 }
-#usernameInput, #tutorList{
+#usernameInput, #tutorList, #cycleList{
    width: -webkit-fill-available;
    width:-moz-available;
    width: -moz-available;
