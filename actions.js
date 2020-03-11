@@ -43,7 +43,6 @@ function openPage(evt, tab, admin) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  // Gives the admin the ability to add and remove tutors.
   document.getElementById(tab).style.display = "block";
   evt.currentTarget.className += " active";
   if (admin == 0 && tab== 'Groups') {
