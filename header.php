@@ -1,9 +1,10 @@
 <?php
 /*
-Author: Annelise Travis and Keith Harrison 
+Author: Anneliese Travis and Keith Harrison 
 Last updated: 09/03 13:24
 Creates the header for the student page, specifies which other pages can be accessd from this page
 */
+
 echo "<div class='header'>
   <ul class='topnav' id='myNav'>
   <li><a href='FAQ.php'>FAQ</a></li>
