@@ -1,7 +1,3 @@
-<!-- 
-Author: Jasmine West
-Last updated: 09/03 13:24
--->
 <?php
   require("connection.php");
   $from = htmlentities($_POST["from"]);
@@ -190,3 +186,8 @@ Last updated: 09/03 13:24
     }
 
 ?>
+
+<!-- 
+Author: Jasmine West
+Last updated: 09/03 13:24
+-->
