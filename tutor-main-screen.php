@@ -3,7 +3,7 @@
   session_start();
   
 /*
-Author: Annelise Travis and Jasmine West and Keith Harrison 
+Author: Anneliese Travis and Jasmine West and Keith Harrison 
 Last updated: 09/03 13:24
 */
   require('connection.php');
@@ -13,21 +13,21 @@ Last updated: 09/03 13:24
     //redirects the user if they do not have the correct session
     header('Location: index.php');
   }
-
 ?>
-
+<!DOCTYPE html>
 
 <html>
   <head class="head" id="head">
     <link href="tutor-style.css" rel='stylesheet' type='text/css'/>
 	<link rel="shortcut icon" type="image/png" href="images/findExeterLogo.png"/>
-	<img src="images/findExeterLogo.png" height="150px" style="float: right;">
     <title>GM page</title>
     <script src="actions.js"></script>
   </head>
 
   <!-- cresting the tabs and linking them to openPage -->
-  <body class="body" id="body" onload="openPage(event, 'Groups',  <?php echo $_SESSION['user'];?>); addVis()">
+  <body class="body" id="body" onload="openPage(event, 'Groups',  <?php echo 
+  $_SESSION['user'];?>); addVis()">
+  <div class="all">
     <div><h1>Game Master Page</h1></div>
     <div class="tab">
       <button class="tablinks" onclick="openPage(event, 'Groups', <?php echo $_SESSION['user'];?>)">Tutor Groups</button>
@@ -44,8 +44,7 @@ Last updated: 09/03 13:24
     <!--Content for the tutor tab -->
     <div id="Groups" class="tabcontent">
       <h2>Tutor Groups</h2>
-      <p>This is the Tutor groups page it displays the tutor ID name and the groups score.</p>
-      <div class="Table"><h3>Tutor Table</h3>
+      <div class="Table">
         <!-- creating the titles for the table -->
          <table>
           <tr><th>Name</th><th>Lastname</th><th>Group Score</th></tr>
@@ -78,7 +77,7 @@ Last updated: 09/03 13:24
     <!-- Button to show the add and delete section -->
 
       <div id="AddButton">
-        <button onclick="addVis('AddSection')">Add & Remove Tutors</button>
+        <button  class="button" onclick="addVis('AddSection')">Add & Remove Tutors</button>
       </div>
 
       <!-- Add and delete section -->
@@ -140,8 +139,7 @@ Last updated: 09/03 13:24
     <!-- Student tab section -->
     <div id="Students" class="tabcontent">
       <h2>Students</h2>
-      <p>This is the students page. It displays a table of the students, which group they are in and where they are</p>
-      <div class="Table"><h3>Students Table</h3>
+      <div class="Table">
         <table>
           <!-- table headers -->
           <tr><th>ID</th><th>Username</th><th>Tutor</th><th>Cycle</th><th>Points</th><th>Location</th></tr>
@@ -173,7 +171,7 @@ Last updated: 09/03 13:24
 
 
       <div id="AddButton2">
-        <button onclick="addVis('AddSection2')">Add & Remove Students</button>
+        <button class="button" onclick="addVis('AddSection2')">Add & Remove Students</button>
       </div>
 
       <div id="AddSection2">
@@ -228,8 +226,7 @@ Last updated: 09/03 13:24
 
     <div id="Rooms" class="tabcontent">
       <h2>Rooms</h2>
-      <p>This is the rooms page is shows the rooms and which building they are in.</p>
-      <div class="Table"><h3>Rooms Table</h3>
+      <div class="Table">
         <table>
           <!-- output the titles for the columns -->
           <tr>
@@ -253,7 +250,7 @@ Last updated: 09/03 13:24
 
 
       <div id="AddButton3">
-        <button onclick="addVis('AddSection3')">Add & Remove Rooms</button>
+        <button class="button" onclick="addVis('AddSection3')">Add & Remove Rooms</button>
       </div>
 
       <!-- Section to add and remove rooms from the database -->
@@ -316,8 +313,7 @@ Last updated: 09/03 13:24
 
     <div id="Buildings" class="tabcontent">
       <h2>Buildings</h2>
-      <p>This is the buildings page and will show all current buildings.</p>
-      <div class="Table"><h3>Buildings Table</h3>
+      <div class="Table">
         <table>
           <!-- output the titles for the columns -->
           <tr>
@@ -339,7 +335,7 @@ Last updated: 09/03 13:24
       </div>
 
       <div id="AddButton4">
-        <button onclick="addVis('AddSection4')">Add Buildings</button>
+        <button class="button" onclick="addVis('AddSection4')">Add Buildings</button>
       </div>
 
       <!-- Section to add and remove buildings from the database -->
@@ -428,7 +424,7 @@ Last updated: 09/03 13:24
       </div>
 
        <div id="AddButton5">
-         <button onclick="addVis('AddSection5')">Add a New Cycle</button>
+         <button class="button" onclick="addVis('AddSection5')">Add a New Cycle</button>
        </div>
 
        <!-- Section to add and remove buildings from the database -->
@@ -493,6 +489,7 @@ Last updated: 09/03 13:24
       </div>
     </div>
 
-      <button onclick="window.location.href = 'logout.php';">Logout</button>
+      <button class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
+	  </div>
   </body>
 </html>

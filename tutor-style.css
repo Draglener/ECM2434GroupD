@@ -4,8 +4,25 @@ Stylesheet for the tutor/gamemaster screens
 */
 
 /*Background colour and default font for the tutor login page*/
-body {font-family: Arial, Helvetica, sans-serif; background-color: #c2eaed;}
-
+body {
+	font-family: nrkis;
+	background: beige;
+	margin:0;
+}
+.all::after {
+	background: url(images/findExeterLogo.png);
+	background-size: cover;
+	height: 800px;
+	background-position-y: 50%;
+	opacity: 0.3;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
 /*Padding for tutor login text*/
 h1{padding: 20px;}
 
@@ -16,7 +33,10 @@ table {
   background-color: #ddeef0;
   width: 100%;
 }
-
+ th{
+ 	background-color: #012060;
+ 	color:white
+ }
 /*formatting for the tables text */
 th, td {
   border: 1px solid black;
@@ -49,19 +69,21 @@ tr:hover {background-color: #c2d0d1;}
 
   /*formatting for the add and remove buttons*/
   button {
-    color: black;
+    color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    /* margin: 8px 0; */
     border: 1px solid #999999;
-    background-color: #cccccc;
-    width: 50%;
+    background-color: #012060;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    font-family: nrkis;
   }
 
   button.hover {
     background-color: #b3b3b3;
   }
   button.active {
-    background-color: #b3b3b3;
+    background-color: #012060;
   }
 
 .sessions {
@@ -73,12 +95,12 @@ tr:hover {background-color: #c2d0d1;}
   color: black;
   overflow: hidden;
   border: 1px solid #999999;
-  background-color: #cccccc;
+  background-color: #012060;
 }
 
 /* Style the buttons inside the tab */
 .tab button {
-  color: black;
+  color: white;
   width: 20%;
   background-color: inherit;
   float: left;
@@ -88,6 +110,7 @@ tr:hover {background-color: #c2d0d1;}
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+  font-family: nrkis;
 }
 
 /* Change background color of buttons on hover */
@@ -97,7 +120,7 @@ tr:hover {background-color: #c2d0d1;}
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #b3b3b3;
+  background-color: #012060;
 }
 
 /* Style the tab content */
@@ -120,4 +143,27 @@ tr:hover {background-color: #c2d0d1;}
   width: -moz-available;
   margin-top: 20px;
   font-family: nrkis;
+}
+/* Button div style */
+.button {
+  display: block;
+  width: 48%;
+  float: left;
+  /* margin-top: 8px; */
+  margin-left: 10px;
+  font-family: nrkis;
+}
+
+/* Logout button */
+.logout{
+  float: right;
+  margin-right: 10px;
+  width: 49%;
+  /* margin-top: 2px; */
+  font-family: nrkis;
+}
+
+@font-face {
+  font-family: 'nrkis';
+  src: url('fonts/nrkis.ttf')  format('truetype');
 }
