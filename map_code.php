@@ -198,7 +198,7 @@ function redomap(){
 }
 //Refreshes timer to allow for current location to be found
 setInterval(function(){
-    redomap()}, 8000)
+    redomap()}, 15000)
 </script>
   </body>
 </html>
