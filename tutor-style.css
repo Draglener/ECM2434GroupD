@@ -12,7 +12,6 @@ body {
 .all::after {
 	background: url(images/findExeterLogo.png);
 	background-size: cover;
-	height: 800px;
 	background-position-y: 50%;
 	opacity: 0.3;
 	position: absolute;
@@ -166,4 +165,10 @@ tr:hover {background-color: #c2d0d1;}
 @font-face {
   font-family: 'nrkis';
   src: url('fonts/nrkis.ttf')  format('truetype');
+}
+
+#AddSection, #AddSection2, #AddSection3, #AddSection4, #AddSection5{
+  display: block;
+  margin: 10px;
+  margin-top: 60px;
 }

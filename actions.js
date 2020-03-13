@@ -33,6 +33,15 @@ function openPage(evt, tab, admin) {
   document.getElementById("AddSection3").style.display = "none";
   document.getElementById("AddSection4").style.display = "none";
   document.getElementById("AddSection5").style.display = "none";
+  document.getElementById("AddButton2").style.display = "none";
+  document.getElementById("AddButton3").style.display = "none";
+  document.getElementById("AddButton4").style.display = "none";
+  document.getElementById("AddButton5").style.display = "none";
+  document.getElementById("logout1").style.display = "none";
+  document.getElementById("logout2").style.display = "none";
+  document.getElementById("logout3").style.display = "none";
+  document.getElementById("logout4").style.display = "none";
+  document.getElementById("logout5").style.display = "none";
 
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -47,5 +56,27 @@ function openPage(evt, tab, admin) {
   evt.currentTarget.className += " active";
   if (admin == 0 && tab== 'Groups') {
       document.getElementById("AddButton").style.display = "block";
+	  document.getElementById("logout").style.display = "none";
+	  document.getElementById("logout").style.display = "block";
+  }
+  if (admin == 0 && tab== 'Students') {
+      document.getElementById("AddButton2").style.display = "block";
+	  document.getElementById("logout").style.display = "none";
+	  document.getElementById("logout2").style.display = "block";
+  }
+  if (admin == 0 && tab== 'Rooms') {
+      document.getElementById("AddButton3").style.display = "block";
+	  document.getElementById("logout").style.display = "none";
+	  document.getElementById("logout3").style.display = "block";
+  }
+  if (admin == 0 && tab== 'Buildings') {
+      document.getElementById("AddButton4").style.display = "block";
+	  document.getElementById("logout").style.display = "none";
+	  document.getElementById("logout4").style.display = "block";
+  }
+  if (admin == 0 && tab== 'Cycles') {
+      document.getElementById("AddButton5").style.display = "block";
+	  document.getElementById("logout").style.display = "none";
+	  document.getElementById("logout5").style.display = "block";
   }
 }

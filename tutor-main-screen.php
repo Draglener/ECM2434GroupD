@@ -79,6 +79,7 @@ Last updated: 09/03 13:24
       <div id="AddButton">
         <button  class="button" onclick="addVis('AddSection')">Add & Remove Tutors</button>
       </div>
+	  <button id="logout1" class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
 
       <!-- Add and delete section -->
       <div id="AddSection">
@@ -167,14 +168,16 @@ Last updated: 09/03 13:24
           }else{  echo "<p>Error:".$conn->error."</p>"; }
           ?>
       </div>
+	  </div>
 
 
 
       <div id="AddButton2">
         <button class="button" onclick="addVis('AddSection2')">Add & Remove Students</button>
       </div>
-
+	  <button id="logout2" class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
       <div id="AddSection2">
+	  
         <h3>Add a Student </h3>
         <form method="post" action="addData.php">
           <input type="hidden" name="from" value="addStudent">
@@ -222,7 +225,7 @@ Last updated: 09/03 13:24
           <input type="submit"  name="removeStudent" value="Remove Student"/>
         </form>
       </div>
-    </div>
+
 
     <div id="Rooms" class="tabcontent">
       <h2>Rooms</h2>
@@ -247,12 +250,15 @@ Last updated: 09/03 13:24
           }else{  echo "<p>Error:".$conn->error."</p>";   }
           ?>
       </div>
+	  </div>
 
 
       <div id="AddButton3">
         <button class="button" onclick="addVis('AddSection3')">Add & Remove Rooms</button>
       </div>
-
+	  
+	  <button id="logout3" class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
+	  
       <!-- Section to add and remove rooms from the database -->
       <div id="AddSection3">
         <h3>Add a room </h3>
@@ -268,7 +274,7 @@ Last updated: 09/03 13:24
 	       */
               function dropdownBuildings() {
                 require('connection.php');
-                $sql = "SELECT * FROM building";
+                $sql = "SELECT * FROM building WHERE buildingID > 0";
                 $result = $conn->query($sql);
                 while($row = $result->fetch_assoc()){
                   echo "<option value='".$row['buildingID']."'>".$row['name']."</option>";
@@ -305,12 +311,6 @@ Last updated: 09/03 13:24
         </form>
       </div>
 
-    </div>
-
-
-
-
-
     <div id="Buildings" class="tabcontent">
       <h2>Buildings</h2>
       <div class="Table">
@@ -322,7 +322,7 @@ Last updated: 09/03 13:24
             <th>Info</th>
           </tr>
           <?php
-          $sql = "SELECT * FROM building";
+          $sql = "SELECT * FROM building  WHERE buildingID > 0";
           $result = $conn->query($sql);
           if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
@@ -333,10 +333,13 @@ Last updated: 09/03 13:24
           }else{  echo "<p>Error:".$conn->error."</p>";   }
           ?>
       </div>
-
+	  </div>
+	  
       <div id="AddButton4">
         <button class="button" onclick="addVis('AddSection4')">Add Buildings</button>
       </div>
+	  
+	  <button id="logout4" class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
 
       <!-- Section to add and remove buildings from the database -->
       <div id="AddSection4">
@@ -375,10 +378,6 @@ Last updated: 09/03 13:24
       </form>
       -->
     </div>
-  </div>
-
-
-
 
   <div id="Cycles" class="tabcontent">
     <h2>Cycles</h2>
@@ -422,10 +421,12 @@ Last updated: 09/03 13:24
 
       ?>
       </div>
-
+</div>
        <div id="AddButton5">
          <button class="button" onclick="addVis('AddSection5')">Add a New Cycle</button>
        </div>
+	   
+	   <button id="logout5" class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
 
        <!-- Section to add and remove buildings from the database -->
        <div id="AddSection5">
@@ -487,9 +488,9 @@ Last updated: 09/03 13:24
            <input type="submit"  name="addBuilding" value="Add Cycle"/>
          </form>
       </div>
-    </div>
+  
 
-      <button class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
+      <button id="logout" class="logout" onclick="window.location.href = 'logout.php';">Logout</button>
 	  </div>
   </body>
 </html>
